@@ -1,0 +1,1 @@
+alert("JavaScript practice 1.3");
