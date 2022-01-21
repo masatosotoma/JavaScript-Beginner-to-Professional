@@ -20,7 +20,7 @@ console.log(strToBool2, typeof strToBool2); //Although string says fales,Boolean
 
 let strToBool = "";
 strToBool = Boolean(strToBool);
-console.log(strToBool, typeof strToBool); //Because the string value is empty, the boolean method conver the string to false
+console.log(strToBool, typeof strToBool); //Because the string value is empty, the boolean method convert the string to false
 
 // other examples for how to use Number() method
 let nr1 = 2;
