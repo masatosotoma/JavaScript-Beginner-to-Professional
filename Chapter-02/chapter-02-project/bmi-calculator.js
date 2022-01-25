@@ -7,5 +7,5 @@ let weightInKg = weightInPound / 2.2046;
 let bmi = weightInKg / (heightInCm / 100) ** 2;
 
 console.log("Height(in cm):" + heightInCm);
-console.log("weight(in kg):" + weightInKg);
+console.log("Weight(in kg):" + weightInKg);
 console.log("BMI:" + bmi);
