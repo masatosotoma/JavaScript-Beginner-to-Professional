@@ -21,4 +21,4 @@ console.log(strToNr, typeof strToNr); // if it cannot be done to number, it will
 //Boolean() Method: convert a variable to a boolean
 let strToBool = "any string will return true";
 strToBool = Boolean(strToBool);
-console.log(strToBool, typeof strToBool);
+console.log(strToBool, typeof strToBool); // Return true for everything except for null,undefined,0,an empty string,NaN.
