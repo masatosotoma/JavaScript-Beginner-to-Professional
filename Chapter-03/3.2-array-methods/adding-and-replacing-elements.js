@@ -16,7 +16,7 @@ arrayOfShapes2.splice(2, 2, "square", "trapezoid");
 console.log(arrayOfShapes2);
 
 // Even the second parameter is higher than the actual array,simply stop as soon as it runs out ofvalues to delete.
-let arrayOfShapes3 = ["circle", "trianble", "recangle", "pentagon"];
+let arrayOfShapes3 = ["circle", "triangle", "rectangle", "pentagon"];
 arrayOfShapes3.splice(2, 12, "square", "trapezoid");
 console.log(arrayOfShapes3);
 
