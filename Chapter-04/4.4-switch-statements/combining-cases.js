@@ -16,7 +16,7 @@ switch (grade) {
     console.log("Nice!");
     break;
   default:
-    console.log("I don't know this grade.");
+    console.log("I don't know this grade."); 
 }
 
 //F & D has the same result, and both B,C have also the same result.

@@ -12,7 +12,7 @@ switch(expression) {
  // code to be executed
  break;
 } 
-*/
+*/ 
 
 //Example
 activity = "Lunch";

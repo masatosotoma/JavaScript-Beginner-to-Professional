@@ -16,7 +16,7 @@ switch (expression) {
   default:
     // code to be executed when no cases match
     break;
-}
+} 
 
 // it's a convention to have the default case at the last case in the switch statement
 
