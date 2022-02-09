@@ -43,4 +43,4 @@ switch (prize) {
     message = "Wrong answer";
 }
 
-console.log(message);
+console.log(message); 
