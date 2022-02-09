@@ -4,7 +4,7 @@ let message; // declare a variable "message"
 
 /* 
 create if statement that message will tell you people older than or equal to 21 can enter and drink alcohol,
-people older than or equal to 19 can enter but not drink, otherwise you are not allowed to enter.
+people older than or equal to 19 can enter but not drink, otherwise you are not allowed to enter. 
 */
 if (age >= 21) {
   message = "Allowed the entry and to purchase alcohol";
