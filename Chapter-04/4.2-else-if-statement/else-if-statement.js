@@ -2,7 +2,7 @@
 /*If *a value falls into a certain category*, then *a certain action will happen*, else if *the
 value falls into a different category than the previous statement*, then *a certain action will
 happen*, else if *the value falls into a different category than either of the previous brackets*,
-then *a certain action will happen*
+then *a certain action will happen* 
 */
 
 let age = 10;
