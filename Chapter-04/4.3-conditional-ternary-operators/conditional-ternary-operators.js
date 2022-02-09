@@ -6,7 +6,7 @@ operand1 is to be evaluated
 */
 
 // The template for saying it meaning below
-// if *operand1*, then *operand2*, else *operand3*
+// if *operand1*, then *operand2*, else *operand3* 
 
 let access = age < 18 ? "denied" : "allowed";
 
