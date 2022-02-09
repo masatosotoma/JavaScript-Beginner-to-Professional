@@ -20,7 +20,7 @@ if (rain) {
 }
 // Since it's true, it will return the first statement
 
-//Another example using operator
+//Another example using operator below
 
 if (age < 18) {
   console.log("We're very sorry, but you can't get in under 18");
