@@ -41,7 +41,6 @@ switch (input2) {
           ". You win."
       );
     }
-    //console.log(variable.indexOf(input2));
     break;
   case "paper":
     if (variable[computer] == "rock") {
@@ -69,7 +68,6 @@ switch (input2) {
           ". You lose."
       );
     }
-    //console.log(variable.indexOf(input2));
     break;
   case "scissors":
     if (variable[computer] == "rock") {
@@ -97,8 +95,7 @@ switch (input2) {
           ". You tied."
       );
     }
-    //console.log(variable.indexOf(input2));
     break;
   default:
-    console.log(input2 + "Default");
+    alert("You didn't choose rock, paper or scissors");
 }
