@@ -6,12 +6,12 @@ let lengthOfFavouriteFruits = favouriteFruits.push("lime");
 console.log(favouriteFruits);
 
 // splice method to add elements at the certain index
-let arrayOfShapes1 = ["circle", "trianble", "recangle", "pentagon"];
+let arrayOfShapes1 = ["circle", "triangle", "recangle", "pentagon"];
 arrayOfShapes1.splice(2, 0, "square", "trapezoid");
 console.log(arrayOfShapes1);
 
 // To replace some elements that already exists
-let arrayOfShapes2 = ["circle", "trianble", "recangle", "pentagon"];
+let arrayOfShapes2 = ["circle", "triangle", "recangle", "pentagon"];
 arrayOfShapes2.splice(2, 2, "square", "trapezoid");
 console.log(arrayOfShapes2);
 
