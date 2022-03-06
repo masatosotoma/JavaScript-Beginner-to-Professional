@@ -7,4 +7,4 @@ let recursive = function counter(i) {
   }
   return;
 };
-recursive(20);
+recursive(0);
