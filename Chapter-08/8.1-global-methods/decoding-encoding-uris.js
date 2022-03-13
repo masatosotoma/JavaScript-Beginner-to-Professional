@@ -20,3 +20,7 @@ console.log("Decoded:", decoded_uri);
 // encodeURI() = global method to convert the special characters to the hex code (exp: space => %20)
 // decodeURI() = global method to convert the hex code to the special charaters 
 
+/* 
+this encode and decode do not take special characters into account, and therefore leave them in the URI. 
+Colons, question marks, equal signs, slashes, and ampersands can be expected.
+*/
