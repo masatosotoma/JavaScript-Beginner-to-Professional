@@ -18,13 +18,13 @@ class Person{
         return this.#firstname;
     }
     set firstname(firstname){
-        this.#firstname;
+        this.#firstname = firstname;
     }
     get lastname(){
         return this.#lastname;
     }
     set lastname(lastname){
-        this.#lastname;
+        this.#lastname = lastname;
     }
 
     }
