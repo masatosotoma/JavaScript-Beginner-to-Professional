@@ -9,7 +9,7 @@ class Menus {
   }
   //Create a method to calculate and return the total cost
   calTotal() {
-    return this.itemNum1 * this.#offer1 + this.itemNum1 * this.#offer2;
+    return (this.itemNum1 * this.#offer1) + (this.itemNum2 * this.#offer2);
   }
   get total() {
     return this.calTotal();
