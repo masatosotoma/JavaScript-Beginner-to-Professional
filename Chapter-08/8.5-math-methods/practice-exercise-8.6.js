@@ -28,6 +28,7 @@ console.log(Math.floor(Math.random() * 100) + 1); // 1-100
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+// Run that function 100 times, returning into the console a random number from 1 to 100 each time
 for (let x = 0; x < 100; x++) {
   console.log(randomNum(1, 100));
 }
