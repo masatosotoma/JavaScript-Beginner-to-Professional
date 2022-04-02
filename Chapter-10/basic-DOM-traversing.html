@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Let's find the treasure</h1>
+    <div id="forest">
+      <div id="tree1">
+        <div id="squirrel"></div>
+        <div id="flower"></div>
+      </div>
+      <div id="tree2">
+        <div id="shrubbery">
+          <div id="treasure"></div>
+        </div>
+        <div id="mushroom">
+          <div id="bug"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+Try to traverse the DOM of the code above to find the treasure
+
+1. find body element => console.dir(document.body);
+
+childNodes = just contain all the HTML elements, so are really the nodes.
+It also contain text nodes and comments.
+
+2. using children, get to the treasure element =>
+console.dir(document.body.children.forest.children.tree2.children.shrubbery.children.treasure);
+
+3. To get to the treasure using childNodes you would have to use your console a lot
+because text and comment nodes are also in there. childNodes is an array, so you will
+have to select the right index to select the right child.
+one advantage:  it is a lot shorter because you won't need to select the name separately
+=>
+console.dir(document.body.childNodes[3].childNodes[3].childNodes[1].childNodes[1]);
+
+or you can also combine them
+
+console.dir(document.body.childNodes[3].childNodes[3].childNodes[1].children.treasure);
+
+**************************************************
+How to move up the DOM
+
+parentElement = to move back up the DOM
+
+Example: (start from children and moving up to the parent)
+document.body.children.forest.tree2.parentElement;
+=> in the console, you are back at forest
+
+previousElementSibiling = You can also move sideways to find the node.
+Example:
+document.body.children.forest.children.tree2;
+=> to find the tree1 using below
+document.body.children.forest.children.tree2.previousElementSibling;
+
+nextElementSibling = to get the next node
+document.body.children.forest.children.tree1.nextElementSibling;
+=> get the tree2
+
+-->
