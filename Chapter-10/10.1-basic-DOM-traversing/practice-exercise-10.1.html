@@ -1,0 +1,31 @@
+<!--
+  experiment with traversing the DOM hierarchy
+  using the sample
+-->
+
+<!DOCTYPE html>
+<html><head><title>Sample webpage</title></head>
+<body>
+    <div class="main">
+        <div>
+            <ul>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ul>
+        </div>
+        <div>blue</div>
+        <div>green</div>
+        <div>yellow</div>
+        <div>purple</div>
+    </div>
+</body>
+</html>
+
+<!--
+    1. open the document body in the console with console.dir(document).
+    2. In the body.children property, select some of the child elements. View how they match the page content.
+    => HTMLCollection[div.main]
+    3. Navigate to and output the next nodes or elements into the console.
+    => <div>...<div>
+-->
