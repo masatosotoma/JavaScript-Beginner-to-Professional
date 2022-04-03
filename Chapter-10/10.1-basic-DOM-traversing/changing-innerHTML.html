@@ -1,0 +1,20 @@
+<!--
+If you did not only want to work with plain text, or perhaps specify some HTML 
+formatting with your value, you could use the innerHTML property 
+It doesn't just process be plain text, it can also be inner HTML elements:
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Welcome page</h1>
+    <p id="greeting">Hi!</p>
+  </body>
+</html>
+
+<!--
+    document.body.children.greenting.innerHTML = "<b>Bye!</b>"
+
+    This will display Bye! in bold on the screen.
+    This having taken the b element into account rather than pringting it as it were a string value
+-->
