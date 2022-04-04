@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    console.log(document.getElementsByTagName("div"));
+    console.log(document.getElementsByTagName("div").item(1)); // you can usd item method to access them by index
+    console.log(document.getElementsByTagName("div").namedItem("one")); // you can also access it by name, using namedItem method
+    console.log(document.getElementsByTagName("h1"));
+  </script>
+</html>
+
+<!--
+    If you ask for elements by tag name, you'll get an array as a result 
+    because there could be more than one element with the sam tag name
+    You will get all the elements in the DOM with the div tag are returned.
+    example:  console.log(document.getElementsByTagName("div"));
+    HTMLCollection(3)
+    0: div#one.example
+    1: div#two.example
+    2: div#three.something
+    one: div#one.example
+    three: div#three.something
+    two: div#two.example
+    length: 3
+
+    example2: console.log(document.getElementsByTagName("div").item(1));
+    =>  <div id="two" class="example">Hi!</div>
+
+    exmaple3: console.log(document.getElementsByTagName("div").namedItem("one"));
+    =>  <div id="one" class="example">Hi!</div>
+
+    When there is only one match, it will still return an HTMLCollection. 
+    example4: console.log(document.getElementsByTagName("h1"));
+    =>  HTMLCollection [h1]
+
+-->
