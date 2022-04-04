@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    console.log(document.getElementById("two"));
+  </script>
+</html>
+
+<!--
+    getElementById() = method to  grab elements by ID.
+    This returns one element with the specified ID.
+    IDs should be unique, as only one result will be returned from the HTML
+    There are quick two ways to select the element with an ID
+
+    1. document.getElementById("two") => <div id="two" class="example">Hi!</div>
+
+    If you have more than one element with the same ID, 
+    it will just give you back the first one it encounters, you should avoid it in your code.
+-->
