@@ -1,0 +1,22 @@
+<!--The following will get all the elements with the class example:-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    console.log(document.getElementsByClassName("example"));
+  </script>
+</html>
+
+<!--it returns
+
+HTMLCollection(2) [div#one.example, div#two.example, one: div#one.
+example, two: div#two.example]
+
+-->
+
