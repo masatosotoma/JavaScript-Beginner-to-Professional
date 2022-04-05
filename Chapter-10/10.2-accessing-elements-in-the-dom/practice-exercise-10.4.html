@@ -1,0 +1,21 @@
+<!--1.Create a simple HTML file to work on-->
+<!--2. Add three HTML elements adding the same class to each. -->
+<!--3.Add a script element to your file, and within it select the page elements by class name. 
+    Assign the resulting HTMLCollection values to a variable-->
+<!--4.You can use an index value to select the individual HTMLCollection items
+    Starting with an index of 0, select one of the page elements with the class name 
+     and output the element into the console-->
+
+<!DOCTYPE html>
+<html>
+  <title>Practice Exercise 10.4</title>
+  <body>
+    <div id="one" class="transportation">Car</div>
+    <div id="two" class="transportation">Train</div>
+    <div id="three" class="transportation">Bicycle</div>
+  </body>
+  <script>
+    let element = document.getElementsByClassName("transportation");
+    console.log(element[1]);
+  </script>
+</html>
