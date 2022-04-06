@@ -1,0 +1,28 @@
+<!--
+You can access elements using a CSS selector, which can do with these commands
+- querySelector()
+- querySelectorAll()
+
+Give the CSS selector as an argument, 
+and this will filter the items in the HTML document and only return the ones that satisfy the CSS sector.
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    console.log(document.querySelectorAll("p"));
+  </script>
+</html>
+
+<!--
+    If we say p.example, it means all the p tag elements with example as the class. 
+    They can also have other classes; as long as example is in there, it will match. 
+    querySelector() allows for more complicated queries, 
+    and some developers will state that getElementById() is more readable.
+-->
