@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    console.log(document.querySelector("div"));
+    console.log(document.querySelector(".something"));
+  </script>
+</html>
+
+<!--
+document.querySelector() = to select the first element that matches the query.
+    it returns => 
+    <div id="one" class="example">Hi!</div>
+  
+  It only returns the first div, because that's the first one it encounters.
+  
+We could also ask for an element with the class .something. You select classes using dot notation
+
+document.querySelector(".something");
+  it returns =>
+  <div id="three" class="something">Hi!</div>
+  
+With this method, you can only use valid CSS selectors: elements, classes, and IDs.
+-->
