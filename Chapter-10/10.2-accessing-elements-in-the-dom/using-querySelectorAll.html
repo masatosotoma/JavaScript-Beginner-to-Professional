@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Just an example</h1>
+    <div id="one" class="example">Hi!</div>
+    <div id="two" class="example">Hi!</div>
+    <div id="three" class="something">Hi!</div>
+  </body>
+  <script>
+    let querySelect = document.querySelectorAll("div");
+    console.log(querySelect);
+  </script>
+</html>
+
+<!--
+    querySelectorAll() = method to select all the elements that match the query.
+    This example above returns =>
+    NodeList(3) [div#one.example, div#two.example, div#three.something]
+
+    It is of object type NodeList. 
+    It contains all the nodes that match the CSS selector. 
+    With the item() method we can get them by index,
+-->
