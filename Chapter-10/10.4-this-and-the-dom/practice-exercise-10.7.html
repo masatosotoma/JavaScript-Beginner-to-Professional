@@ -1,0 +1,20 @@
+<!--
+    Create a button within a basic HTML document and add the onclick attribute
+    1. Create a function to handle a click within your JavaScript code. You can name the function message.
+    2. Add this to the onclick function parameters sending the current element object data using this.
+    3. Within the message function, use console.dir() to output in the console the
+    element object data that was sent to the function using onclick and this.
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <button onclick="message(this)">Button 1</button>
+    <button onclick="message(this)">Button 2</button>
+    <script>
+      function message(el) {
+        console.dir(el.textContent); // to usd textContent property for showing Button 1 & 2
+      }
+    </script>
+  </body>
+</html>
