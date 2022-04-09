@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function rainbowify() {
+        let divs = document.getElementsByTagName("div");
+        for (let i = 0; i < divs.length; i++) {
+          divs[i].style.backgroundColor = divs[i].id;
+        }
+      }
+    </script>
+    <style>
+      div {
+        height: 30px;
+        width: 30px;
+        background-color: white;
+      }
+    </style>
+    <div id="red"></div>
+    <div id="orange"></div>
+    <div id="yellow"></div>
+    <div id="green"></div>
+    <div id="blue"></div>
+    <div id="indigo"></div>
+    <div id="violet"></div>
+    <button onclick="rainbowify()">Make me a rainbow</button>
+  </body>
+</html>
+
+<!-- How this script works =>
+    - There are a few div tags in the HTML that all have the ID of a certain color.
+    - There is a style tag specified in HTML, 
+      which gives a default layout to these div tags of 30px by 30px and a white background.
+
+    When you click the button,e rainbowify() function is executed
+    1. All the div elements get selected and stored in an array, divs.
+    2. We loop over this divs array.
+    3. For every element in the divs array, we are setting the backgroundColor
+    property of style to the ID of the element. Since all the IDs represent a color,
+    we see a rainbow appear.
+-->
