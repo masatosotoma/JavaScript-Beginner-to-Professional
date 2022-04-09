@@ -1,0 +1,20 @@
+<!--
+    you can access the parent of this with a function like below
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function reveal(el) {
+        console.log(el.parentElement);
+      }
+    </script>
+    <button onclick="reveal(this)">Click here!</button>
+  </body>
+</html>
+<!--
+    the body is the parent of the button so it console logged like below 
+    <body>...</body>
+    because function's parent is body
+-->

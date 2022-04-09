@@ -1,0 +1,23 @@
+<!--
+    this keyword = It refers to the element of the DOM it belongs to. 
+    If we specify an onclick to send this in as an argument, it will send in the element the onclick is in.
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function reveal(el) {
+        console.log(el);
+      }
+    </script>
+    <button onclick="reveal(this)">Click here!</button>
+  </body>
+</html>
+
+<!--
+    If you click the button, you will see this below in the console
+   <button onclick="reveal(this)">Click here!</button>  
+-->
+
+
