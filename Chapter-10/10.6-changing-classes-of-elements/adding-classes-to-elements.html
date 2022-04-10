@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function disappear() {
+        document.getElementById("shape").classList.add("biggerAndGreen");
+      }
+    </script>
+    <style>
+      .hide {
+        display: none;
+      }
+
+      .square {
+        height: 100px;
+        width: 100px;
+        background-color: yellow;
+      }
+
+      .square.blue {
+        background-color: blue;
+      }
+      .square.biggerAndGreen {
+        height: 200px;
+        width: 200px;
+        background-color: green;
+      }
+    </style>
+    <div id="shape" class="square"></div>
+    <button onclick="disappear()">Disappear!</button>
+  </body>
+</html>
+
+<!--
+    .classList.add() = to add class to the element you specified
+-->
