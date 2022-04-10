@@ -5,6 +5,7 @@
       function rainbowify() {
         let divs = document.getElementsByTagName("div");
         for (let i = 0; i < divs.length; i++) {
+          // getting current div elements' style then background color then assigning it the div id's attribute(color)
           divs[i].style.backgroundColor = divs[i].id;
         }
       }
