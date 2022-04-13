@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <div id="message"></div>
+    <div id="output"></div>
+      <script>
+        const message = document.querySelector("#message");
+        let names = [
+          "Laurence",
+          "Mke",
+          "John",
+          "Larry",
+          "Kim",
+          "Joanne",
+          "Lisa",
+          "Janet",
+          "Jane",
+        ];
+        build();
+        function build() {
+          let html = "<h1>My Friends Table</h1><table>";
+          names.forEach((item, index) => {
+            html += `<tr class="box" data-row="${index+1}"data-name="${item}" onclick="getData(this)"><td>${item}</td>`;
+            html += `<td >${index + 1}</td></tr>`;});
+          html += "</table>";
+          document.getElementById("output").innerHTML = html;
+ }
+
+        function getData(el) {
+          let temp = el.getAttribute("data-row");
+          let tempName = el.getAttribute("data-name");
+          message.innerHTML = `${tempName } is in row #${temp}`;
+ }
+              
+      </script>
+    </table>
+  </body>
+</html>
+
+<!--
+1. Create an array of names. 
+2. Select the page elements as JavaScript objects
+3. Add a function and also invoke that function within the JavaScript code. The
+function can be called build() as it will be building the page content.
+4. Create a table named html, and within the tags, loop through the contents of 
+the array and output the results into the html table. 
+
+-->
