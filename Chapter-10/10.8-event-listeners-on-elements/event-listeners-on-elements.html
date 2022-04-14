@@ -1,0 +1,57 @@
+<!--
+Events = things that happen on a web page, like clicking on something, moving the mouse over an elemen etc
+Event handlers = the handler to apply an event such as onclick()
+
+event listeners = add multiple events to one element. 
+In this way,JavaScript is constantly checking, or listening, for certain events to the elements on the page
+the two-step process of adding event listeners 
+1. Select the element you want to add an event to
+2. Use the addEventListener("event", function) syntax to add the event
+
+This can be done  in one line of code:
+document.getElementById("square").addEventListener("click",changeColor);
+
+when using event listeners, you remove the on prefix from the event type.
+
+We could reuse our trusty onclick listener in this context, 
+but another common one is when the web page is done loading with onload:
+
+window.onload = function() {
+ // whatever needs to happen after loading
+ // for example adding event listeners to elements
+}
+
+example below
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      window.onload = function () {
+        document
+          .getElementById("square")
+          .addEventListener("click", changeColor);
+      };
+      function changeColor() {
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${red},${green},${blue})`;
+      }
+    </script>
+    <div
+      id="square"
+      style="width: 100px; height: 100px; background-color: grey"
+    >
+      Click for Magic!
+    </div>
+  </body>
+</html>
+
+<!--
+    The web page starts with a gray square with the text Click for magic in it. 
+    After the web page is done loading, an event gets added for this square
+    You can add events to all sorts of elements.
+    Whenever it gets clicked, the changeColor function will be executed
+-->
