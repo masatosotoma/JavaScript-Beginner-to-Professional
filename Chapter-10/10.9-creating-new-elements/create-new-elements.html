@@ -1,0 +1,24 @@
+<!--    
+    document.createElement("p") =>
+
+    To create new elements and adding them to the DOM. (in this case, addding type paragragh)
+    Two steps: 
+    1. creating new elements 
+    2. adding them to the DOM. 
+
+Upon creation, you need to specify what type of HTML element you would want to create,
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      function addRandomNumber() {
+        let el = document.createElement("p");
+        el.innerText = Math.floor(Math.random() * 100);
+        document.body.appendChild(el);
+      }
+    </script>
+    <button onclick="addRandomNumber()">Add a number</button>
+  </body>
+</html>
