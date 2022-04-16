@@ -1,0 +1,62 @@
+<!--
+    Build a collapsing and expanding accordion component that will open page
+    elements, hiding and showing content when the title tab is clicked
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+    <style>
+      .active {
+        display: block !important;
+      }
+      .myText {
+        display: none;
+      }
+      .title {
+        font-size: 1.5em;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Title #1</div>
+      <div class="myText">Just some text #1</div>
+      <div class="title">Title #2</div>
+      <div class="myText">Just some text #2</div>
+      <div class="title">Title #3</div>
+      <div class="myText">Just some text #3</div>
+    </div>
+    <script>
+      let titles = document.querySelectorAll(".title");
+      let texts = document.querySelectorAll(".myText");
+      titles.forEach((el) => {
+        el.addEventListener("click", (e) => {
+          console.log(el.nextElementSibling);
+          remover();
+          el.nextElementSibling.classList.toggle("active");
+        });
+      });
+      function remover() {
+        texts.forEach((ele) => {
+          ele.classList.remove("active");
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+    1. Using querySelectorAll(), select all the elements with a class of title.
+    2. Using querySelectorAll(), select all the elements with a class of myText.
+    This should be the same number of elements as the title elements.
+    3. Iterate through all the title elements and add event listeners that, once
+    clicked, will select the next element siblings.
+    4. Select the element on the click action and toggle the classlist of the
+    element with the class of active. This will allow the user to click the element and hide and show the below content.
+    5. Add a function that will be invoked each time the elements are clicked that
+    will remove the class of active from all the elements. This will hide all the  elements with myText.
+
+-->
