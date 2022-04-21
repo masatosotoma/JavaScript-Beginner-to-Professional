@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hangman Game</title>
+    <style>
+      .gameArea {
+        text-align: center;
+        font-size: 2em;
+      }
+      .box,
+      .boxD {
+        display: inline-block;
+        padding: 5px;
+      }
+      .boxE {
+        display: inline-block;
+        width: 40px;
+        border: 1px sold #ccc;
+        border-radius: 5px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gameArea">
+      <div class="score"></div>
+      <div class="puzzle"></div>
+      <div class="letters"></div>
+      <button>Start Game</button>
+    </div>
+    <script>
+      // 1. Set up an array that contains some words
+      const wordArr = [];
+      /* 2. create a main game object containing a property to contain the current word solution,
+      and another property to contain the array of letters
+      */
+      const game = {
+        current: "",
+        solution: "",
+        puzz: [],
+        total: 0,
+      };
+
+      //3. Select all the page elements into variables
+      let score = document.querySelector(".score");
+      let puzzle = document.querySelector(".puzzle");
+      let letters = document.querySelector(".letters");
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", startGame); // 4. Add an event listener to the Start Game button
+      /*5.Within startGame(), check if the words array has any words left.
+      If it does, then hide the button by setting the .display object to none
+      Clear the game contents and set the total to 0.
+      */
+      function startGame() {
+        if (wordArr.length > 0) {
+          btn.style.display = "none";
+          game.puzz = [];
+          game.total = 0;
+          game.current = wordArr.shift();
+          //6. In the game solution, convert the string into an array of all the characters in the word solution using split().
+          game.solution = game.current.split("");
+          //7. Create a function called builder() that can be used to build the game board.
+          builder();
+        } else {
+          score.textContent = "No More Words.";
+        }
+      }
+      /*8. Create a separate function that you can use to generate page elements.
+      In the parameters, get the type of element, the parent that the new element will be
+      appended to, the output content for the new element, and a class to add to the new element.
+      */
+      function createElements(elType, parentEle, output, cla) {
+        /*Using a temporary variable, create the element, add the class,
+        append to the parent, set the textContent, and return the element.*/
+        const temp = document.createElement(elType);
+        temp.classList.add("boxE");
+        parentEle.append(temp);
+        temp.textContent = output;
+        return temp;
+      }
+      //12. Create a new function to update the score so that you can output the current
+      //number of letters left. Add it to the builder() function
+      function updateScore() {
+        score.textContent = `Total Letters Left : ${game.total}`;
+        if (game.total <= 0) {
+          console.log("game over");
+          score.textContent = "Game Over";
+          btn.style.display = "block";
+        }
+        //9. In the builder() function, which will also get invoked once startGame() is run,
+        //clear the innerHTML from the letters and puzzle page elements.
+        function builder() {
+          letters.innerHTML = "";
+          puzzle.innerHTML = "";
+          /*10. Iterate through the game solution array, getting each letter of the solution.
+        Use the builder() function to generate page elements, add an output value of -,
+        set a class, and append it to the main puzzle page element.
+        */
+          game.solution.forEach((lett) => {
+            let div = createElements("div", puzzle, "-", "boxE");
+            /*11. Check if the value is blank, and if it is, clear textContent and update the border to white.
+          If it's not blank, increment the total so that it reflects the total number of letters that must be guessed.
+          Push the new element into the game puzzle array
+          */
+            if (lett == " ") {
+              div.style.borderColor = "white";
+              div.textContent = " ";
+            } else {
+              game.total++;
+            }
+            game.puzz.push(div);
+            updateScore();
+          });
+          /*13. Create a loop to represent the 26 letters of the alphabet.
+        You can generate the letter by using an array containing all the letters.
+        */
+          for (let i = 0; i < 26; i++) {
+            //The string method fromCharCode() will return the character from the numeric representation.
+            let temp = String.frontCharCode(65 + i);
+            let div = createElements("div", letters, temp, "box");
+            /*
+          14. Create elements for each letter, adding a class of box and appending it to the letters page element
+          As each element gets created, add an event listener that runs a function called checker()
+          */
+            let checker = function (e) {
+              div.style.backgroundColor = "#ddd";
+              div.classList.remove("box");
+              div.classList.add("boxD");
+              div.removeEelementListener("click", checker);
+              //15. Once the letter gets clicked, we need to invoke the checker() function, 
+              checkLetter(temp);
+            };
+          }
+          function checkLetter(letter) {
+            console.log(letter);
+            game.solution.forEach((ele, index) => {
+              if (ele.toUpperCase() == letter) {
+                game.puzz[index].textContent = letter;
+                game.total--;
+                updateScore;
+              }
+            });
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
