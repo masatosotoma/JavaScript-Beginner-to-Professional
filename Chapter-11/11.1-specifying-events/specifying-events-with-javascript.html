@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <body>
+      <script>
+        <p id="unique" onclick="magic()">
+          Click here for magic!
+        </p>;
+        document.getElementById("unique").onclick = function(){magic();};
+      </script>
+    </body>
+  </head>
+</html>
+
+<!--
+    To get the property that represents the selected event and assigning our function to it.
+    To select the p by its attribute value unique, grabbing the onclick property, 
+    and assigning the magic() function to it by wrapping it in an anonymous function.
+    You can also specify the exact function on the spot here. You can overwrite it with another function anytime.
+-->
