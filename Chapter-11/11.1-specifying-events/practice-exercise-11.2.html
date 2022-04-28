@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice exercise 11-2</title>
+  </head>
+  <body>
+    <div>red</div>
+    <div>blue</div>
+    <div>green</div>
+    <div>yellow</div>
+    <script>
+      let divs = document.querySelectorAll("div");
+      divs.forEach((el) => {
+        el.addEventListener("click", () => {
+          document.body.style.backgroundColor = el.textContent;
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!--Create several divs with color names in textContent. Add JavaScript to add
+click event listeners to each element, and as each element is clicked, update the
+background color of the body to match the color name in the div.-->
