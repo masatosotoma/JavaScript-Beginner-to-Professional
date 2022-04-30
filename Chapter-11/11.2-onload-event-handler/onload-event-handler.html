@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <body onload="unique()">
+      <!--often see it in the body tag like this
+        it will fire off when the body is done loading.
+        If you need two events to happen when the DOM is loaded, 
+        you will need two addEventListener() calls in your JavaScript
+        -->
+      <script>
+        window.onload = function () {
+          // whatever needs to happen after the page loads goes here
+        };
+        document.addEventListener("DOMContentLoaded", (e) => {
+          console.log(e);
+          //This will log to the console when all the DOM content has been loaded. As an alternative,
+        });
+      </script>
+    </body>
+  </head>
+</html>
+
+<!--
+    onload = execute something after a certain element is loaded.
+    It's useful if you want to select an element using getElementById, 
+    you'll have to be sure this element is loaded in the DOM already.
+    Most commonly used with window object like =>  window.onload
+    When you use it on window, this event gets started when the window object is done loading
+-->
+
+<!--
+    DOMContentLoaded = can be used to handle the event of the DOM loading, 
+    which will get fired immediately after DOM for the page has been constructed when the event is set.
+-->
