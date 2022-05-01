@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="divvy" style="width: 100px; height: 100px; background-color: pink">
+      <script>
+        window.onload = function donwnow() {
+          console.log("hi");
+          document
+            .getElementById("divvy")
+            .addEventListener("mousedown", function () {
+              changeColor(this, "green");
+            });
+          document
+            .getElementById("divvy")
+            .addEventListener("mouseup", function () {
+              changeColor(this, "yellow");
+            });
+          document
+            .getElementById("divvy")
+            .addEventListener("dblclick", function () {
+              changeColor(this, "black");
+            });
+          document
+            .getElementById("divvy")
+            .addEventListener("mouseout", function () {
+              changeColor(this, "blue");
+            });
+          console.log("hi2");
+
+          function changeColor(el, color) {
+            el.style.backgroundColor = color;
+          }
+        };
+      </script>
+    </div>
+  </body>
+</html>
+
+<!--
+- mousedown: when the button is pressed on the mouse but is not yet released, the square will turn green.
+- mouseup: as soon as the mouse button gets released, the square will turn yellow.
+- dblclick:  A double-click contains two mousedown events and two mouseup events.
+Before the second mouseup, it is not a double-click. So, the square will get the colors green, 
+yellow, green, black (and then stay black until another event is fired).
+- mouseout: when the mouse leaves the square, it turns blue and stays blue until one of the three above events is fired again.
+-->
