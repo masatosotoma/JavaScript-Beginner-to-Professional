@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <!--Create a blank element on the page and assign a class to it.-->
+    <div class="output"></div>
+    <script>
+      //Select the element using its class name.
+      const output = document.querySelector(".output");
+      //Update the content of the element to say hello world.
+      output.textContent = "hello world";
+      //update the height and width, then add a default background color to it.
+      output.style.height = "150px";
+      output.style.width = "200px";
+      output.style.backgroundColor = "black";
+      //Create a function to handle two arguments,
+      //the first being a color value as a string and the second being the event object of the trigger.
+      function changeColor(color, event) {
+        console.log(event.type);
+        output.style.backgroundColor = color;
+      }
+      //Add event listeners to the element: mousedown, mouseover, mouseout, and mouseup.
+      //For each of these events, send two arguments to the function that you created: a color value and the event object.
+      output.addEventListener("mousedown", function (e) {
+        changeColor("green", e);
+      });
+      output.addEventListener("mouseover", function (e) {
+        changeColor("red", e);
+      });
+      output.addEventListener("mouseout", function (e) {
+        changeColor("yellow", e);
+      });
+      output.addEventListener("mouseup", function (e) {
+        changeColor("green", e);
+      });
+      output.addEventListener("mouseleave", function (e) {
+        changeColor("blue", e);
+      });
+    </script>
+  </body>
+</html>
