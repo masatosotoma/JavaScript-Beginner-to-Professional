@@ -1,0 +1,30 @@
+<!--
+    A use case where parent properties can come in handy is in the case of HTML forms,
+    where there are multiple input fields and a button. A button in a form would often
+    have the form as its direct parent. Via this parent, data from the input fields can be
+    fetched. This is demonstrated in the following example
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="welcome">Hi there!</div>
+    <form>
+      <input type="text" name="firstname" placeholder="First Name" />
+      <input type="text" name="lastname" placeholder="Last Name" />
+      <input type="button" onclick="sendInfo()" value="Submit" />
+    </form>
+    <script>
+      function sendInfo() {
+        //The parent element of the button, the form in this case, gets stored in the p variable.
+        //This command will get the value of the input box
+        let p = event.target.parentElement;
+        message("Welcome" + p.firstname.value + " " + p.lastname.value);
+      }
+
+      function message(m) {
+        document.getElementById("welcome").innerHTML = m;
+      }
+    </script>
+  </body>
+</html>

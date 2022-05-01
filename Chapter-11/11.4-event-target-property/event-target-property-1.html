@@ -1,0 +1,16 @@
+<!--console.dir(event) = Whenever an event gets fired, an event variable becomes available. It has many
+properties, and you can check it out by using this command in the function that gets fired for the event:-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <button type="button" onclick="triggerSomething()">Click</button>
+    <script>
+      function triggerSomething() {
+        console.dir(event.target);
+      }
+    </script>
+  </body>
+</html>
+
+<!--In this case, event.target is the button element. In the console, the button element
+and all its properties will be logged, including potential siblings and parents-->
