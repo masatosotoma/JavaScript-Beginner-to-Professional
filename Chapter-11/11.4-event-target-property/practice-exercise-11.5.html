@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+  </head>
+  <body>
+    <div class="output"></div>
+    <input type="text" name="message" placeholder="Your Message" />
+    <button class="btn1">Button 1</button>
+    <button class="btn2">Button 2</button>
+    <div>
+      <button class="btn3">Log</button>
+    </div>
+    <script>
+      // selecting each page element, including the div, the input field, and the button element.
+      // Assign these element objects to variables in your code
+      let myInput = document.querySelector("input[name='message']");
+      let output = document.querySelector(".output");
+      let btn1 = document.querySelector(".btn1");
+      let btn2 = document.querySelector(".btn2");
+      let btn3 = document.querySelector(".btn3");
+      //Create an empty array called log, which will be used to track and log all the events
+      let log = [];
+
+      //Add an event listener to both of the first two buttons that
+      //sends the event object to the tracking function created in the earlier steps
+      btn1.addEventListener("click", tracker);
+      btn2.addEventListener("click", tracker);
+      btn3.addEventListener("click", (e) => {
+        console.log(log);
+      });
+      /*Create a function that will capture the event object details in an object, adding it to the log array
+        Get the event target and create an object, adding it to the array that stores the input value at the time
+        the type of event, the class name of the target element, and the tag name of the target element.
+      */
+      function tracker(e) {
+        //Within the logging function, get the value of the content within the input
+        // and assign that value to the textContent of the div.
+        output.textContent = myInput.value;
+        let ev = e.target;
+        console.dir(ev);
+        let temp = {
+          message: myInput.value,
+          type: ev.type,
+          class: ev.className,
+          tag: ev.tagName,
+        };
+        // Clear the div content after the information is added to the log array.
+        log.push(temp);
+        myInput.value = "";
+      }
+    </script>
+  </body>
+</html>
