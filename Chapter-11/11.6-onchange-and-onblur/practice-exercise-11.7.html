@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+  </head>
+  <body>
+    <div class="output1"></div>
+    <input type="text" placeholder="First Name" name="first" /><br />
+    <input type="text" placeholder="Last Name" name="last" /><br />
+    <script>
+      // put the HTML output element into a variable object that you can use to display content on the page.
+      const output = document.querySelector(".output");
+
+      /*Select both input fields. You can use querySelector() and "input[name='first']", 
+        which will allow you to make your selection using the input field name. */
+      const in1 = document.querySelector("input[name='first']");
+      const in2 = document.querySelector("input[name='last']");
+      /*Add an event listener to the first input and the second input. 
+        The event listener should be a change event to track changed values. 
+        This will only beinvoked if the value in the field is changed and you click off the input field. */
+      in1.addEventListener("change", (e) => {
+        console.log("change");
+        unpdater(in1.value);
+      });
+      /*Add four additional event listeners and listen for blur and focus on each input. 
+      Once the event gets triggered, output in the console the value of the event type*/
+      in1.addEventListener("blur", (e) => {
+        console.log("blur");
+      });
+      in1.addEventListener("focus", (e) => {
+        console.log("focus");
+      });
+      in2.addEventListener("change", (e) => {
+        console.log("change");
+        unpdater(in2.value);
+      });
+      in2.addEventListener("blur", (e) => {
+        console.log("blur");
+      });
+      in2.addEventListener("focus", (e) => {
+        console.log("focus");
+      });
+
+      /*Create a separate function to handle the output of the content to the page,
+        updating the textContent of the output element.*/
+      function unpdater(str) {
+        output.textContent = str;
+      }
+      //Send the values of the input fields as they get changed to the output element textContent.
+    </script>
+  </body>
+</html>
