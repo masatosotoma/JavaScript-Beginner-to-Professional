@@ -1,0 +1,41 @@
+<!--
+    onkeypass =  whenever a key gets pressed, it's triggered. Pressing means when the button is pressed and released
+    onkeydown = As soon as the button is pressed (before releasing), an event happens
+    onkeyup = the event happens when the pressing is released
+
+    event.key = you can get the key that triggered the event using this.
+    
+    Example: we can restrict what characters can be entered in an input box. 
+    Every time a key gets pressed, we can check the character and decide whether it gets to stay.
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <body>
+      <div id="wrapper">JavaScript is fun!</div>
+      <input type="text" name="myNum1" onkeypress="numCheck()" />
+      <input type="text" name="myNum2" onkeypress="numCheck2()" />
+      <script>
+        function numCheck() {
+          message("Number: " + !isNaN(event.key));
+          return !isNaN(event.key);
+        }
+        function numCheck2() {
+          message("Not a number: " + isNaN(event.key));
+          return isNaN(event.key);
+        }
+        function message(m) {
+          document.getElementById("wrapper").innerHTML = m;
+        }
+      </script>
+    </body>
+  </body>
+</html>
+
+<!--
+    The first one checks if a value is a number, and if it is a number, 
+    it will write Number: true at the top; else, it will write Number: false at the top. 
+    The second one is checking for if a value is not a number; 
+    if it is not a number, it will write Not a number: true; else, it will write Not a number: false.
+-->
