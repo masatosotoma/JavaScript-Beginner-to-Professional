@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 11.9</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: white;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      1
+      <div id="dragme" draggable="true">Drag Me Please!</div>
+    </div>
+    <div class="box">2</div>
+    <script>
+      //Select the draggable element as an object
+      let dragme = document.querySelector("#dragme");
+      //Add an event listener of dragstart  where it updates the draggable element to 0.5 opacity
+      dragme.addEventListener("dragstart", (e) => {
+        dragme.style.opacity = 0.5;
+      });
+      //Add another event listener of dragend that removes the value for the opacity
+      dragme.addEventListener("dragend", (e) => {
+        dragme.style.opacity = "";
+      });
+      // Using querySelectorAll(), select all the dropoff boxes.
+      let boxes = document.querySelectorAll(".box");
+      /*Add event listeners to all the dropoff boxes, setting things such that the red class is added to an element 
+      whenever the user triggers the dragenter event*/
+      boxes.forEach((box) => {
+        box.addEventListener("dragenter", (e) => {
+          e.target.classList.add("red");
+        });
+        //Set dragover, adding a preventDefault() method to the element to disable any actions that might already exist.
+        box.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+        //On dragleave, remove the red class
+        box.addEventListener("dragleave", (e) => {
+          e.target.classList.remove("red");
+        });
+        //Adding the event listener of drop to the box, append the draggable element to the event target.
+        box.addEventListener("drop", (e) => {
+          e.preventDefault(); //remove the default action of the element using the preventDefault() method to this event to disable any actions
+          console.log("dropped"); //add console log messages to any of these events to better track
+          e.target.appendChild(dragme);
+        });
+      });
+    </script>
+  </body>
+</html>
