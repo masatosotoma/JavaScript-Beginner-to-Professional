@@ -1,0 +1,54 @@
+<!--
+    Createing the CSS and HTML for a dragging and dropping area
+
+     draggable = attribute for the element. the element can be dragged
+     ondragstart = when it gets triggered, you are going to store the element that is being dragged in
+     ondrop = The ondrop event occurs when a draggable element or text selection is dropped on a valid drop target
+     ondragover = The ondragover event occurs when a draggable element or text selection is being dragged over a valid drop target.
+     event.preventDefault() = In order to allow the drop, 
+                              you'll have to prevent the default event that means the item you want to drop cannot be dropped
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        height: 200px;
+        width: 200px;
+        padding: 20px;
+        margin: 0 50px;
+        display: inline-block;
+        border: 1px solid black;
+      }
+
+      #drageme {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" ondrop="dDrop()" ondragover="nDrop()">
+      1
+      <div id="dragme" ondragstart="dStart()" draggable="true">
+        Drag Me Please!
+      </div>
+    </div>
+    <div class="box" ondrop="dDrop()" ondragover="nDrop()">2</div>
+    <script>
+      let holderItem;
+      function dStart() {
+        holderItem = event.target;
+      }
+      function nDrop() {
+        event.preventDefault();
+      }
+      function dDrop() {
+        event.preventDefault();
+        if (event.target.className == "box") {
+          event.target.appendChild(holderItem);
+        }
+      }
+    </script>
+  </body>
+</html>
