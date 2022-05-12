@@ -1,0 +1,32 @@
+<!--
+    When a form gets submitted, an event can be triggered.
+    
+    onsubmit = an attribute for form submitting
+    Example:
+    <form onsubmit="doSomething()">  *the function will get triggered whenever input of type submit is submitted
+        => <input type="submit" value="send">
+
+    You can redirect to another page. 
+    We have to specify the way we want to send the form values using the method attribute 
+    and the location page using the action attribute. 
+    Example:
+    <form action="anotherpage.html" method="get" onsubmit="doStuff()">
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <form action="anothepage.html" method="get">
+      <input type="text" placeholder="name" name="name" />
+      <input type="submit" value="send" />
+    </form>
+    <script>
+        //anotherpage.html can use the variables from the URL. This can be done in the JavaScript of anotherpage
+      let q = window.location.search;
+      let params = new URLSearchParams(q);
+      let name = params.get("name");
+      console.log(name);
+    </script>
+  </body>
+</html>
