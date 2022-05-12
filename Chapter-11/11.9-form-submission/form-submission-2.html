@@ -1,0 +1,52 @@
+<!-- 
+    if we want to do some form validation before sending it,
+    you can figure out when it can be submitted.
+    This form contains three input fields and one input button.
+   When one of them is missing, the form will not submit, because the function will return false.
+   A message will also be added to the div above the form, explaining what went wrong
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="wrapper"></div>
+    <form action="anotherpage.html" method="get" onsubmit="return valForm()">
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        placeholder="First Name"
+      />
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        placeholder="Last Name"
+      />
+      <input type="text" name="age" id="age" placeholder="Age" />
+      <input type="submit" value="submit" />
+    </form>
+    <script>
+      function valForm() {
+        var p = event.target.children;
+        if (p.firstName.value == "") {
+          message("Need a first name!!");
+          return false;
+        }
+        if (p.lastName.value == "") {
+          message("Need a last name!!");
+          return false;
+        }
+        if (p.age.value == "") {
+          message("Need an age");
+          return false;
+        }
+        return true;
+      }
+
+      function message(m) {
+        document.getElementById("wrapper").innerHTML = m;
+      }
+    </script>
+  </body>
+</html>
