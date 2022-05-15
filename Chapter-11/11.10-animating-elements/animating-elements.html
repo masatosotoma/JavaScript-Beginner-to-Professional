@@ -1,0 +1,37 @@
+
+<!--
+    position keyword = Use it and set tit to absolute, 
+    which makes the position of the element relative to its nearest positioned parent. Here, that would be the body
+
+    setInterval() = a powerful function keeps on evaluating an expression until clearInterval() gets called
+-->
+
+<!DOCTYPE html>
+<html>
+  <style>
+    div {
+      background-color: purple;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <button onclick="toTheRight()">Go right</button>
+    <div id="block"></div> <!--need to give the div block an absolute position-->
+    <script>
+      function toTheRight() {
+        let b = document.getElementById("block");
+        let x = 0;
+        setInterval(function () {
+          if (x === 600) { //need to be a certain number of pixels to the left of the div
+            clearInterval();
+          } else {
+            x++;
+            b.style.left = x + "px"; //CSS left property to make it move
+          }
+        }, 2); //setInterval property executes that repeating it every 2 milliseconds
+      }
+    </script>
+  </body>
+</html>
