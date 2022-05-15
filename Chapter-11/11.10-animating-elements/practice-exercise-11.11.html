@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 11-11</title>
+  </head>
+  <!---Set up styling for an element, setting height and width before setting-->
+  <style>
+    div {
+      background-color: purple;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <!--Create an element that you want to move on the page-->
+    <div id="block"></div>
+    <script>
+      //Select and store the element using JavaScript.
+      let block = document.querySelector("#block");
+      //Set up an object with values for speed, direction, and position.
+      let mover = { speed: 10, dir: 1, pos: 0 };
+      //Add an event listener for if the element is clicked on
+      block.addEventListener("click", moveBlock);
+
+      /*Once the interval has run 30 times using the value of x,
+        the element will stand still and wait to be clicked again*/
+      function moveBlock() {
+        let x = 30; //Set a default value of 30 for the value of the interval counter
+        //If the counter is less than 1, then end the interval and clear it.
+        setInterval(function () {
+          if (x < 1) {
+            clearInterval();
+          } else {
+            //check if the position value is greater than 800 or less than 0, which means it needs to change direction.
+            if (mover.pos > 800 || mover.pos < 0) {
+              //The direction value will provide the direction of movement
+              /*If the movement takes the box outside the boundaries of the container,
+                  we need to send it in the other direction.It can be done by multiplying by negative one.*/
+              mover.dir *= -1;
+            }
+            x--;
+            mover.pos += x * mover.dir; //If the value is positive, it will become negative, sending the element to the left
+
+            //Update the style.left position value of the element, assigning the value of the position that was updated
+            block.style.left = mover.pos + "px"; //Add px, as the assigned value of the style is a string
+            console.log(mover.pos); //Output the result to the console
+          }
+        }, 2);
+      }
+    </script>
+  </body>
+</html>
