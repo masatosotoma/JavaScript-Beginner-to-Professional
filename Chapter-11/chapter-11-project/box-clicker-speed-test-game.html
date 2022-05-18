@@ -1,0 +1,98 @@
+<!-- To create a game 
+To click on the red box as quickly as possible once it appears. 
+The box will be randomly placed within a container and positioned with random fvalues
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click Me Game</title>
+    <style>
+      .output {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        margin: auto;
+        text-align: center;
+      }
+
+      .box {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        top: 50px;
+        left: 20%;
+        background-color: red;
+      }
+
+      .message {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.3em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="output"></div>
+    <div class="message"></div>
+    <script>
+      //Select the main elements as objects using JavaScript
+      let output = document.querySelector(".output");
+      let message = document.querySelector(".message");
+
+      //add to the message area instructions for the user: Press to Start.
+      message.textContent = "Press to Start";
+
+      // create another element within the output element, and create a div that will be the main clickable object
+      const box = document.createElement("div");
+
+      //Create a global object called game to track the timer and the start time values
+      // used to calculate the duration in seconds between when the element is shown and when the player clicks it
+      const game = {
+        timer: 0,
+        start: null, //Set start to null
+      };
+      //Attach a style called box to the new element and append it to the output element.
+      box.classList.add("box");
+      output.append(box);
+
+      //Create a function that will generate a random number and return a random value
+      function randomNumber(max) {
+        return Math.floor(Math.random() * max); //with the argument being the maximum value you want to use
+      }
+      //Add an event listener to the box element. Once clicked, this should start the gameplay
+      box.addEventListener("click", (e) => {
+        box.textContent = ""; //Set the display of the box element to non
+        //Using the setTimeout()method, invoke a function called addBox() and set the timeout to a random millisecond value
+        game.timer = setTimeout(addBox, randomNumber(3000));
+        //this will be the time between the click object box being shown and it disappearing
+        if (!game.start) {
+          //If the start value is null, then add text content to the message area of loading
+          message.textContent = "Loading....";
+        } else {
+          //If start has a value, then get the Unix time value using getTime() of the current date object
+          const current = new Date().getTime();
+          /*subtract the game start time from the current time value in milliseconds,
+              and then divide by 1,000 to get the value in seconds*/
+          const duration = (current - game.start) / 1000;
+          //Output the result to the message element for the player to see their score
+          message.textContent = `It took ${duration} seconds to click`;
+        }
+      });
+      //Create a function to handle the clicks, adding the box once the timer is up
+      function addBox() {
+        //Update the message text content to say Click it
+        message.textContent = "Click it...";
+        //Set the game start value to the current time in milliseconds.
+        game.start = new Date().getTime();
+        //Apply the style of block to the element so it shows on the page.
+        box.style.display = "block";
+        /*From the available space (500 total container width minus the 50 box width) set a random position above 
+        and to the left of the element using the Math.random().*/
+        box.style.left = randomNumber(450) + "px";
+        box.style.top = randomNumber(450) + "px";
+      }
+    </script>
+  </body>
+</html>
