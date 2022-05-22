@@ -9,11 +9,14 @@ It doesn't just process be plain text, it can also be inner HTML elements:
   <body>
     <h1>Welcome page</h1>
     <p id="greeting">Hi!</p>
+    <script>
+      document.body.children.greeting.innerHTML="<b>Bye!</b>";
+    </script>
   </body>
 </html>
 
 <!--
-    document.body.children.greenting.innerHTML = "<b>Bye!</b>"
+    document.body.children.greeting.innerHTML = "<b>Bye!</b>"
 
     This will display Bye! in bold on the screen.
     This having taken the b element into account rather than pringting it as it were a string value
