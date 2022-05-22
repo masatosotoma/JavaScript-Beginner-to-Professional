@@ -30,7 +30,7 @@
     </div>
     <script>
       // 1. Set up an array that contains some words
-      const wordArr = [];
+      const wordArr = ["letters"];
       /* 2. create a main game object containing a property to contain the current word solution,
       and another property to contain the array of letters
       */
@@ -89,58 +89,59 @@
         }
         //9. In the builder() function, which will also get invoked once startGame() is run,
         //clear the innerHTML from the letters and puzzle page elements.
-        function builder() {
-          letters.innerHTML = "";
-          puzzle.innerHTML = "";
-          /*10. Iterate through the game solution array, getting each letter of the solution.
+      }
+      function builder() {
+        letters.innerHTML = "";
+        puzzle.innerHTML = "";
+        /*10. Iterate through the game solution array, getting each letter of the solution.
         Use the builder() function to generate page elements, add an output value of -,
         set a class, and append it to the main puzzle page element.
         */
-          game.solution.forEach((lett) => {
-            let div = createElements("div", puzzle, "-", "boxE");
-            /*11. Check if the value is blank, and if it is, clear textContent and update the border to white.
+        game.solution.forEach((lett) => {
+          let div = createElements("div", puzzle, "-", "boxE");
+          /*11. Check if the value is blank, and if it is, clear textContent and update the border to white.
           If it's not blank, increment the total so that it reflects the total number of letters that must be guessed.
           Push the new element into the game puzzle array
           */
-            if (lett == " ") {
-              div.style.borderColor = "white";
-              div.textContent = " ";
-            } else {
-              game.total++;
-            }
-            game.puzz.push(div);
-            updateScore();
-          });
-          /*13. Create a loop to represent the 26 letters of the alphabet.
+          if (lett == " ") {
+            div.style.borderColor = "white";
+            div.textContent = " ";
+          } else {
+            game.total++;
+          }
+          game.puzz.push(div);
+          updateScore();
+        });
+        /*13. Create a loop to represent the 26 letters of the alphabet.
         You can generate the letter by using an array containing all the letters.
         */
-          for (let i = 0; i < 26; i++) {
-            //The string method fromCharCode() will return the character from the numeric representation.
-            let temp = String.frontCharCode(65 + i);
-            let div = createElements("div", letters, temp, "box");
-            /*
+        for (let i = 0; i < 26; i++) {
+          //The string method fromCharCode() will return the character from the numeric representation.
+          let temp = String.fromCharCode(65 + i);
+          let div = createElements("div", letters, temp, "box");
+          /*
           14. Create elements for each letter, adding a class of box and appending it to the letters page element
           As each element gets created, add an event listener that runs a function called checker()
           */
-            let checker = function (e) {
-              div.style.backgroundColor = "#ddd";
-              div.classList.remove("box");
-              div.classList.add("boxD");
-              div.removeEelementListener("click", checker);
-              //15. Once the letter gets clicked, we need to invoke the checker() function, 
-              checkLetter(temp);
-            };
-          }
-          function checkLetter(letter) {
-            console.log(letter);
-            game.solution.forEach((ele, index) => {
-              if (ele.toUpperCase() == letter) {
-                game.puzz[index].textContent = letter;
-                game.total--;
-                updateScore;
-              }
-            });
-          }
+          let checker = function (e) {
+            div.style.backgroundColor = "#ddd";
+            div.classList.remove("box");
+            div.classList.add("boxD");
+            div.removeEventListener("click", checker);
+            //15. Once the letter gets clicked, we need to invoke the checker() function,
+            checkLetter(temp);
+          };
+          div.addEventListener("click", checker);
+        }
+        function checkLetter(letter) {
+          console.log(letter);
+          game.solution.forEach((ele, index) => {
+            if (ele.toUpperCase() == letter) {
+              game.puzz[index].textContent = letter;
+              game.total--;
+              updateScore;
+            }
+          });
         }
       }
     </script>
