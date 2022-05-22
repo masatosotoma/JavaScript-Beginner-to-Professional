@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <script>
-      function rainbowify() {
-        let divs = document.getElementsByTagName("div");
-        for (let i = 0; i < divs.length; i++) {
-          // getting current div elements' style then background color then assigning it the div id's attribute(color)
-          divs[i].style.backgroundColor = divs[i].id;
-        }
-      }
-    </script>
     <style>
       div {
         height: 30px;
@@ -24,7 +15,19 @@
     <div id="blue"></div>
     <div id="indigo"></div>
     <div id="violet"></div>
+    <div id="black"></div>
     <button onclick="rainbowify()">Make me a rainbow</button>
+    <script>
+      function rainbowify() {
+        let divs = document.getElementsByTagName("div");
+        for (let i = 0; i < divs.length; i++) {
+          // getting current div elements' style then background color then assigning it the div id's attribute(color)
+          divs[i].style.backgroundColor = divs[i].id;
+          divs[i].style.height = (i+1) * 10 + "px";
+          divs[i].style.width = (i+1) * 10 + "px";
+        }
+      }
+    </script>
   </body>
 </html>
 
