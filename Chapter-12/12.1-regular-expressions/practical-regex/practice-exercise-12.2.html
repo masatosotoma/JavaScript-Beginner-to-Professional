@@ -1,0 +1,43 @@
+<!--Create an application that uses JavaScript to check whether the string value of an 
+    input is a validly formatted email using regex-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Course</title>
+  </head>
+  <body>
+    <div class="output"></div>
+    <input type="text" placeholder="Enter Email" />
+    <button>Check</button>
+    <script>
+      //select the input, output, and button elements from the page as JavaScript objects
+      let output = document.querySelector(".output");
+      let emailVal = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      let emailExp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+      //Add an event listener to the button to run a block of code when clicked that will get the current value in the input field
+      btn.addEventListener("click", (e) => {
+        //Create a blank response value that will populate the output div element contents
+        let response = "";
+
+        //If the test result is false, update the response output to say Invalid Email and change the output color to red
+        const val = emailVal.value;
+        //Add a test with the string value from the input field and the expression for email format
+        const result = emailExp.test(val);
+        if (!result) {
+          response = "Invalid Email";
+          output.style.color = "red";
+        } else {
+          //If the condition of the test returns true, add a response that confirms the email format is correct and change the text color of output to green.
+          response = "Valid Email";
+          output.style.color = "green";
+        }
+        emailVal.value = "";
+        //Output the response value into the output element
+        output.textContent = response;
+      });
+    </script>
+  </body>
+</html>
