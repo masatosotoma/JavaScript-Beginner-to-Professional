@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise</title>
+  </head>
+  <body>
+    <script>
+      let val = 5;
+      val += adder();
+      val += adder();
+      val += adder();
+      console.log(val);
+      function adder() {
+        let counter = val;
+        for (let i = 0; i < val; i++) {
+          counter++;
+        }
+        return counter;
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+1.Open your script in your chosen editor, or the Sources tab of your browser's
+Inspect panel. Click to the left of the line of code where you want to add a
+breakpoint.
+
+2.Run the code with your new breakpoints: I have selected Run | Start
+Debugging,
+
+3.There will be a tab that lists the
+variables in the code and the current values at the first breakpoint. It's called
+VARIABLES in my editor, but it's the Scope tab in the Chrome browser
+console.
+
+4.You can use the menu options to move to the next breakpoint, stop
+debugging, or restart the breakpoint sequence. Press the play icon to move to
+the next breakpoint.
+
+5.Press the play icon once more, and the script will run until it hits the next
+breakpoint, at which point the value of the variable will update as a result of
+the code on line 2:
+
+6.Press play again to move to the next breakpoint, which increases the value of
+val once more:
+
+7.Once the last breakpoint is reached you will only see options to restart or
+stop the debugger. If you press stop, it will end the debugging process
+
+The final value of val after the third breakpoint was revealed as 135
+
+-->
