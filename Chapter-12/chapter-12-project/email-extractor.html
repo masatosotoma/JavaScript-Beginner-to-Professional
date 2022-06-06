@@ -1,0 +1,42 @@
+<!--Use the following HTML as a starter template and add the JavaScript code to make an email extractor function:-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <textarea name="txtarea" rows="2" cols="50"></textarea>
+    <button>Get Emails</button>
+    <textarea name="txtarea2" rows="2" cols="50"></textarea>
+    <script>
+      //select both text areas and the button and set them as JavaScript objects
+      const firstArea = document.querySelector("textarea[name='txtarea']");
+      const secArea = document.querySelector("textarea[name='txtarea2']");
+      /*Add an event listener to the button that will invoke a function 
+      that gets the content of the first textarea and filters it to only accept email addresses.*/
+
+      document.querySelector("button").addEventListener("click", lookUp);
+      //Within the extracting function, get the content of the first input field
+      function lookUp() {
+        const rowTxt = firstArea.value;
+        //Using match(), return an array of the email addresses that were matched from within the content from the first textare
+        const eData = rowTxt.match(
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi
+        );
+        //To remove any duplicates, create a separate array that will hold only unique values
+        const holder = [];
+        /*Loop through all the email addresses found and check whether each one is already in the holder array, 
+        and if not, add it.*/
+        for (let x = 0; x < eData.length; x++) {
+          if (holder.indexOf(eData[x]) == -1) {
+            holder.push(eData[x]);
+          }
+        }
+        /*Using the join() array method, you can now join together the results of the email addresses 
+        found within the content and output it into the second textarea*/
+        secArea.value = holder.join(",");
+      }
+    </script>
+  </body>
+</html>
