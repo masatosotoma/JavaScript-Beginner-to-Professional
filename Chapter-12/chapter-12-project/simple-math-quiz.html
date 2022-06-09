@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <span class="val1"></span> <span>+</span> <span class="val2"></span> =
+    <span> <input type="text" name="answer" /></span><button>Check</button>
+    <div class="output"></div>
+    <script>
+      /*wrap the code within a function, app. Within the app function,
+        create variable objects to contain all the page elements so they can be used inthe script,
+        and create a blank object called game*/
+      const app = (function () {
+        const game = {};
+        const val1 = document.querySelector(".val1");
+        const val2 = document.querySelector(".val2");
+        const output = document.querySelector(".output");
+        const answer = document.querySelector("input");
+
+        function init() {
+          /*Within an init() function, add an event listener to the button, listen for a click,
+                and track the event into a function called checker*/
+          document.querySelector("button").addEventListener("click", checker);
+          //load another function called loadQuestion()
+          loadQuestion();
+        }
+        /*Create a function to load the questions, and another function that can generate a random number
+        from min and max values in the arguments.*/
+        function ranValue(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        //In the loadQuestion() function, generate two random values and add them to the game object.
+        function loadQuestion() {
+          game.val1 = ranValue(1, 100);
+          game.val2 = ranValue(1, 100);
+          // Calculate the result of both values added together and assign that value within the game object as well.
+          game.answer = game.val1 + game.val2;
+          //Assign and update the textContent of the page elements that require the dynamic number values for the calculation question.
+          val1.textContent = game.val1;
+          val2.textContent = game.val2;
+        }
+        /*When the button is clicked, use a ternary operator to determine whether the answer to
+        the question was correct or incorrect. Set the color to green for correct, and to red for incorrect.*/
+
+        /*Create a page element to output all the questions and keep track of the results.
+        Within the checker() function, append a new element to the HTML with a style color
+        to indicate a correct or incorrect response.*/
+        function checker() {
+          let bg = answer.value == game.answer ? "green" : "red";
+          // Display the first and second values as well as the answer, and show the user's response within brackets
+          output.innerHTML += `<div style="color:${bg}">${game.val1} + ${game.val2} = ${game.answer}(${answer.value})</div>`;
+          answer.value = "";
+          loadQuestion();
+        }
+        //Clear the input field and load the next question
+        return {
+          init: init,
+        };
+      })();
+      //Add a DOMContentLoaded event listener that invokes the app initialization once the page loads.
+      document.addEventListener("DOMContentLoaded", app.init);
+    </script>
+  </body>
+</html>
