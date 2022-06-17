@@ -1,0 +1,27 @@
+<!--
+Using HTML5 feature, we can upload files from our device to our web app and read from them in our app
+we can attach files to forms for example, which is great in many cases whenever we
+need to upload some sort of file for whatever purpose, for example, adding a résumé to your online job application.
+-->
+
+<!--Example:-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="message"></div>
+    <script>
+      let message = document.getElementById("message");
+      if (window.FileReader) {
+        message.innerText = "Good to go!";
+      } else {
+        message.innerText = "No FileReader :(";
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+    If you open this file in your browser it should say Good to go! when your browser supports file reading.
+    Try updating your browser or using another one if it says No FileReader :(. 
+    Browsers that will work are, for example, Chrome and Firefox.
+-->
