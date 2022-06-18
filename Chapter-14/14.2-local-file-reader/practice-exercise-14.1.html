@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+    <style>
+      .thumb {
+        max-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" multiple accept="image/*" />
+    <div class="output"></div>
+    <script>
+      //Select your page elements as values within variable objects in your JavaScript code
+      let output = document.querySelector(".output");
+      let myInput = document.querySelector("input");
+      let message = document.getElementById("message");
+
+      /*Add an event listener to the input field. 
+        The event trigger should be changed so that it immediately invokes a reader function.*/
+      myInput.addEventListener("change", uploadAndReadFile);
+
+      //Create a function to handle the reading of the selected files
+      /*Using the event object, select the target element that triggered the event. 
+        Get the files selected within that input and assign them to the files variable*/
+
+      function uploadAndReadFile(e) {
+        const files = e.target.files;
+        //Loop through all the files that were selected.
+        for (let i = 0; i < files.length; i++) {
+          //Set the files by index within the loop to a variable named file
+          const file = files[i];
+          //Set the image file as the file within the loop selected from the user input field files.
+          //Add the newly created img tag to the page,
+          const img = document.createElement("img");
+          //create an area on the page that you can output the content to, and append the new page element to it.
+          img.classList.add("thumb");
+          img.file = file;
+          output.appendChild(img);
+          //Create a new FileReader object.
+          const reader = new FileReader();
+          //Add an onload event listener to the fileReader object to create and invoke an anonymous function
+          //sets the source of the image as the result from the target element
+          reader.onload = (function (myImg) {
+            //Pass in the image object you just created as an argument into the function.
+            return function (e) {
+              myImg.src = e.target.result;
+            };
+          })(img);
+          /*Using readAsDataURL(), get the current file object and pass it into the file reader object 
+        so that it can be used once the onload completes and is added to the page.*/
+          reader.readAsDataURL(file);
+        }
+      }
+      //You can now select multiple image files from your computer and have them show on your webpage.
+    </script>
+  </body>
+</html>
