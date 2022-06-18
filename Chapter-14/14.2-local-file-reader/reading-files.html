@@ -1,0 +1,33 @@
+<!--
+    FileReader = a special JavaScript object for reading files
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="file" onchange="uploadAndReadFile(this.files)" />
+    <div id="message"></div>
+    <script>
+      let message = document.getElementById("message");
+
+      function uploadAndReadFile(files) {
+        let fr = new FileReader();
+
+        //we have to specify what needs to happen in order to connect our HTML and JavaScript to a file
+        //We do this by adding the onload event as an anonymous function that is sending on the event data
+        fr.onload = function (e) {
+          message.innerHTML = e.target.result;
+        };
+        //Reading the data can then be done using one of the readAs() methods on the FileReader object
+        fr.readAsText(files[0]);
+        /*This triggers the actual reading and the onload function that comes with it gets triggered when it's done, 
+        adding the result of the reading to our message*/
+      }
+    </script>
+  </body>
+</html>
+
+<!-- 
+we will have to upload something that contains plain text, 
+such as .txt, .json, and .xml. With this we can also send a file to the server or process the contents of a log file.
+-->
