@@ -1,0 +1,27 @@
+<!--
+We can do something similar for multiple files. Here is how to upload multiple files at the same time:
+-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="file" multiple onchange="uploadFile(this.files)" />
+    <div id="message"></div>
+    <script>
+      let message = document.getElementById("message");
+      function uploadFile(files) {
+        for (let i = 0; i < files.length; i++) {
+          message.innerHTML += files[i].name + "<br>";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+    We have added the multiple attribute to our input element. This changes the text on the button; 
+    instead of Choose file it now says Choose files, and we can select more than one file as a result.
+
+    Instead of innerText, we are now using innerHTML, because then we could insert a break using the HTML break. 
+    It will output the names of all the selected files below the input box on the screen.
+-->

@@ -1,0 +1,29 @@
+<!--We indicate we want to upload a file by adding an input of type file-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="file" onchange="uploadFile(this.files)" />
+    <div id="message"></div>
+    <script>
+      let message = document.getElementById("message");
+
+      function uploadFile(files) {
+        console.log(files[0]);
+        message.innerText = files[0].name;
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+    It gives a blank HTML page with a Choose file button and the No file chosen comment behind it.
+    Clicking on the button pops up the filesystem and you can select a file.
+    After selecting the file, the JavaScript gets triggered. And as you can see, 
+    we are sending in the property files that are active in our body.
+    This is a list of files. Therefore, we are grabbing the 0th index, 
+    the first element in the list. Files are represented as objects.
+
+    The file object gets logged to the console here, which enables you to see all the properties and associated values. 
+    Some of the important properties are the name, size, type, and lastModified, but there are many more.
+-->
