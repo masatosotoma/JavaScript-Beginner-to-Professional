@@ -1,0 +1,33 @@
+<!--
+    navigator.geolocation = window object navigator to see whether we can locate the user of the browser
+
+-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      window.onload = init;
+      function init() {
+        navigator.geolocation.getCurrentPosition(showGeoPosition);//getCurrentPosition() method takes another method as an argument
+        //The position data gets sent to this function and that function will use the data as input. 
+      }
+      function showGeoPosition(data) {
+        console.dir(data);
+      }
+      /*
+      we will have to wrap console.dir() in an external function (called showGeoPosition()) 
+      that takes a parameter and outputs this data so that we can see the data in the console.
+      We can then send this function to the getCurrentPosition() function and see the data.*/
+
+      /*If you run this, you should get a GeolocationPosition object, 
+      with a coords property containing your latitude and longitude
+      The browser might prompt whether you're okay with sharing your location.*/
+
+      /*
+      Using this, you can get the location of the user and show personalized content based on it 
+      or gather data about their location for other purposes, 
+      such as analyzing where visitors are located or displaying suggestions for the user based on their location
+      */
+    </script>
+  </body>
+</html>
