@@ -1,0 +1,39 @@
+<!--
+
+    How to set upt the canvas:
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas id="c1"></canvas>
+    <script></script>
+  </body>
+</html>
+
+You could add some CSS to add a border to the canvas or a background color to the body and your canvas will be revealed.
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c1"></canvas>
+    <script>
+      let canvas = document.getElementById("c1");
+      let ctx = canvas.getContext("2d");
+      canvas.width = 500; //px
+      canvas.height = 500; //px
+      ctx.fillStyle = "pink"; //We can also change the color we are drawing with
+      ctx.fillRect(20, 40, 100, 100);
+      /*With the fillRect() method on the context of the canvas, we can draw a rectangle on the canvas. 
+      It takes four parameters. The first two are the x and y coordinates of where the figure should be added to the canvas 
+      The last two are the width and height of the rectangle*/
+    </script>
+  </body>
+</html>
