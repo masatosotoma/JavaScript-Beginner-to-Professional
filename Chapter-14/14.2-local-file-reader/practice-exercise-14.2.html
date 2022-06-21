@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas HTML5</title>
+    <!--Add the canvas element to the page-->
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Set the width and height to 640 px and, using CSS, add a 1 pc border to the element-->
+    <canvas id="canvas" width="640" height="640">Canvas element</canvas>
+    <script>
+      //Within the JavaScript, select the canvas element and set the Context to 2d
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      //Set the fill style to red
+      ctx.fillStyle = "red";
+      //Create an output of the shape by using a rectangle
+      ctx.fillRect(100, 100, 500, 300);
+      //Set the outline of the rectangle
+      ctx.strokeRect(90, 90, 520, 320);
+      //Clear the rectangle inside to make it transparent and the color of the background
+      ctx.clearRect(150, 150, 400, 200);
+    </script>
+  </body>
+</html>
