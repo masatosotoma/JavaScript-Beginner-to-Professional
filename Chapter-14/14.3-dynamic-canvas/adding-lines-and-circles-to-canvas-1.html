@@ -1,0 +1,26 @@
+<!--how to draw a line and a circle-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #canvas1 {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas1"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas1");
+      let ctx = canvas.getContext("2d");
+      canvas.width = 100;
+      canvas.height = 100;
+      //The line width is set to 2 pixels. This first puts the focus to 0 (x) and 20 (y).
+      ctx.lineWidth = 2;
+      ctx.moveTo(0, 20);//means it is at the very left edge of the canvas, 20 pixels from the top
+      // This canvas is smaller; it is 100 by 100 pixels. The second point is at 50 (x) and 100 (y)
+      ctx.lineTo(50, 100);
+      ctx.stroke();
+    </script>
+  </body>
+</html>

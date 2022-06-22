@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #canvas1 {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas1"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas1");
+      let ctx = canvas.getContext("2d");
+      canvas.width = 150;
+      canvas.height = 200;
+      ctx.beginPath();
+      //use the arc() method to create a curve or a circle
+      /*
+      1. start position x on canvas
+      2. start position y on canvas
+      3. radius of the circle
+      4. starting angle in radians
+      5. ending angle in radians
+      */
+      ctx.arc(75, 100, 50, 0, Math.PI * 2);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
+
+<!--
+    if we don't want a circle, but a semicircle,
+    we'll have to specify a different starting and end angle in radians.
+
+    This time we used the stroke() method to do the actual drawing instead of the fill() method
+
+    Stroke() is only drawing the line, whereas fill() colors the full shape.
+-->
