@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #canvas1 {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas1"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas1");
+      let ctx = canvas.getContext("2d");
+      canvas.width = 200;
+      canvas.height = 200;
+      ctx.font = "24px Arial";
+      let txt = "Hi canvas!";
+      ctx.fillText(txt, 10, 35); //specified 35 px from the top for the text to start
+      /*
+      The fillText() method is used to add text.
+      We have to specify three parameters: the text, the x position, and the y position
+      */
+    </script>
+  </body>
+</html>
+
+<!--
+    We can specify other aspects of the text, 
+    For example:
+    ctx.textAlign = "center";
+-->
