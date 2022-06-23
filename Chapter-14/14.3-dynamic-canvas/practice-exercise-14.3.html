@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 14.3</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Create the page elements and prepare to draw on the canvas-->
+    <canvas id="canvas" width="640" height="640">Not supported</canvas>
+    <script>
+      const canvas = document.querySelector("#canvas");
+      const ctx = canvas.getContext("2d");
+      //Begin the path with an arc roughly at the top center of your canvas object.
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.arc(300, 130, 100, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.fillStyle = "black";
+      //Using arc(), set a position for the left eye, roughly at the top left of the center of the arc you just drew
+      ctx.arc(250, 120, 20, 0, Math.PI * 2);
+      ctx.moveTo(370, 120);
+      //then add another arc for the right eye
+      ctx.arc(350, 120, 20, 0, Math.PI * 2);
+      ctx.moveTo(240, 160);
+      //Create a half arc for the mouth (the radian angle for a semicircle is pi) and fill all
+      ctx.arc(300, 160, 60, 0, Math.PI);
+      ctx.fill();
+      //Move the draw position to the center and draw a line for the nose
+      ctx.moveTo(300, 130);
+      ctx.lineTo(300, 150);
+      ctx.stroke();
+
+      //Draw the body with a line down from the center of the arc,
+      ctx.beginPath();
+      ctx.moveTo(300, 230);
+      ctx.lineTo(300, 270);
+      //create the left arm
+      ctx.lineTo(400, 270);
+      // then move the draw position to do the right arm
+      ctx.lineTo(200, 270);
+      //Move back to the center
+      ctx.lineTo(300, 270);
+      // continue down to draw the left leg
+      ctx.lineTo(300, 350);
+      ctx.lineTo(400, 500);
+      //move back to the center, and draw the line for the right leg.
+      ctx.moveTo(300, 350);
+      ctx.lineTo(200, 500);
+      ctx.stroke();
+
+      //Move to the top, set the colour to blue, and draw a triangle for a hat
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.moveTo(200, 50);
+      ctx.lineTo(400, 50);
+      ctx.lineTo(300, 20);
+      ctx.lineTo(200, 50);
+      ctx.fill();
+      ctx.stroke();
+    </script>
+  </body>
+</html>
