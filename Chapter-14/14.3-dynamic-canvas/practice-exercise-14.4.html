@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 14.4</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Create a simple HTML document, and add the canvas element to your page. 
+        Set the height and width to 640, and add a 1 px border to the element so youcan see it on the page.-->
+    <canvas id="canvas" width="640" height="640">Not supported</canvas>
+    <script>
+      //Select the page elements as values within JavaScript variables
+      const canvas = document.querySelector("#canvas");
+      const ctx = canvas.getContext("2d");
+
+      //Set a font style using the font property and a blue fill color using the fillStyle property
+      ctx.font = "30px century";
+      ctx.fillStyle = "blue";
+
+      //Create a string variable with the message Hello World.
+      const msg = "Hello World";
+      //You can also align the text to the left.
+      ctx.textAlign = "left";
+      //Add the text to the canvas with fillText and set the x and y positions of the text
+      ctx.fillText(msg, 150, 80);
+
+      ctx.font = "20px italic";
+      ctx.fillStyle = "red";
+      //Create a loop and, using the value of the loop variable, add text to the page canvas element.
+      for (i = 0; i <= 10; i++) {
+        const counter = "counter:" + i;
+        console.log(counter);
+        ctx.fillText(counter, 100, 150+(i*45));
+      }
+    </script>
+  </body>
+</html>
