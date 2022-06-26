@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="imgLoader" />
+    <canvas id="canvas"></canvas>
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let imgLoader = document.getElementById("imgLoader");
+
+      //Every time the input of the input field changes, the upImage() method gets executed. 
+      imgLoader.addEventListener("change", upImage, false);
+      function upImage() {
+        //we create a new FileReader and add the uploaded file
+        let fr = new FileReader();
+        //Instead of readAsText() that we have already seen, we are now using readAsDataURL(), which we can use to read images.
+        fr.readAsDataURL(event.target.files[0]);
+        //This will trigger the onload event. And in our case, this creates a new image that can be added to the canvas later
+
+        fr.onload = function (e) {
+          let img = new Image();
+          img.src = event.target.result;//As a source, we add the result of our read action and when the image is loaded
+          //change the size of our canvas to the size of our picture  and then add the picture in there
+          img.onload = function () {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+          };
+          console.log(fr);
+        };
+      }
+    </script>
+  </body>
+</html>
