@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <input type="color" id="bgColor" />
+    <script>
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let bgColor = "pink";
+      let bgC = document.getElementById("bgColor");
+      bgC.addEventListener("change", function () {
+        bgColor = event.target.value;
+      });
+      let pos = {
+        x: 0,
+        y: 0,
+      };
+      canvas.width = 700;
+      canvas.height = 700;
+      window.onload = init;
+      /*We want to draw when the mouse is moving, 
+      and we want to change the current position on the canvas when the mouse is moving*/
+      function init() {
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mousemove", setPosition);
+        canvas.addEventListener("mouseenter", setPosition);
+      }
+      function setPosition(e) {
+        pos.x = e.pageX;
+        pos.y = e.pageY;
+      }
+      function draw(e) {
+        if (e.buttons !== 1) return;
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+        setPosition(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.lineWidth = 10;
+        ctx.lineCap = "round";
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>
