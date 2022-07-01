@@ -13,11 +13,14 @@
     <script>
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d");
+      //We start with the color pink, and overwrite it with whatever the user selects in the color picker.
       let bgColor = "pink";
       let bgC = document.getElementById("bgColor");
       bgC.addEventListener("change", function () {
         bgColor = event.target.value;
       });
+
+      //Setting the position
       let pos = {
         x: 0,
         y: 0,
@@ -32,18 +35,28 @@
         canvas.addEventListener("mousemove", setPosition);
         canvas.addEventListener("mouseenter", setPosition);
       }
+
+      // the function for setting the position
       function setPosition(e) {
         pos.x = e.pageX;
         pos.y = e.pageY;
       }
+      //The last must-have ingredient for drawing on the canvas is the draw() method
       function draw(e) {
+        //it is a great trick to make sure that the mouse is actually being clicked. 
+        //We don't want to be drawing when no button on the mouse is clicked
         if (e.buttons !== 1) return;
+        //to begin a path. We always have a current x and y
         ctx.beginPath();
         ctx.moveTo(pos.x, pos.y);
+        //they are set as coordinate one, and then we set them again and use these new coordinates for the line
         setPosition(e);
         ctx.lineTo(pos.x, pos.y);
+        // We give it a round linecap to achieve smooth lines and a line width of 10.
         ctx.lineWidth = 10;
+        //Then we draw the line
         ctx.lineCap = "round";
+        // as long as the mouse is moving, the draw() function gets called again
         ctx.stroke();
       }
     </script>
