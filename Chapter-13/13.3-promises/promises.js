@@ -36,7 +36,8 @@ let promise = new Promise(function (resolve, reject) {
 });
 //When creating a Promise, we don't know what the value of the Promise is going to be
 //This value is whatever is sent as an argument to the resolve function. It is a sort of placeholder.
-promise.then(
+promise
+  .then(
   //then() is a Promise itself, so when it returns we can use the result for the next then() instance.
   //when we call then on the Promise, we basically say: figure out what the value of the Promise is,
   function (value) {
