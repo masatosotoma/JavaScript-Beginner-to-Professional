@@ -1,0 +1,31 @@
+<!--There are special elements for media on the page. 
+    We are going to show you how to add audio and video and how to embed YouTube on a webpage.-->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <!--You specify the controls attribute if you want the user to be able to control pause and play and the volume-->
+    <audio controls>
+      <!--If you want it to start automatically, you'll have to add the attribute autoplay-->
+      <!--With the source element, you specify the audio files that can be played-->
+      <source src="sound.ogg" type="audio/ogg" />
+      <source src="sound.mp3" type="audio/mpeg" />
+    </audio>
+    <!--Adding a video to a webpage is very similar to adding audio-->
+    <video width="1024" height="576" controls>
+      <source src="movie.mp4" type="video/mp4" />
+      <source src="movie.ogg" type="video/ogg" />
+    </video>
+    <!--Often you would want to link to YouTube instead-->
+    <!--You will have to use the iframe element. This is a special element that allows another webpage inside the current webpage.-->
+    <iframe
+      width="1024"
+      height="576"
+      src="https://www.youtube.com/embed/v6VTv7czb1Y"
+    >
+    </iframe>
+    <!--you can then add the YouTube embed link as a source. The last code after embed comes from the video URL.-->
+  </body>
+</html>
+
+<!--If you want it to be only a part of the screen, you can adjust the width and height attributes accordingly-->
