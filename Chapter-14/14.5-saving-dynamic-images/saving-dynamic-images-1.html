@@ -1,0 +1,28 @@
+<!--
+We can convert the canvas to an image, and this image can then be saved as a next step
+
+let dataURL = canvas.toDataURL();
+document.getElementById()
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <!--We are changing our canvas to a data URL, which then becomes the source of our image. 
+            We want this to happen whenever a save button gets clicked-->
+    <input type="button" id="save" value="save" />
+    <script>
+      document.getElementById("save").addEventListener("save", function () {
+        let dataURL = canvas.toDataURL();
+        document.getElementById("holder").src = dataURL;
+      });
+    </script>
+  </body>
+</html>
+
+<!--
+  Whenever the save button gets clicked, it is going to update the image with the generated data URL from the canvas
+  Whatever content is within the canvas element will be turned into a base64 data image value and added to the page within an img tag.
+-->
