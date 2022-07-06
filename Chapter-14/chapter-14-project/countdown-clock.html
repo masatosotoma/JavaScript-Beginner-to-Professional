@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript</title>
+    <style>
+      .clock {
+        background-color: blue;
+        width: 400px;
+        text-align: center;
+        color: white;
+        font-size: 1em;
+      }
+      .clock > span {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: black;
+      }
+      .clock > span > span {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: red;
+      }
+      input {
+        padding: 15px;
+        margin: 20px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="date" name="endDate" />
+      <div class="clock">
+        <span><span class="days">0</span> Days</span>
+        <span><span class="hours">0</span> Hours</span>
+        <span><span class="minutes">0</span> Minutes</span>
+        <span><span class="seconds">0</span> Seconds</span>
+      </div>
+    </div>
+    <script>
+      /*Select the page elements as JavaScript objects, 
+        as well as selecting the main clock output area as the value of a JavaScript object*/
+      const endDate = document.querySelector("input[name='endDate']");
+      const clock = document.querySelector(".clock");
+
+      //Create variables for the timeInterval and a global Boolean value that can be used to stop the clock timer
+      let timeInterval;
+      let timeStop = true;
+
+      //Check the local storage if there is an item for countdown already set. If there is, use that value.
+      const savedValue = localStorage.getItem("countdown") || false;
+
+      /*Create a condition and function to start the clock as the saved value 
+        and set the input field date value to the local storage saved value*/
+      if (savedValue) {
+        startClock(savedValue);
+        let inputValue = new Date(savedValue);
+        endDate.valueAsDate = inputValue;
+      }
+      //Add an event listener to invoke a function if the value of the input field is changed
+      endDate.addEventListener("change", function (e) {
+        e.preventDefault();
+        //Clear the interval if it has changed and set the new endDate value in the local storage.
+        clearInterval(timeInterval);
+        const temp = new Date(endDate.value);
+        localStorage.setItem("countdown", temp);
+        //Start the clock with the start clock function from that new endDate input value.
+        startClock(temp);
+        timeStop = true;
+      });
+      //Create a function to start the clock that is used to start the counter.
+      function startClock(d) {
+        /*Within that function, you can create a function that updates the counter 
+        and outputs the new clock time values into the page clock container area.*/
+        function updateCounter() {
+          let tl = timeLeft(d);
+          /*Within this function, check if timeLeft is less than the counter time. 
+            Create a separate function to handle this. If it's less, stop the timer.*/
+          if (tl.total <= 0) {
+            timeStop = false;
+          }
+          /*If the time left is more and has a value within the object, 
+          then output the object by property names and match the property names you use in the time left function object
+          to the class names you use in your webpage elements so they match and you can save time rewriting them
+          Loop through all the object values and assign the values within the innerHTML page element.*/
+          for (let pro in tl) {
+            let el = clock.querySelector("." + pro);
+            if (el) {
+              el.innerHTML = tl[pro];
+            }
+          }
+        }
+        updateCounter();
+        if (timeStop) {
+          timeInterval = setInterval(updateCounter, 1000);
+        } else {
+          clearInterval(timeInterval);
+        }
+        /*In the time left function, get the current date. Using Date.parse(), 
+        parse the date and calculate the total milliseconds left until the counter ends.*/
+        function timeLeft(d) {
+          let currentDate = new Date();
+          let t = Date.parse(d) - Date.parse(currentDate);
+          let seconds = Math.floor((t / 1000) % 60);
+          let minutes = Math.floor((t / 1000 / 60) % 60);
+          let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+          let days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+          /*Return the values of the total days, hours, minutes, and seconds 
+            as a response object to use in the update function.*/
+            return{
+                "total": t,
+                "days":days,
+                "hours":hours,
+                "minutes":minutes,
+                "seconds":seconds
+            }
+        }
+      }
+    </script>
+  </body>
+</html>
