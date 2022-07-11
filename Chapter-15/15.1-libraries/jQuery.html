@@ -1,0 +1,28 @@
+
+<!-- jQuery = one of the most famous JavaScript libraries.  It was great to use in the past, 
+    when it would be compiled into the latest version of JavaScript for the specific browser-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/
+jquery.min.js"></script>
+  </head>
+  <body>
+    <p>Let's play a game!</p>
+    <p>Of hide and seek...</p>
+    <p class="easy">I'm easy to find!</p>
+    <button id="hidebutton">Great idea</button>
+    <button id="revealbutton">Found you!</button>
+    <script>
+      $(document).ready(function () {
+        $("#hidebutton").click(function () {
+          $("p").hide();
+        });
+        $("#revealbutton").click(function () {
+          $(".easy").show();
+        });
+      });
+    </script>
+  </body>
+</html>
