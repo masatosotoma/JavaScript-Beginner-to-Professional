@@ -26,3 +26,15 @@ jquery.min.js"></script>
     </script>
   </body>
 </html>
+
+<!--When you click the Great idea button, all the paragraphs will be hidden. 
+  This is done inside the event that's been added using jQuery. 
+  First, we selected the button with the ID hidebutton, next we call the click function on it, 
+  which specifies what will happen on click. In that function, 
+  we state that we'll select all p elements and hide them. 
+  hide is a special jQuery function that adds the display:none style to the HTML element.-->
+
+  <!-- after clicking, all the paragraphs are gone. When we click on Found you!, 
+    only one comes back, the last one reading I'm easy to find. 
+    This is because when the button with the ID revealbutton gets clicked, 
+    it selects all elements with class easy and removes the display:none from the style using the jQuery show function-->
