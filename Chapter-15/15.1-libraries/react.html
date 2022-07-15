@@ -1,0 +1,43 @@
+<!-- 
+    React a library is that you'll need to use some other libraries to get to the point where it feels like a framework.
+
+    React is used to build beautiful and dynamic user interfaces. 
+    It splits up pages into different components and the data gets sent and updated between components as it changes.
+
+    Here is a very basic example that only scratches the very surface of what React can do
+
+
+    <div id="root"></div>
+
+    ReactDOM.render(  
+        <p> Hi Emile, what's up?</p>,  
+        document.getElementById('root');
+        );
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let p = React.createElement("p", null, "Hi Emile, what's up?");
+      ReactDOM.render(p, document.getElementById("root"));
+    </script>
+  </body>
+</html>
+
+<!--
+    This will write Hi Emile, what's up? to the page using React elements created manually in the script tag.
+    It is way more valuable to set up React and everything you need using a package manager such as Node Package Manager (NPM). 
+    This will allow you to easily manage all the dependencies and keep your code organized.
+-->
