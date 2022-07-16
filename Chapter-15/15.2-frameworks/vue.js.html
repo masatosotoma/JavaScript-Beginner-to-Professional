@@ -1,0 +1,43 @@
+<!--
+    Vue.js is a lightweight JavaScript framework. 
+    It can be used to build user interfaces and single-page applications (SPAs). 
+    The way user interfaces are written with Vue.js can be hard to get your head around the first time you encounter it
+-->
+
+<!DOCTYPE html>
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <body>
+    <div id="app">
+      <p v-if="!hide">
+        <!--This element will only be displayed when the condition in that v-if is true-->
+        <!--If you change the value of this hide to true, the negated hide statement will become false, 
+          and the element will disappear-->
+        Let's play hide and seek. <br />
+        Go to the console and type: <br />
+        obj._data.hide = true <br />
+      </p>
+    </div>
+    <div id="custom-component">
+      <maaike></maaike>
+    </div>
+    <script>
+      let obj = new Vue({
+        el: "#app",
+        data: {
+          hide: false,
+        },
+      });
+      Vue.component("maaike", {
+        template: "<p>Maaike says: good job!</p>",
+      });
+      new Vue({ el: "#app" });
+    </script>
+  </body>
+</html>
+
+<!--In the preceding code, a new Vue component is created, and it can actually hold data and have a function too, 
+  but this one is very basic and just to illustrate we can add HTML templates in the template property-->
+
+<!--The content of one page can come from many files. Usually these components all have their own file. 
+  There is a lot more official Vue tooling that you will get to know once you dive into Vue.js-->
