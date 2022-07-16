@@ -1,0 +1,33 @@
+
+<!--
+    Angular is a framework that originates from and is (currently) maintained by Google. 
+    Angular is a lot heavier than Vue.js, but it can be considered a complete package. 
+    This means that Angular takes up more disk space, and more disk space usually means it is slower to compile and install. 
+    Looking at Angular code isn't really that much different from Vue.js. 
+
+    However, Angular uses TypeScript instead of JavaScript.
+    TypeScript is a superset of JavaScript and gets transpiled to JavaScript, 
+    but it is stricter and has a different syntax as well.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <ul>
+      <li ng-repeat="task in tasks">
+        {{task}}<span ng-click="deleteTask($index)">Done</span> <!--Angular can be recognized by the ng attributes in the HTML-->
+      </li>
+    </ul>
+    <script></script>
+  </body>
+</html>
+
+<!--
+    The ng-repeat attribute is specifying the repeat action that for every task on the task list, 
+    it should create a <li> element. And task can be used as a variable inside <li> as well, as indicated by {{ task }}
+
+    There's one more Angular-specific thing going on, 
+    ng-click, which tells Angular what to do when an element gets clicked. 
+    This is similar to the onclick event of JavaScript, but it can now be dynamically binded
+-->
