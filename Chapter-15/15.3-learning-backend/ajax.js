@@ -17,3 +17,23 @@ xhttp.load = function () {
 };
 xhttp.open("GET", url, true);
 xhttp.send();
+
+//This is not a working example, because there is no valid URL
+
+/*
+More common now is the use of the Fetch API for AJAX requests. 
+This is similar to what we can do with XMLHttpRequest but it provides a more flexible and powerful set of features
+*/
+
+//Below we get the data from the URL, convert it to JSON with the json() method, and output it to the console:
+
+let url1 = "some valid url";
+fetch(url1)
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+/*
+The Fetch API works with promises, which should look familiar at this point. 
+So after the promise is resolved, a new one gets created with then, and when that one is resolved, 
+the next then gets executed
+*/
