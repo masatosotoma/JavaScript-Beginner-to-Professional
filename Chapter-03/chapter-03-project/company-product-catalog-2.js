@@ -16,7 +16,7 @@ console.log(items[2].model);
 items[1].quantity = 35;
 console.log(items[1].quantity);
 
-//Add an element "size and 8K comaptible" to each object
+//Add properties "size and 8K comaptible" to each object
 items[0].size = "50 inch"
 items[1].size = "45 inch"
 items[2].size = "55 inch"
