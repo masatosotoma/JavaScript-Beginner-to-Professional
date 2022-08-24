@@ -5,15 +5,23 @@
   </head>
   <body>
     <script>
+      let randomNum = Math.floor(Math.random() * 100);
       let num = prompt("Enter any numer");
+      num = Number(num);
       console.log(num);
 
-      if (num > 100) {
-        console.log("You number:" + num + ". Your number is greater than 100");
-      } else if ((num = 100)) {
-        console.log("You number:" + num + ". Your number is equal to 100");
-      } else if (num < 100) {
-        console.log("You number:" + num + ". Your number is less than 100");
+      if (num > randomNum) {
+        console.log(
+          "You number:" + num + ". Your number is greater than " + randomNum
+        );
+      } else if (num === randomNum) {
+        console.log(
+          "You number:" + num + ". Your number is equal to " + randomNum
+        );
+      } else if (num < randomNum) {
+        console.log(
+          "You number:" + num + ". Your number is less than " + randomNum
+        );
       } else {
         console.log("It's not a number");
       }
