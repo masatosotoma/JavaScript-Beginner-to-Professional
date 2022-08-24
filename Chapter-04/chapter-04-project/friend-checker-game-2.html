@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Friend Checker Game 2</title>
+  </head>
+  <body>
+    <script>
+      let yourName = prompt("What are you?");
+      console.log(yourName);
+
+      switch (yourName) {
+        case "John":
+          alert("Hey Come in!");
+          console.log(yourName + " is allowed to enter");
+          break;
+        case "Sam":
+          alert("Hey What'sup?");
+          console.log(yourName + " is allowed to enter");
+        case "Sara":
+          alert("I was waiting for you!");
+          console.log(yourName + " is allowed to enter");
+        default:
+          alert("Who the hell are you? Go away!");
+          console.log(yourName + " is NOT allowed to enter");
+      }
+    </script>
+  </body>
+</html>
