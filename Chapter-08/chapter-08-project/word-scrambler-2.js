@@ -6,7 +6,11 @@ let answerWord = "CANADA";
 function takeString(word) {
   for (i = 0; i <= word.length; i++) {
     console.log(word.charAt(i) + " ");
+    i 
   }
 }
 
 takeString(answerWord);
+
+let randomNum = Math.floor(Math.random() * word.length)
+
