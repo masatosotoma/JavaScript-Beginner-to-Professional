@@ -10,9 +10,16 @@ function scrambleWord(word) {
   }
   console.log(defaultArray);
   let scrambled = [];
-  for (i = 0; i < word.length; i++) {
-    scrambled.push(defaultArray[Math.floor(Math.random() * i)]);
+  for (x = 0; x < word.length; x++) {
+    randomNum = Math.floor(Math.random() * (word.length * 10));
+    scrambled.push(defaultArray[randomNum]);
+    if (!scrambled[randomNum]) {
+      scrambled[randomNum] = word[x];
+    } else {
+      i--;
+    }
   }
+  scrambled.join("");
   console.log(scrambled);
 }
 
