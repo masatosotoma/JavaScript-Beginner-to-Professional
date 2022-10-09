@@ -18,7 +18,7 @@ let three = () => {
 and also use setTimeout() to invoke the first function immediately and then the third function.*/
 let four = () => {
   console.log("four");
-  setTimeout(one);
+  setTimeout(one,1000);
   three();
 };
 
