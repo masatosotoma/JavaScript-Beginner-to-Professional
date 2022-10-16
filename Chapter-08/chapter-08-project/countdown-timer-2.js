@@ -6,9 +6,10 @@ console.log(myBirthday);
 
 //Create a countdown function that will parse the endDate() and subtract the current date from that end date.
 function countDownTime() {
+  //convert a string representation of a date to a numeric value
   let timeLeft = Date.parse(myBirthday);
-  let endTime = endDate(myBirthday, timeLeft);
-  console.log(endTime);
+  console.log(timeLeft);
+  timeLeft = Math.floor(timeLeft);
   console.log(timeLeft);
 }
 
