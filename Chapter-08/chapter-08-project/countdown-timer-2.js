@@ -1,16 +1,37 @@
 //Create an end date that you want to count down to. Format it in a date type format within a string.
 
-let myBirthday = new Date("Sun Feb 05 2023 0:00:00 GMT-4");
-
+let myBirthday = new Date("Mon Oct 17 2022 0:00:00 GMT-4").getTime();
 console.log(myBirthday);
 
-//Create a countdown function that will parse the endDate() and subtract the current date from that end date.
-function countDownTime() {
-  //convert a string representation of a date to a numeric value
-  let timeLeft = Date.parse(myBirthday);
-  console.log(timeLeft);
-  timeLeft = Math.floor(timeLeft);
-  console.log(timeLeft);
-}
+//Create variable for doing setInterval that includes function of countdown
+let countDown = setInterval(function () {
+  //Create the current date
+  let now = new Date().getTime();
 
-countDownTime();
+  //To calculate the birthday - now
+  let howLongWait = myBirthday - now;
+  
+  //Get the days,hours,minutes,seconds left
+  let days = Math.floor(howLongWait / (1000 * 60 * 60 * 24));
+  let hours = Math.floor(
+    (howLongWait % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  let minutes = Math.floor((howLongWait % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((howLongWait % (1000 * 60)) / 1000);
+
+  //Log into console the countdown timer
+  console.log(
+    days +
+      "days, " +
+      hours +
+      "hours, " +
+      minutes +
+      "minutes, " +
+      seconds +
+      "seconds until my birthday."
+  );
+  if (howLongWait < 0) {
+    clearInterval(countDown);
+    console.log("Happy birthday!");
+  }
+}, 1000);
