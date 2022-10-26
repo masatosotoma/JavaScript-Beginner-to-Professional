@@ -16,11 +16,21 @@
     <script>
       //1. Select the element with the class output.
       let output = document.querySelector(".output");
+      console.log(output);
 
       /*2. Create another JavaScript object called mainList and select only the ul tag that is within the output element. 
         Update the ID of that ul tag to mainList*/
-      let manList = document.getElementsByTagName("ul");
-      manList.id = manList;
-    </script>
+       let id = document.getElementsByTagName("ul")[0];
+       id.setAttribute("id","manList")
+       console.log(id);
+
+       //3. Search for the tagName of each div, and output them into the console as an array.
+       let divs = [];
+       divs.push(document.getElementsByTagName("div"));
+       console.log(divs);
+
+       //4.Using a for loop, set the ID of each of the div tags to id with a numeric value of the order they appear within output
+
+    </script> 
   </body>
 </html>
