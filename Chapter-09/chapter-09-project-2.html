@@ -20,17 +20,24 @@
 
       /*2. Create another JavaScript object called mainList and select only the ul tag that is within the output element. 
         Update the ID of that ul tag to mainList*/
-       let id = document.getElementsByTagName("ul")[0];
-       id.setAttribute("id","manList")
-       console.log(id);
+      let id = document.getElementsByTagName("ul")[0];
+      id.setAttribute("id", "mainList");
+      console.log(id);
 
-       //3. Search for the tagName of each div, and output them into the console as an array.
-       let divs = [];
-       divs.push(document.getElementsByTagName("div"));
-       console.log(divs);
+      //3. Search for the tagName of each div, and output them into the console as an array.
+      let divs = document.querySelectorAll("div");
+      console.log(divs[0]);
 
-       //4.Using a for loop, set the ID of each of the div tags to id with a numeric value of the order they appear within output
-
-    </script> 
+      //4.Using a for loop, set the ID of each of the div tags to id with a numeric value of the order they appear within output
+      for (i = 0; i < divs.length; i++) {
+        divs[i].setAttribute("id", i);
+        //Still within the loop, alternate the color of the contents of each element in output to be red or blue.
+        if (i % 2 != 0) {
+          divs[i].style.color = "red"; //Change 'text' to red
+        } else {
+          divs[i].style.color = "blue"; //Change element's colour to blue other than 'text'
+        }
+      }
+    </script>
   </body>
 </html>
