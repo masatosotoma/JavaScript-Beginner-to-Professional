@@ -1,0 +1,38 @@
+Build a collapsing and expanding accordion component that will open
+pageelements, hiding and showing content when the title tab is clicked
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Tester</title>
+    <style>
+      .active {
+        display: block !important;
+      }
+      .myText {
+        display: none;
+      }
+      .title {
+        font-size: 1.5em;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Title #1</div>
+      <div class="myText">Just some text #1</div>
+      <div class="title">Title #2</div>
+      <div class="myText">Just some text #2</div>
+      <div class="title">Title #3</div>
+      <div class="myText">Just some text #3</div>
+    </div>
+    <script>
+        //Using querySelectorAll(), select all the elements with a class of title.
+        let titles = document.querySelectorAll(".title");
+        /*Using querySelectorAll(), select all the elements with a class of myText. 
+        This should be the same number of elements as the title elements.*/
+        let myText = document.querySelectorAll(".myText")
+    </script>
+  </body>
+</html>
