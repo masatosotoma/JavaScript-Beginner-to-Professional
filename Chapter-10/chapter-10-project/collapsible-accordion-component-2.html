@@ -34,20 +34,27 @@ pageelements, hiding and showing content when the title tab is clicked
         This should be the same number of elements as the title elements.*/
       let myText = document.querySelectorAll(".myText");
 
-
-
-        /*Iterate through all the title elements and add event listeners that,
+      /*Iterate through all the title elements and add event listeners that,
         once clicked, will select the next element siblings.*/
-      titles.forEach ((title)=>{
-        document.addEventListener("click",selectSiblings);
-        /*Select the element on the click action and toggle the classlist of the element with the class of active. 
+      titles.forEach((title) => {
+        title.addEventListener("click", (ele) => {
+          /*Select the element on the click action and toggle the classlist of the element with the class of active. 
         This will allow the user to click the element and hide and show the below content.*/
-        function selectSiblings(){
 
+          console.log(title.nextElementSibling);
+          collapseText();
+          //Select the element on the click action and toggle the classlist of the element with the class of active
+          title.nextElementSibling.classList.toggle("active");
+        });
+
+        //Add a function that will be invoked each time the elements are clicked that will remove the class of active from all the elements
+        function collapseText() {
+          myText.forEach((text) => {
+            text.classList.remove("active");
+          });
+          //This will hide all the elements with myText.
         }
-
-      })
-
+      });
     </script>
   </body>
 </html>
