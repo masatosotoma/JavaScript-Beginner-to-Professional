@@ -40,5 +40,18 @@ for (i = 0; i < employeeList.length; i++) {
       " Years: " +
       employeeList[i].years
   );
+
   employeeList[i].introduce();
 }
+
+employeeList.forEach((employee) => {
+  console.log(
+    "First: " +
+      employee.firstName +
+      " Last: " +
+      employee.lastName +
+      " Years: " +
+      employee.years
+  );
+  employee.introduce();
+});
