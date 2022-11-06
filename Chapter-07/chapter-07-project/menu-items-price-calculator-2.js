@@ -8,7 +8,7 @@ class menu {
   }
   calculateTotalCost() {
     return (
-      this.numOfItem1 * this.costOfItem1 + this.numOfItem2 * this.costOfItem2
+      (this.numOfItem1 * this.costOfItem1) + (this.numOfItem2 * this.costOfItem2)
     );
   }
   get total() {
@@ -16,9 +16,9 @@ class menu {
   }
 }
 
-let red = new menu(20, 10, 100, 150);
-let blue = new menu(200, 150, 11, 33);
-let green = new menu(125, 248, 18, 62);
+let red = new menu(20, 10, 100, 150);//1700
+let blue = new menu(200, 150, 11, 33);//30363
+let green = new menu(125, 248, 18, 62);//32116
 
 console.log(red.total);
 console.log(blue.total);
