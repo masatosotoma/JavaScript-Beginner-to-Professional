@@ -1,6 +1,6 @@
 //Create an end date that you want to count down to. Format it in a date type format within a string.
 
-let myBirthday = new Date("Mon Oct 17 2022 0:00:00 GMT-4").getTime();
+let myBirthday = new Date("Sun FEB 05 2023 0:00:00 GMT-4").getTime();
 console.log(myBirthday);
 
 //Create variable for doing setInterval that includes function of countdown
