@@ -29,12 +29,29 @@ class Motorcycle extends Vehicle {
   }
 }
 
+class Car extends Vehicle {
+  constructor(color, currentSpeed, maxSpeed, seat) {
+    super(color, currentSpeed, maxSpeed);
+    this.seat = seat;
+  }
+  availableSeat() {
+    console.log("Number of seats available: " + this.seat);
+  }
+}
+
 // Calling super() is not optional, you must do it when you are in a class that is inheriting from another class
 
 let motor = new Motorcycle("Black", 0, 250, "gasoline");
 console.log(motor.color);
 motor.accelerate(50);
 motor.move();
+
+let civic = new Car("White",50,140,5);
+console.log(civic);
+civic.move();
+civic.accelerate(30);
+civic.move()
+civic.availableSeat()
 
 // If there are getters and setters in the parent class, they are inherited by the child class as well.
 // This way you could influence which properties could be fetched and changed outside our class
