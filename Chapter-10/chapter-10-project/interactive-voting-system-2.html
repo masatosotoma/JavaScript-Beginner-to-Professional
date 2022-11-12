@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Complete JavaScript Course</title>
+    <title>Intractive Voting System</title>
   </head>
   <body>
     <div id="message">Complete JavaScript Course</div>
@@ -38,17 +38,24 @@
             Include 0 as a default for the vote count, as all individuals should start on zero votes.*/
 
       function buildTable() {
+        /*Create a main function that will create the page elements, 
+        starting with the parent table row, tr. Then create three table cell, td, elements.*/
         let table = "<table>";
         myArray.forEach((name, index, voteCount) => {
           voteCount = 0;
+          /*Add content to the table cells, including the vote count in the last column, 
+          the person name in the middle, and the index plus 1 in the first column.*/
           table += `<tr class="box"  data-name=${name} data-row="${
             index + 1
           }"><td >${index + 1}</td>`;
           table += `<td>${name}</td>`;
           table += `<td>${voteCount}</td></tr>`;
           table += "</table>";
+          /*Append the table cells to the table row and append the table row to the output area on the page*/
           output.innerHTML = table;
         });
+        //Add an event listener that will increase the vote counter for that row when the user clicks.
+        function voteCount();
       }
     </script>
   </body>
