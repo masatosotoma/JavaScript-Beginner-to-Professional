@@ -38,24 +38,36 @@
             Include 0 as a default for the vote count, as all individuals should start on zero votes.*/
 
       function buildTable() {
-        /*Create a main function that will create the page elements, 
+        /*Create a main function that will create the page elements,
         starting with the parent table row, tr. Then create three table cell, td, elements.*/
         let table = "<table>";
         myArray.forEach((name, index, voteCount) => {
           voteCount = 0;
-          /*Add content to the table cells, including the vote count in the last column, 
+          /*Add content to the table cells, including the vote count in the last column,
           the person name in the middle, and the index plus 1 in the first column.*/
           table += `<tr class="box"  data-name=${name} data-row="${
             index + 1
-          }"><td >${index + 1}</td>`;
+          }" data-count="${voteCount}"><td >${index + 1}</td>`;
           table += `<td>${name}</td>`;
-          table += `<td>${voteCount}</td></tr>`;
+          table += `<td id="voteCount">${voteCount}</td></tr>`;
           table += "</table>";
           /*Append the table cells to the table row and append the table row to the output area on the page*/
+
           output.innerHTML = table;
+          //Add an event listener that will increase the vote counter for that row when the user clicks.
+
+          /*Get the text content from the last column in the row.
+          It should be the value of the current counter.
+          Increment the counter by one and make sure the datatype is a number so you can add to it.
+          */
         });
-        //Add an event listener that will increase the vote counter for that row when the user clicks.
-        function voteCount();
+        countVote(table);
+      }
+
+      function countVote(table) {
+        let vote = document.getElementById("voteCount").onclick = () => {
+          vote.value++;
+        };
       }
     </script>
   </body>
