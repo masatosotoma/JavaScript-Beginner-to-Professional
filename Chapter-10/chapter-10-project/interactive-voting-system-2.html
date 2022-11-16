@@ -52,22 +52,22 @@
           table += `<td id="voteCount">${voteCount}</td></tr>`;
           table += "</table>";
           /*Append the table cells to the table row and append the table row to the output area on the page*/
-
           output.innerHTML = table;
           //Add an event listener that will increase the vote counter for that row when the user clicks.
-
+          countVote();
           /*Get the text content from the last column in the row.
           It should be the value of the current counter.
           Increment the counter by one and make sure the datatype is a number so you can add to it.
           */
         });
-        countVote(table);
-      }
 
-      function countVote(table) {
-        let vote = document.getElementById("voteCount").onclick = () => {
-          vote.value++;
-        };
+        function countVote() {
+          let td = document.getElementById("voteCount");
+          console.log(td);
+          td.onclick = () => {
+            td.innerHTML++;
+          };
+        }
       }
     </script>
   </body>
