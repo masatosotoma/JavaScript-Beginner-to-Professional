@@ -72,7 +72,7 @@
       //Create a function called builder() that can be used to build the game board.
       /*In the parameters, get the type of element, the parent that the new element will be appended to, 
       the output content for the new element, and a class to add to the new element.*/
-      function builder(typeEl, parentEl, outputCont, clsEl) {
+      function generatePages(typeEl, parentEl, outputCont, clsEl) {
         /*Using a temporary variable, create the element, add the class, 
         append to the parent, set the textContent, and return the element*/
         let temp = document.createElement(typeEl);
@@ -80,6 +80,20 @@
         temp.append(parentEl);
         temp.textContent = outputCont;
         return temp;
+      }
+      function builder() {
+        /*In the builder() function, which will also get invoked once startGame() is run, 
+        clear the innerHTML from the letters and puzzle page elements.*/
+        puzzle.innerHTML = "";
+        letters.innerHTML = "";
+        /*Iterate through the game solution array, getting each letter of the solution. 
+        Use the builder() function to generate page elements, 
+        add an output value of -, set a class, and append it to the main puzzle page element.*/
+
+        main.letters.forEach((letter) => {
+          let letter = element;
+          outputCont;
+        });
       }
     </script>
   </body>
