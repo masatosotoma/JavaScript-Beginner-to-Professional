@@ -91,8 +91,19 @@
         add an output value of -, set a class, and append it to the main puzzle page element.*/
 
         main.letters.forEach((letter) => {
-          let letter = element;
-          outputCont;
+          let divs = createElement("div", puzzle, "-", "boxE");
+          /*Check if the value is blank, and if it is, 
+          clear textContent and update the border to white. 
+          If it's not blank, increment the total 
+          so that it reflects the total number of letters that must be guessed. 
+          Push the new element into the game puzzle array.*/
+          if(letter===" "){
+            divs.textContent = " ";
+            divs.style.borderColor = "White"
+          }else {
+            mainGame.countLetters++;
+          }
+          mainGame.arr.push(divs)
         });
       }
     </script>
