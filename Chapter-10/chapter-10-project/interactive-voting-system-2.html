@@ -29,43 +29,46 @@
       document.getElementById("addNew").onclick = () => {
         let text = document.getElementById("addFriend").value;
         myArray.push(text);
-        console.log(myArray);
-        buildTable();
+
+        buildTable(myArray);
       };
 
       /*Run a function to build the content on the page,
             using the forEach() loop get all the items within the array and add them to the page.
             Include 0 as a default for the vote count, as all individuals should start on zero votes.*/
 
-      function buildTable() {
+      function buildTable(myArray) {
+        console.log(myArray);
+        let index = myArray.length - 1;
+        let name = myArray[index];
         /*Create a main function that will create the page elements,
         starting with the parent table row, tr. Then create three table cell, td, elements.*/
-        let table = "<table>";
-        myArray.forEach((name, index, voteCount) => {
-          /*Add content to the table cells, including the vote count in the last column,
+
+        /*Add content to the table cells, including the vote count in the last column,
           the person name in the middle, and the index plus 1 in the first column.*/
-          table += `<tr class="box"  data-name=${name} data-row="${
-            index + 1
-          }" data-count="${voteCount}"><td >${index + 1}</td>`;
-          table += `<td>${name}</td>`;
-          table += `<td id="voteCount">0</td></tr>`;
-          table += "</table>";
-          /*Append the table cells to the table row and append the table row to the output area on the page*/
-          output.innerHTML = table;
-          let rows = document.querySelector("tr");
-          //Add an event listener that will increase the vote counter for that row when the user clicks.
-          /*Get the text content from the last column in the row.
+        let row = `<tr class="box" id="${index + 1}">`;
+        row += `<td >${index + 1}</td>`;
+        row += `<td>${name}</td>`;
+        row += `<td>0</td></tr>`;
+        /*Append the table cells to the table row and append the table row to the output area on the page*/
+        //Add an event listener that will increase the vote counter for that row when the user clicks.
+        /*Get the text content from the last column in the row.
           It should be the value of the current counter.
           Increment the counter by one and make sure the datatype is a number so you can add to it.
           */
-          rows.onclick = () => {
-            let val = Number(rows.lastChild.textContent);
-            val++;
-            //9. Update the last column with the new click counter
-            rows.lastChild.textContent = val;
-          };
-          output.appendChild(rows);
-        });
+        output.innerHTML += row;
+        output.rows[index].onclick = () => {
+          console.log(output.rows[index]);
+        };
+
+        // console.log(currentTable);
+        // currentTable.onclick = (pointerEvent) => {
+        //   // let val = Number(pointerEvent.target.innerHTML);
+        //   // val++;
+        //   // //9. Update the last column with the new click counter
+        //   // pointerEvent.target.innerHTML = val;
+        // };
+        // output.appendChild(rows);
       }
     </script>
   </body>
