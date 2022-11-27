@@ -97,14 +97,32 @@
           If it's not blank, increment the total 
           so that it reflects the total number of letters that must be guessed. 
           Push the new element into the game puzzle array.*/
-          if(letter===" "){
+          if (letter === " ") {
             divs.textContent = " ";
-            divs.style.borderColor = "White"
-          }else {
+            divs.style.borderColor = "White";
+          } else {
             mainGame.countLetters++;
           }
-          mainGame.arr.push(divs)
+          mainGame.arr.push(divs);
+
+          /*Create a new function to update the score so that you can output the current number of letters left. 
+          Add it to the builder() function.*/
+          updateScore();
         });
+      }
+
+      function updateScore(){
+        /*Create a loop to represent the 26 letters of the alphabet. 
+        You can generate the letter by using an array containing all the letters. 
+        The string method fromCharCode() will return the character from the numeric representation*/
+
+
+        for (let i; i<26;i++){
+          let alphabets = String.fromCharCode()
+          fromCharCode()
+        }
+
+
       }
     </script>
   </body>
