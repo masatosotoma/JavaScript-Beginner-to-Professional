@@ -152,6 +152,18 @@
           }
         });
       }
+
+      /*In the updatescore() function, set the score to the number of letters left.
+      If the total left is less than or equal to zero, the game is over.
+      Show the button so that the player has an option for the next phrase.*/
+      function updateScore() {
+        score.textContent = `the total left ${mainGame.countLetters}`;
+        if (mainGame.countLetters <= 0) {
+          console.log("Game is over");
+          score.textContent = "Game Over";
+          btn.style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
