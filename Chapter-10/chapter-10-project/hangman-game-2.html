@@ -32,15 +32,15 @@
       //1.Set up an array that contains some words or phrases that you want to use in the game
       let word = [];
       //create a main game object containing a property
-      let mainGame = {
+      let game = {
         //contain the current word solution
-        solution: "",
+        current: "",
         //contain the array of letters of the solution.
-        letters: "",
+        solution: "",
         /*create an array to contain the page elements and correspond with the values of the index values of each letter from the solution,*/
-        arr: [],
+        puzzle: [],
         //add a property to count the number of letters left to solve and end the game when needed.
-        countLetters: 0,
+        total: 0,
       };
       //Select all the page elements into variables so they are easier to access in the code.
       let score = document.querySelector(".score");
@@ -58,13 +58,13 @@
           //If it does, then hide the button by setting the .display object to none.
           button.style.display = "none";
           //Clear the game contents and set the total to 0
-          mainGame.arr = [];
-          mainGame.countLetters = 0;
+          game.puzzle = [];
+          game.total = 0;
           /*Within the current word in the game object,
                 assign a value which should be the response of shift() from the array containing the in-game words*/
-          mainGame.solution = word.shift();
+          game.current = word.shift();
           //convert the string into an array of all the characters in the word solution using split().
-          main.letters = mainGame.solution.split();
+          main.letters = game.current.split();
           //Invoke the builder function within the startGame() function once all the game values are cleared and set.
           builder();
         }
@@ -101,9 +101,9 @@
             divs.textContent = " ";
             divs.style.borderColor = "White";
           } else {
-            mainGame.countLetters++;
+            game.total++;
           }
-          mainGame.arr.push(divs);
+          game.puzzle.push(divs);
 
           /*Create a new function to update the score so that you can output the current number of letters left.
                 Add it to the builder() function.*/
@@ -141,13 +141,13 @@
       function checkLetter(letter) {
         console.log(letter);
         //Make sure to convert the inputted letter to uppercase so that you can match the letters accurately
-        mainGame.letters.forEach((ele, index) => {
+        game.solution.forEach((ele, index) => {
           if (ele.toUpperCas() == letter) {
             /*The index values will be the same on each,
                 which provides an easy way to match the visual representation with what is in the array.*/
-            mainGame.arr[index].textContent = letter;
+            game.puzzle[index].textContent = letter;
             //Subtract one from the game global object that tracks the total letters left to be solved
-            mainGame.countLetters--;
+            game.total--;
             updateScore();
           }
         });
@@ -157,8 +157,8 @@
       If the total left is less than or equal to zero, the game is over.
       Show the button so that the player has an option for the next phrase.*/
       function updateScore() {
-        score.textContent = `the total left ${mainGame.countLetters}`;
-        if (mainGame.countLetters <= 0) {
+        score.textContent = `the total left ${game.total}`;
+        if (game.total <= 0) {
           console.log("Game is over");
           score.textContent = "Game Over";
           btn.style.display = "block";
