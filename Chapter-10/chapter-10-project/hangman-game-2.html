@@ -64,20 +64,22 @@
                 assign a value which should be the response of shift() from the array containing the in-game words*/
           game.current = word.shift();
           //convert the string into an array of all the characters in the word solution using split().
-          game.letters = game.current.split();
+          game.letters = game.current.split("");
           //Invoke the builder function within the startGame() function once all the game values are cleared and set.
           builder();
+        } else {
+          score.textContent = "No more words";
         }
       }
       //Create a function called builder() that can be used to build the game board.
       /*In the parameters, get the type of element, the parent that the new element will be appended to,
             the output content for the new element, and a class to add to the new element.*/
-      function generatePages(typeEl, parentEl, outputCont, clsEl) {
+      function createElement(typeEl, parentEl, outputCont, clsEl) {
         /*Using a temporary variable, create the element, add the class,
               append to the parent, set the textContent, and return the element*/
-        let temp = document.createElement(typeEl);
-        temp.classList("clsEl");
-        temp.append(parentEl);
+        const temp = document.createElement(typeEl);
+        temp.classList.add("clsEl");
+        parentEl.append(parentEl);
         temp.textContent = outputCont;
         return temp;
       }
