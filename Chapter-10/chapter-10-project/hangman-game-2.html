@@ -30,7 +30,7 @@
     </div>
     <script>
       //1.Set up an array that contains some words or phrases that you want to use in the game
-      let word = [];
+      const word = ["Javascript"];
       //create a main game object containing a property
       let game = {
         //contain the current word solution
@@ -50,7 +50,7 @@
 
       /*Add an event listener to the Start Game button, making it clickable,
             and when it gets clicked it should launch a function called startGame().*/
-      button.addEventListener("click", startGame());
+      button.addEventListener("click", startGame);
 
       //check if the words array has any words left
       function startGame() {
@@ -64,7 +64,7 @@
                 assign a value which should be the response of shift() from the array containing the in-game words*/
           game.current = word.shift();
           //convert the string into an array of all the characters in the word solution using split().
-          main.letters = game.current.split();
+          game.letters = game.current.split();
           //Invoke the builder function within the startGame() function once all the game values are cleared and set.
           builder();
         }
