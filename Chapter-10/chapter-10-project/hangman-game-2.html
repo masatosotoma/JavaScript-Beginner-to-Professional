@@ -32,19 +32,19 @@
       //1.Set up an array that contains some words or phrases that you want to use in the game
       const word = ["Javascript"];
       //create a main game object containing a property
-      let game = {
+      const game = {
         //contain the current word solution
         current: "",
         //contain the array of letters of the solution.
         solution: "",
         /*create an array to contain the page elements and correspond with the values of the index values of each letter from the solution,*/
-        puzzle: [],
+        puzz: [],
         //add a property to count the number of letters left to solve and end the game when needed.
         total: 0,
       };
       //Select all the page elements into variables so they are easier to access in the code.
       let score = document.querySelector(".score");
-      let puzzle = document.querySelector("puzzle");
+      let puzzle = document.querySelector(".puzzle");
       let letters = document.querySelector(".letters");
       let button = document.querySelector("button");
 
@@ -58,7 +58,7 @@
           //If it does, then hide the button by setting the .display object to none.
           button.style.display = "none";
           //Clear the game contents and set the total to 0
-          game.puzzle = [];
+          game.puzz = [];
           game.total = 0;
           /*Within the current word in the game object,
                 assign a value which should be the response of shift() from the array containing the in-game words*/
@@ -92,28 +92,25 @@
               Use the builder() function to generate page elements,
               add an output value of -, set a class, and append it to the main puzzle page element.*/
 
-        main.letters.forEach((letter) => {
+        game.solution.forEach((letter) => {
           let divs = createElement("div", puzzle, "-", "boxE");
           /*Check if the value is blank, and if it is,
                 clear textContent and update the border to white.
                 If it's not blank, increment the total
                 so that it reflects the total number of letters that must be guessed.
                 Push the new element into the game puzzle array.*/
-          if (letter === " ") {
+          if (letter == " ") {
             divs.textContent = " ";
             divs.style.borderColor = "White";
           } else {
             game.total++;
           }
-          game.puzzle.push(divs);
+          game.puzz.push(divs);
 
           /*Create a new function to update the score so that you can output the current number of letters left.
                 Add it to the builder() function.*/
           updateScore();
         });
-      }
-
-      function updateScore() {
         /*Create a loop to represent the 26 letters of the alphabet.
               You can generate the letter by using an array containing all the letters.
               The string method fromCharCode() will return the character from the numeric representation*/
@@ -147,7 +144,7 @@
           if (ele.toUpperCas() == letter) {
             /*The index values will be the same on each,
                 which provides an easy way to match the visual representation with what is in the array.*/
-            game.puzzle[index].textContent = letter;
+            game.puzz[index].textContent = letter;
             //Subtract one from the game global object that tracks the total letters left to be solved
             game.total--;
             updateScore();
