@@ -64,7 +64,7 @@
                 assign a value which should be the response of shift() from the array containing the in-game words*/
           game.current = word.shift();
           //convert the string into an array of all the characters in the word solution using split().
-          game.letters = game.current.split("");
+          game.solution = game.current.split("");
           //Invoke the builder function within the startGame() function once all the game values are cleared and set.
           builder();
         } else {
@@ -79,10 +79,23 @@
               append to the parent, set the textContent, and return the element*/
         const temp = document.createElement(typeEl);
         temp.classList.add("clsEl");
-        parentEl.append(parentEl);
+        parentEl.append(temp);
         temp.textContent = outputCont;
         return temp;
       }
+
+      /*In the updatescore() function, set the score to the number of letters left.
+      If the total left is less than or equal to zero, the game is over.
+      Show the button so that the player has an option for the next phrase.*/
+      function updateScore() {
+        score.textContent = `the total left ${game.total}`;
+        if (game.total <= 0) {
+          console.log("Game is over");
+          score.textContent = "Game Over";
+          btn.style.display = "block";
+        }
+      }
+
       function builder() {
         /*In the builder() function, which will also get invoked once startGame() is run,
               clear the innerHTML from the letters and puzzle page elements.*/
@@ -115,8 +128,8 @@
               You can generate the letter by using an array containing all the letters.
               The string method fromCharCode() will return the character from the numeric representation*/
 
-        for (let i; i < 26; i++) {
-          let alphabets = String.fromCharCode(65 + i);
+        for (let i = 0; i < 26; i++) {
+          let temp = String.fromCharCode(65 + i);
           /*Create elements for each letter,
                 adding a class of box and appending it to the letters page element.
                 As each element gets created, add an event listener that runs a function called checker().*/
@@ -125,14 +138,16 @@
             /*Once the letter gets clicked, we need to invoke the checker() function,
                   which will remove the main class, add another class, remove the event listener,
                   and update the background color.*/
+            div.style.backgroundColor = "#ddd";
             div.classList.remove("box");
             div.classList.add("box");
-            div.style.backGroundColor("#ddd");
+
             div.removeEventListener("click", checker);
+            checkLetter(temp);
           };
           /*Also invoke a function called checkLetter(),
                   passing the value of the clicked letter into the argument*/
-          div.addEventListener("click", checkLetter);
+          div.addEventListener("click", checker);
         }
       }
       /*The checkLetter() function will loop through all the solution letters.
@@ -141,7 +156,7 @@
         console.log(letter);
         //Make sure to convert the inputted letter to uppercase so that you can match the letters accurately
         game.solution.forEach((ele, index) => {
-          if (ele.toUpperCas() == letter) {
+          if (ele.toUpperCase() == letter) {
             /*The index values will be the same on each,
                 which provides an easy way to match the visual representation with what is in the array.*/
             game.puzz[index].textContent = letter;
@@ -150,18 +165,6 @@
             updateScore();
           }
         });
-      }
-
-      /*In the updatescore() function, set the score to the number of letters left.
-      If the total left is less than or equal to zero, the game is over.
-      Show the button so that the player has an option for the next phrase.*/
-      function updateScore() {
-        score.textContent = `the total left ${game.total}`;
-        if (game.total <= 0) {
-          console.log("Game is over");
-          score.textContent = "Game Over";
-          btn.style.display = "block";
-        }
       }
     </script>
   </body>
