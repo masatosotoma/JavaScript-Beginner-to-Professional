@@ -12,6 +12,22 @@
       <div id="two" class="box">2</div>
       <div id="three" class="box">3</div>
     </div>
-    <script></script>
+    <script>
+      /*Set up your JavaScript code to contain an array that you can use for tracking,
+        adding details from each click into it.*/
+      let main = [];
+      main.push(document.getElementById("one"));
+      main.push(document.getElementById("two"));
+      main.push(document.getElementById("three"));
+
+      main.forEach((ele) => {
+        ele.addEventListener("click",tracking());
+      });
+
+      function tracking(ele){
+        console.log("ele");
+      }
+      console.log(main);
+    </script>
   </body>
 </html>
