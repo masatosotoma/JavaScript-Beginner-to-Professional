@@ -2,32 +2,55 @@
 <html>
   <head>
     <title>Build Your Own Analytics #2</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <!--Create a main container element within your HTML-->
     <!--Add four elements inside the main element, 
         each having a class of box and a unique ID with unique text content.-->
-    <div id="main">
+    <div class="main">
       <div id="one" class="box">1</div>
       <div id="two" class="box">2</div>
       <div id="three" class="box">3</div>
+      <div id="four" class="box">4</div>
     </div>
     <script>
       /*Set up your JavaScript code to contain an array that you can use for tracking,
         adding details from each click into it.*/
+      /*Select the main container element as a variable object in your code.*/
       let main = [];
       main.push(document.getElementById("one"));
       main.push(document.getElementById("two"));
       main.push(document.getElementById("three"));
+      main.push(document.getElementById("four"));
 
       main.forEach((ele) => {
-        ele.addEventListener("click",tracking());
+        //Add an event listener to capture clicks on the element.
+        ele.addEventListener("click", tracking);
       });
 
-      function tracking(ele){
-        console.log("ele");
+      function tracking(e) {
+        let el = e.target;
+        /*Create a function to handle the clicks. Get the target element from the eventobject.*/
+        /*Check if the element has an ID, so that you don't track clicks on the main container.*/
+        if (el.id) {
+          /*Set up an object to track the values; include the element textContent, id, tagName, and className*/
+          let trackObj = {};
+          trackObj.content = el.textContent;
+          trackObj.id = el.id;
+          trackObj.tagName = el.tagName;
+          trackObj.className = el.className;
+          //Add the temporary object to your tracking array.
+          main.push(trackObj);
+          console.log(main);
+        }
       }
-      console.log(main);
     </script>
   </body>
 </html>
