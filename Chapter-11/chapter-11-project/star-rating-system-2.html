@@ -32,11 +32,14 @@
     <script>
       /*Select all the stars within the ul that have a class of stars into an object, 
         and create another object for the output element.*/
-      let stars = document.querySelector(".star");
+      let starList = document.querySelector(".stars");
       let output = document.querySelector(".output");
-
+      console.log(starList);
+      console.log(output);
       /*Create another object to contain the results of calling 
         querySelectorAll() on elements with a class of star*/
+      let star = document.querySelectorAll(".star");
+      console.log(star);
     </script>
   </body>
 </html>
