@@ -30,16 +30,41 @@
     </ul>
     <div class="output"></div>
     <script>
-      /*Select all the stars within the ul that have a class of stars into an object, 
+      /*Select all the stars within the ul that have a class of stars into an object,
         and create another object for the output element.*/
       let starList = document.querySelector(".stars");
       let output = document.querySelector(".output");
       console.log(starList);
       console.log(output);
-      /*Create another object to contain the results of calling 
+      /*Create another object to contain the results of calling
         querySelectorAll() on elements with a class of star*/
-      let star = document.querySelectorAll(".star");
-      console.log(star);
+      let stars = document.querySelectorAll(".star");
+      console.log(stars);
+
+      /*Loop through the resulting node list,
+      adding to the element object the value of the index plus 1,
+      and adding an event listener listening for a click.
+      Attach a function called starRate() to the click event of each star element.*/
+
+      stars.forEach((star, index) => {
+        star.value = index + 1;
+        star.addEventListener("click", starRate);
+      });
+      /*Within the starRate() function, add to the output the value of the star using the event target
+      and the element object's star value, which was set in the previous step.*/
+      function starRate(event) {
+        output.innerHTML = `Your star rating is ${event.target.value}`;
+        /*Loop through all the stars using forEach() to check 
+        if the index value of the star element is less than the star value; 
+        if it is, apply a class of orange. Otherwise, remove the class of orange from the classList element*/
+        stars.forEach((star, index) => {
+          if (index < event.target.value) {
+            star.classList.add("orange");
+          } else {
+            star.classList.remove("orange");
+          }
+        });
+      }
     </script>
   </body>
 </html>
