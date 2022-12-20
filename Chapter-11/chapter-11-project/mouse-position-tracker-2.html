@@ -18,11 +18,11 @@
     <div class="page"></div>
     <div id="output"></div>
     <script>
-      let page = document.getElementsByClassName("page");
+      let page = document.querySelector(".page");
       /*Select the main container element and add event listeners to it. Listen for mouseover, mouseout, and mousemove. */
-      page.addEventListner("mouseover",turnActive);
-      page.addEventListner("mouseout",removeActive);
-      page.addEventListner("mousemove",trackEvent);
+      page.addEventListner("mouseover", turnActive);
+      page.addEventListner("mouseout", removeActive);
+      page.addEventListner("mousemove", trackEvent);
     </script>
   </body>
 </html>
