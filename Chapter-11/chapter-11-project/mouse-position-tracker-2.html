@@ -9,8 +9,11 @@
         background-color: red;
       }
       .page {
-        height: 100px;
-        width: 100px;
+        display: inline-block;
+        height: 300px;
+        width: 300px;
+        border: 1px solid black;
+        padding: 10px;
       }
     </style>
   </head>
@@ -20,14 +23,19 @@
     <script>
       let page = document.querySelector(".page");
       /*Select the main container element and add event listeners to it. Listen for mouseover, mouseout, and mousemove. */
-      page.addEventListner("mouseover", (e) =>{
-        e.target.classList.add("active")
-      });
-      page.addEventListner("mouseout", (e)=>{
-        e.target.classList.remove("active")
-      });
-      page.addEventListner("mousemove", trackEvent);
       //On mouseover, add the active class, and on mouseout, remove the active class
+      page.addEventListner("mouseover", (e) => {
+        e.target.classList.add("active");
+      });
+      page.addEventListner("mouseout", (e) => {
+        e.target.classList.remove("active");
+      });
+      /*On mousemove, call a function that tracks the event element clientX and clientY positions, 
+      embeds them in a human-readable sentence, and outputs it into the output element*/
+      page.addEventListner("mousemove", () => {
+        let html = "X:" + event.clientX + " | Y:" + event.clientY;
+        document.getElementById("output").innterHTML = html;
+      });
     </script>
   </body>
 </html>
