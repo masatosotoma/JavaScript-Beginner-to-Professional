@@ -20,9 +20,14 @@
     <script>
       let page = document.querySelector(".page");
       /*Select the main container element and add event listeners to it. Listen for mouseover, mouseout, and mousemove. */
-      page.addEventListner("mouseover", turnActive);
-      page.addEventListner("mouseout", removeActive);
+      page.addEventListner("mouseover", (e) =>{
+        e.target.classList.add("active")
+      });
+      page.addEventListner("mouseout", (e)=>{
+        e.target.classList.remove("active")
+      });
       page.addEventListner("mousemove", trackEvent);
+      //On mouseover, add the active class, and on mouseout, remove the active class
     </script>
   </body>
 </html>
