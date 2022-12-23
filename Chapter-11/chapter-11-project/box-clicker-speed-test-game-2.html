@@ -28,6 +28,22 @@
   <body>
     <div class="output"></div>
     <div class="message"></div>
-    <script></script>
+    <script>
+      /*There are two div elements, one with a class of output for the gameplay area 
+      and another with a class of message to provide instructions to the player. 
+      Select those main elements as objects using JavaScript.*/
+
+      let output = document.querySelector("#output");
+      let message = document.querySelector("#message");
+
+      /*Using JavaScript, create another element within the output element, 
+      and create a div that will be the main clickable object. 
+      Attach a style called box to the new element and append it to the output element.*/
+
+      let clickable = document.createElement("div");
+      clickable.style = "box";
+      console.log(clickable);
+      document.output.appendChild(clickable);
+    </script>
   </body>
 </html>
