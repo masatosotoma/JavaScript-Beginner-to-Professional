@@ -33,7 +33,7 @@
       and another with a class of message to provide instructions to the player. 
       Select those main elements as objects using JavaScript.*/
 
-      let output = document.querySelector("#output");
+      let output = document.getElementsByClassName("output");
       let message = document.querySelector("#message");
 
       /*Using JavaScript, create another element within the output element, 
@@ -44,6 +44,12 @@
       clickable.style = "box";
       console.log(clickable);
       document.output.appendChild(clickable);
+
+      /*Create a global object called game to track the timer and the start time values. 
+      This is to be used to calculate the duration in seconds 
+      between when the element is shown and when the player clicks it. Set start to null.*/
+
+      var game = { start: null, timer: 0 };
     </script>
   </body>
 </html>
