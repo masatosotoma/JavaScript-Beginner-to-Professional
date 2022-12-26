@@ -33,8 +33,8 @@
       and another with a class of message to provide instructions to the player. 
       Select those main elements as objects using JavaScript.*/
 
-      let output = document.getElementsByClassName("output");
-      let message = document.querySelector("#message");
+      let output = document.querySelector(".output");
+      let message = document.querySelector(".message");
 
       /*Using JavaScript, create another element within the output element, 
       and create a div that will be the main clickable object. 
@@ -57,8 +57,19 @@
       function generateRandom(maxVal) {
         let randomNum = Math.floor(Math.random() * maxVal);
         console.log(randomNum);
+        return randomNum;
       }
       generateRandom(100);
+
+      /*Add an event listener to the box element. Once clicked, 
+      this should start the gameplay. Set the display of the box element to none.*/
+
+      clickable.addEventListener("click", startGame);
+
+      /*Using the setTimeout() method, invoke a function called addBox() 
+      and set the timeout to a random millisecond value.*/
+
+      setTimeout(addBox(), generateRandom());
     </script>
   </body>
 </html>
