@@ -29,33 +29,33 @@
     <div class="output"></div>
     <div class="message"></div>
     <script>
-      /*There are two div elements, one with a class of output for the gameplay area 
-      and another with a class of message to provide instructions to the player. 
-      Select those main elements as objects using JavaScript.*/
+      /*There are two div elements, one with a class of output for the gameplay area
+       and another with a class of message to provide instructions to the player.
+       Select those main elements as objects using JavaScript.*/
 
       let output = document.querySelector(".output");
       let message = document.querySelector(".message");
 
-      /*Using JavaScript, add to the message area instructions for the user:  
-      Press to Start. They will need to click the newly created div with a class of box to start the game.*/
+      /*Using JavaScript, add to the message area instructions for the user:
+       Press to Start. They will need to click the newly created div with a class of box to start the game.*/
       message.textContent = "Press Start";
 
-      /*Using JavaScript, create another element within the output element, 
-      and create a div that will be the main clickable object. 
-      Attach a style called box to the new element and append it to the output element.*/
+      /*Using JavaScript, create another element within the output element,
+       and create a div that will be the main clickable object.
+       Attach a style called box to the new element and append it to the output element.*/
 
       let box = document.createElement("div");
       box.classList.add("box");
-      output.append(box)
+      output.append(box);
 
-      /*Create a global object called game to track the timer and the start time values. 
-      This is to be used to calculate the duration in seconds 
-      between when the element is shown and when the player clicks it. Set start to null.*/
+      /*Create a global object called game to track the timer and the start time values.
+       This is to be used to calculate the duration in seconds
+       between when the element is shown and when the player clicks it. Set start to null.*/
 
-      let game = { start: null, timer: 0 };
+      var game = { start: null, timer: 0 };
 
-      /*Create a function that will generate a random number and return a random value, 
-      with the argument being the maximum value you want to use.*/
+      /*Create a function that will generate a random number and return a random value,
+       with the argument being the maximum value you want to use.*/
 
       function generateRandom(maxVal) {
         let randomNum = Math.floor(Math.random() * maxVal);
@@ -63,17 +63,37 @@
         return randomNum;
       }
 
-      /*Add an event listener to the box element. Once clicked, 
-      this should start the gameplay. Set the display of the box element to none.*/
+      /*Add an event listener to the box element. Once clicked,
+       this should start the gameplay. Set the display of the box element to none.*/
 
-      box.addEventListener("click", ()=>{
+      box.addEventListener("click", () => {
         box.textContent = "none";
       });
 
-      /*Using the setTimeout() method, invoke a function called addBox() 
-      and set the timeout to a random millisecond value.*/
+      /*Using the setTimeout() method, invoke a function called addBox()
+       and set the timeout to a random millisecond value.*/
 
-      setTimeout(addBox(), generateRandom());
+      setTimeout(addBox(), generateRandom(100));
+
+      function addBox() {
+        /*If the start value is null, then add text content to the message area of loading.*/
+        /*If start has a value, then get the Unix time value using getTime() of the current date object*/
+        if ((game.start = null)) {
+          box.textContent = "Loading";
+        } else if (game.start != null && undefined) {
+          let date = new Date();
+          date.getTime();
+          /*subtract the game start time from the current time value in milliseconds,
+           and then divide by 1,000 to get the value in seconds*/
+          let seconds = (game.start - date) / 1000;
+          //Output the result to the message element for the player to see their score.
+          output.textContent = seconds;
+        } else {
+          console.log("Error");
+        }
+        //Create a function to handle the clicks, adding the box once the timer is up.
+        
+      }
     </script>
   </body>
 </html>
