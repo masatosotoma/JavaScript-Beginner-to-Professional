@@ -52,43 +52,38 @@
        This is to be used to calculate the duration in seconds
        between when the element is shown and when the player clicks it. Set start to null.*/
 
-      var game = { start: null, timer: 0 };
+      const game = { start: null, timer: 0 };
 
       /*Create a function that will generate a random number and return a random value,
        with the argument being the maximum value you want to use.*/
 
       function generateRandom(maxVal) {
-        let randomNum = Math.floor(Math.random() * maxVal);
-        console.log(randomNum);
-        return randomNum;
+        return Math.floor(Math.random() * maxVal);
       }
 
       /*Add an event listener to the box element. Once clicked,
        this should start the gameplay. Set the display of the box element to none.*/
 
       box.addEventListener("click", (e) => {
-        message.textContent = "";
-      });
-
-      /*Using the setTimeout() method, invoke a function called addBox()
+        box.textContent = "";
+        /*Using the setTimeout() method, invoke a function called addBox()
        and set the timeout to a random millisecond value.*/
 
-      game.timer = setTimeout(addBox, generateRandom(5000));
+        game.timer = setTimeout(addBox, generateRandom(5000));
 
-      /*If the start value is null, then add text content to the message area of loading.*/
-      /*If start has a value, then get the Unix time value using getTime() of the current date object*/
-      if (!game.start) {
-        message.textContent = "Loading...";
-      } else if (game.start != null && undefined) {
-        let now = new Date().getTime();
-        /*subtract the game start time from the current time value in milliseconds,
-           and then divide by 1,000 to get the value in seconds*/
-        let seconds = (now - game.start) / 1000;
-        //Output the result to the message element for the player to see their score.
-        message.textContent = `It took ${seconds} seconds to click`;
-      } else {
-        console.log("Error");
-      }
+        /*If the start value is null, then add text content to the message area of loading.*/
+        /*If start has a value, then get the Unix time value using getTime() of the current date object*/
+        if (!game.start) {
+          message.textContent = "Loading...";
+        } else {
+          let now = new Date().getTime();
+          /*subtract the game start time from the current time value in milliseconds,
+     and then divide by 1,000 to get the value in seconds*/
+          let seconds = (now - game.start) / 1000;
+          //Output the result to the message element for the player to see their score.
+          message.textContent = `It took ${seconds} seconds to click`;
+        }
+      });
 
       //Create a function to handle the clicks, adding the box once the timer is up.
       function addBox() {
