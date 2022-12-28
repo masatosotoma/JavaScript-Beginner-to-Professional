@@ -67,7 +67,7 @@
        this should start the gameplay. Set the display of the box element to none.*/
 
       box.addEventListener("click", () => {
-        box.textContent = "none";
+        message.textContent = "none";
       });
 
       /*Using the setTimeout() method, invoke a function called addBox()
@@ -79,7 +79,7 @@
         /*If the start value is null, then add text content to the message area of loading.*/
         /*If start has a value, then get the Unix time value using getTime() of the current date object*/
         if ((game.start = null)) {
-          box.textContent = "Loading";
+          message.textContent = "Loading";
         } else if (game.start != null && undefined) {
           let date = new Date();
           date.getTime();
@@ -87,13 +87,21 @@
            and then divide by 1,000 to get the value in seconds*/
           let seconds = (game.start - date) / 1000;
           //Output the result to the message element for the player to see their score.
-          output.textContent = seconds;
+          message.textContent = seconds;
         } else {
           console.log("Error");
         }
-        //Create a function to handle the clicks, adding the box once the timer is up.
-        
       }
+
+      //Create a function to handle the clicks, adding the box once the timer is up.
+      box.addEventListener("click", () => {
+        message.textContent = "Click it...";
+        game.start = seconds;
+        box.style = "block";
+      });
+
+      /*From the available space (500 total container width minus the 50 box width) 
+      set a random position above and to the left of the element using the Math.random().*/
     </script>
   </body>
 </html>
