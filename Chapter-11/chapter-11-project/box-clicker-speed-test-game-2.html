@@ -44,8 +44,8 @@
       and create a div that will be the main clickable object. 
       Attach a style called box to the new element and append it to the output element.*/
 
-      let clickable = document.createElement("div");
-      clickable.classList.add("box");
+      let box = document.createElement("div");
+      box.classList.add("box");
       output.append(box)
 
       /*Create a global object called game to track the timer and the start time values. 
@@ -62,13 +62,12 @@
         console.log(randomNum);
         return randomNum;
       }
-      generateRandom(100);
 
       /*Add an event listener to the box element. Once clicked, 
       this should start the gameplay. Set the display of the box element to none.*/
 
-      clickable.addEventListener("click", ()=>{
-        clickable.textContent = "none";
+      box.addEventListener("click", ()=>{
+        box.textContent = "none";
       });
 
       /*Using the setTimeout() method, invoke a function called addBox() 
