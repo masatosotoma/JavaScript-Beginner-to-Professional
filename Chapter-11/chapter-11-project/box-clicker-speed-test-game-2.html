@@ -97,11 +97,14 @@
       box.addEventListener("click", () => {
         message.textContent = "Click it...";
         game.start = seconds;
-        box.style = "block";
+        box.style.display = "block";
       });
 
       /*From the available space (500 total container width minus the 50 box width) 
       set a random position above and to the left of the element using the Math.random().*/
+
+      box.style.left = randomNum(450) + "px"
+      box.style.top = randomNum(450) + "px"
     </script>
   </body>
 </html>
