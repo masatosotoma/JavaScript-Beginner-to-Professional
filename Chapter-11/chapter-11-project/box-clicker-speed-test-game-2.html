@@ -66,14 +66,14 @@
       /*Add an event listener to the box element. Once clicked,
        this should start the gameplay. Set the display of the box element to none.*/
 
-      box.addEventListener("click", () => {
-        message.textContent = "none";
+      box.addEventListener("click", (e) => {
+        message.textContent = "";
       });
 
       /*Using the setTimeout() method, invoke a function called addBox()
        and set the timeout to a random millisecond value.*/
 
-      setTimeout(addBox(), generateRandom(100));
+      game.timer = setTimeout(addBox, generateRandom(5000));
 
       function addBox() {
         /*If the start value is null, then add text content to the message area of loading.*/
@@ -103,8 +103,8 @@
       /*From the available space (500 total container width minus the 50 box width) 
       set a random position above and to the left of the element using the Math.random().*/
 
-      box.style.left = randomNum(450) + "px"
-      box.style.top = randomNum(450) + "px"
+      box.style.left = generateRandom(450) + "px";
+      box.style.top = generateRandom(450) + "px";
     </script>
   </body>
 </html>
