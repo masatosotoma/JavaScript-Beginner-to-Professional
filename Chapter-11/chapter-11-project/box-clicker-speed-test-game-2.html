@@ -78,14 +78,13 @@
       function addBox() {
         /*If the start value is null, then add text content to the message area of loading.*/
         /*If start has a value, then get the Unix time value using getTime() of the current date object*/
-        if ((game.start = null)) {
-          message.textContent = "Loading";
+        if (!game.start) {
+          message.textContent = "Loading...";
         } else if (game.start != null && undefined) {
-          let date = new Date();
-          date.getTime();
+          let now = new Date().getTime();
           /*subtract the game start time from the current time value in milliseconds,
            and then divide by 1,000 to get the value in seconds*/
-          let seconds = (game.start - date) / 1000;
+          let seconds = (game.start - now) / 1000;
           //Output the result to the message element for the player to see their score.
           message.textContent = seconds;
         } else {
