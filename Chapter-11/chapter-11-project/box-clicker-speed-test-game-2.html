@@ -45,15 +45,12 @@
       Attach a style called box to the new element and append it to the output element.*/
 
       let clickable = document.createElement("div");
-      clickable.style = "box";
-      console.log(clickable);
-      document.output.appendChild(clickable);
 
       /*Create a global object called game to track the timer and the start time values. 
       This is to be used to calculate the duration in seconds 
       between when the element is shown and when the player clicks it. Set start to null.*/
 
-      var game = { start: null, timer: 0 };
+      let game = { start: null, timer: 0 };
 
       /*Create a function that will generate a random number and return a random value, 
       with the argument being the maximum value you want to use.*/
@@ -68,7 +65,9 @@
       /*Add an event listener to the box element. Once clicked, 
       this should start the gameplay. Set the display of the box element to none.*/
 
-      clickable.addEventListener("click", startGame);
+      clickable.addEventListener("click", ()=>{
+        clickable.textContent = "none";
+      });
 
       /*Using the setTimeout() method, invoke a function called addBox() 
       and set the timeout to a random millisecond value.*/
