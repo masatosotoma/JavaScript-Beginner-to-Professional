@@ -45,6 +45,8 @@
       Attach a style called box to the new element and append it to the output element.*/
 
       let clickable = document.createElement("div");
+      clickable.classList.add("box");
+      output.append(box)
 
       /*Create a global object called game to track the timer and the start time values. 
       This is to be used to calculate the duration in seconds 
