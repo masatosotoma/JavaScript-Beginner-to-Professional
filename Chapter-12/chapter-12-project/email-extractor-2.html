@@ -21,7 +21,11 @@
 
       /*Within the extracting function, get the content of the first input field. 
       Using match(), return an array of the email addresses that were matched from within the content from the first textarea.*/
-      function filterEmail() {}
+      function filterEmail() {
+        textAreas.forEach((e) => {
+          e.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g);
+        });
+      }
     </script>
   </body>
 </html>
