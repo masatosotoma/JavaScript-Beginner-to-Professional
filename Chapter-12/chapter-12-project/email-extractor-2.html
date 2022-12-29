@@ -7,6 +7,21 @@
     <textarea name="txtarea" rows="2" cols="50"></textarea>
     <button>Get Emails</button>
     <textarea name="txtarea2" rows="2" cols="50"></textarea>
-    <script></script>
+    <script>
+      //In JavaScript, select both text areas and the button and set them as JavaScript objects
+      let textAreas = document.querySelectorAll("textarea");
+      let button = document.querySelector("button");
+      console.log(textAreas);
+      console.log(button);
+
+      /*Add an event listener to the button that will invoke a function 
+      that gets the content of the first textarea and filters it to only accept email addresses.*/
+
+      button.addEventListener("click", filterEmail);
+
+      /*Within the extracting function, get the content of the first input field. 
+      Using match(), return an array of the email addresses that were matched from within the content from the first textarea.*/
+      function filterEmail() {}
+    </script>
   </body>
 </html>
