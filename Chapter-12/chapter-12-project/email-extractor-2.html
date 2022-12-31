@@ -9,7 +9,8 @@
     <textarea name="txtarea2" rows="2" cols="50"></textarea>
     <script>
       //In JavaScript, select both text areas and the button and set them as JavaScript objects
-      let textAreas = document.querySelectorAll("textarea");
+      let textArea1 = document.querySelector("textarea");
+      let textArea2 = document.querySelector("textarea");
       let button = document.querySelector("button");
       console.log(textAreas);
       console.log(button);
@@ -24,6 +25,15 @@
       function filterEmail() {
         textAreas.forEach((e) => {
           e.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g);
+        });
+        //To remove any duplicates, create a separate array that will hold only unique values.
+        let separate = [];
+
+        /*Loop through all the email addresses found and check whether each one is already in the holder array, and if not, add it.*/
+        separate.forEach((address, index) => {
+          if (address === index.value) {
+            separate.shift(index);
+          }
         });
       }
     </script>
