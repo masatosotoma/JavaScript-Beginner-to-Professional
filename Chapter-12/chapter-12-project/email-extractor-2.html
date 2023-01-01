@@ -29,11 +29,15 @@
         //To remove any duplicates, create a separate array that will hold only unique values.
         let separate = [];
 
-        /*Loop through all the email addresses found and check whether each one is already in the holder array, and if not, add it.*/
+        /*Loop through all the email addresses found and check whether each one is already in the holder array, 
+        and if not, add it.*/
         separate.forEach((address, index) => {
           if (address === index.value) {
             separate.shift(index);
           }
+          /*Using the join() array method, you can now join together the results of the email addresses found 
+        within the content and output it into the second textarea.*/
+          textArea2.join(separate);
         });
       }
     </script>
