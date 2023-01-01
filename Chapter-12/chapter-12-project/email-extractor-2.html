@@ -16,30 +16,33 @@
       console.log(textArea2);
       console.log(button);
 
-      /*Add an event listener to the button that will invoke a function 
+      /*Add an event listener to the button that will invoke a function
       that gets the content of the first textarea and filters it to only accept email addresses.*/
 
       button.addEventListener("click", filterEmail);
 
-      /*Within the extracting function, get the content of the first input field. 
+      /*Within the extracting function, get the content of the first input field.
       Using match(), return an array of the email addresses that were matched from within the content from the first textarea.*/
       function filterEmail() {
-        textAreas.forEach((e) => {
-          e.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g);
-        });
+        let rowTxt = textArea1.value;
+
+        let emailData = rowTxt.match(
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g
+        );
         //To remove any duplicates, create a separate array that will hold only unique values.
         let separate = [];
 
-        /*Loop through all the email addresses found and check whether each one is already in the holder array, 
+        /*Loop through all the email addresses found and check whether each one is already in the holder array,
         and if not, add it.*/
-        separate.forEach((address, index) => {
-          if (address === index.value) {
-            separate.shift(index);
+        for (let x = 0; x < emailData.length; x++) {
+          if (separate.indexOf(emailData[x] == -1)) {
+            separate.push(emailData[x]);
           }
-          /*Using the join() array method, you can now join together the results of the email addresses found 
+        }
+        /*Using the join() array method, you can now join together the results of the email addresses found
         within the content and output it into the second textarea.*/
-          textArea2.join(separate);
-        });
+        textArea2.value = separate.join(",");
+        console.log(separate);
       }
     </script>
   </body>
