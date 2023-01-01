@@ -9,10 +9,11 @@
     <textarea name="txtarea2" rows="2" cols="50"></textarea>
     <script>
       //In JavaScript, select both text areas and the button and set them as JavaScript objects
-      let textArea1 = document.querySelector("textarea");
-      let textArea2 = document.querySelector("textarea");
+      let textArea1 = document.querySelector("textarea[name='txtarea']");
+      let textArea2 = document.querySelector("textarea[name='txtarea2']");
       let button = document.querySelector("button");
-      console.log(textAreas);
+      console.log(textArea1);
+      console.log(textArea2);
       console.log(button);
 
       /*Add an event listener to the button that will invoke a function 
