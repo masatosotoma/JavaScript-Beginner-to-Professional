@@ -31,9 +31,20 @@
       <input type="submit" value="Sign Up" />
     </form>
     <script>
-        /*select all the page elements and set them as JavaScript objects so they are easier to select within the code.*/
+      /*select all the page elements and set them as JavaScript objects so they are easier to select within the code.*/
 
-        let 
+      let myForm = document.querySelector("form");
+      let input = document.querySelectorAll("input");
+      //Also select all the page elements that have the error class as an object.
+      let span = document.querySelectorAll("#error hide");
+
+      //Add an event listener to submit and capture the click, preventing the default form action.
+
+      myForm.addEventListener("submit", captureClick);
+
+      function captureClick(e) {
+        for (i = 0; i < e.length; i++) {}
+      }
     </script>
   </body>
 </html>
