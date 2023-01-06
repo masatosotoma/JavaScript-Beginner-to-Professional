@@ -36,14 +36,18 @@
       let myForm = document.querySelector("form");
       let input = document.querySelectorAll("input");
       //Also select all the page elements that have the error class as an object.
-      let span = document.querySelectorAll("#error hide");
+      let error = document.querySelectorAll(".error");
 
       //Add an event listener to submit and capture the click, preventing the default form action.
 
       myForm.addEventListener("submit", captureClick);
 
+      /*Loop through all the page elements that have a class error and add the hide class, 
+      which will remove them from view since this is a new submission.*/
       function captureClick(e) {
         for (i = 0; i < e.length; i++) {}
+        //Using the regular expression for valid emails, test the results against the input value of the email field.
+        
       }
     </script>
   </body>
