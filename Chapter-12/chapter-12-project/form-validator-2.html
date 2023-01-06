@@ -37,17 +37,31 @@
       let input = document.querySelectorAll("input");
       //Also select all the page elements that have the error class as an object.
       let error = document.querySelectorAll(".error");
+      let require = ["email", "userName"];
 
       //Add an event listener to submit and capture the click, preventing the default form action.
-
       myForm.addEventListener("submit", captureClick);
 
-      /*Loop through all the page elements that have a class error and add the hide class, 
-      which will remove them from view since this is a new submission.*/
       function captureClick(e) {
-        for (i = 0; i < e.length; i++) {}
+        let date = {};
+        e.preventDefault();
+
+        /*Loop through all the page elements that have a class error and add the hide class, 
+      which will remove them from view since this is a new submission.*/
+        error.forEach((e) => {
+          e.classList.add(".hide");
+        });
         //Using the regular expression for valid emails, test the results against the input value of the email field.
-        
+
+        /*Create a function to respond to errors, 
+        which removes the hide class from the element next to the element that triggered the event. 
+        Apply focus to that element within the function*/
+
+        function respondError(el,message,fieldName){
+            /*If there is an error that an input does not match the desired regex, 
+            pass the parameters to the error handling function you just created.*/
+            let temp = el.nextElementSibling;
+        }
       }
     </script>
   </body>
