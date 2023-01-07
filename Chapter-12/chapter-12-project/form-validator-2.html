@@ -51,17 +51,27 @@
         error.forEach((e) => {
           e.classList.add(".hide");
         });
+        
         //Using the regular expression for valid emails, test the results against the input value of the email field.
-
-        /*Create a function to respond to errors, 
+        if (tempName == "email") {
+          let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.      [A-Za-z0-9]+)\w+/;
+          let result = exp.test(el.value);
+          if (!result) {
+            addError(el, "Invalid Email", tempName);
+            error = true;
+          }
+        }
+        /*If there is an error that an input does not match the desired regex, 
+            pass the parameters to the error handling function you just created.*/
+        if (el.value.length == 0 && require.includes(tempName))
+          /*Create a function to respond to errors, 
         which removes the hide class from the element next to the element that triggered the event. 
         Apply focus to that element within the function*/
-
-        function respondError(el,message,fieldName){
-            /*If there is an error that an input does not match the desired regex, 
-            pass the parameters to the error handling function you just created.*/
+          function respondError(el, message, fieldName) {
             let temp = el.nextElementSibling;
-        }
+            temp.classList.remove("hide");
+            el.focus();
+          }
       }
     </script>
   </body>
