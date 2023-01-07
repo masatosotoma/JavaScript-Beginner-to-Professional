@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript Course</title>
+    <title>Form Validator #2</title>
     <style>
       .hide {
         display: none;
@@ -22,10 +22,10 @@
   </head>
   <body>
     <form name="myform">
-      <input type="text" name="email" /> <span class="error hide"></span><br />
-      <input type="password" name="password" />
+      Email:<input type="text" name="email" /> <span class="error hide"></span><br />
+      Password:<input type="password" name="password" />
       <span class="error hide"></span> <br />
-      <input type="text" name="userName" />
+      User Name:<input type="text" name="userName" />
       <span class="error hide"></span>
       <br />
       <input type="submit" value="Sign Up" />
@@ -34,24 +34,29 @@
       /*select all the page elements and set them as JavaScript objects so they are easier to select within the code.*/
 
       let myForm = document.querySelector("form");
-      let input = document.querySelectorAll("input");
+      let inputs = document.querySelectorAll("input");
       //Also select all the page elements that have the error class as an object.
-      let error = document.querySelectorAll(".error");
-      let require = ["email", "userName"];
+      let errors = document.querySelectorAll(".error");
+      let required = ["email", "userName"];
+
+      console.log(myForm);
+      console.log(inputs);
+      console.log(errors);
+      console.log(required);
 
       //Add an event listener to submit and capture the click, preventing the default form action.
       myForm.addEventListener("submit", captureClick);
 
       function captureClick(e) {
-        let date = {};
+        let data = {};
         e.preventDefault();
 
         /*Loop through all the page elements that have a class error and add the hide class, 
       which will remove them from view since this is a new submission.*/
         error.forEach((e) => {
-          e.classList.add(".hide");
+          e.classList.add("hide");
         });
-        
+
         //Using the regular expression for valid emails, test the results against the input value of the email field.
         if (tempName == "email") {
           let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.      [A-Za-z0-9]+)\w+/;
@@ -60,6 +65,12 @@
             addError(el, "Invalid Email", tempName);
             error = true;
           }
+        }
+
+        if (tempName == "password") {
+          //Check the password field input value to ensure only letters and numbers are used
+          let exp = /[A-Za-z0-9]+$/;
+          let result = exp.test(el.value);
         }
         /*If there is an error that an input does not match the desired regex, 
             pass the parameters to the error handling function you just created.*/
