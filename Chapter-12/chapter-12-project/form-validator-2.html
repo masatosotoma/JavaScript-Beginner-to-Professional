@@ -84,19 +84,31 @@
               //check the length to ensure that it is 3-8 characters
               if (!(resultPW.length < 3 && resultPW < 9)) {
                 /*If either are false, then add the error with the error function and create a message for the user. Set the error Boolean to true.*/
-                respondError(el, "Invalid Password, Need to be between 3-8 characters", tempName);
+                respondError(
+                  el,
+                  "Invalid Password, Need to be between 3-8 characters",
+                  tempName
+                );
                 error = true;
               }
             }
           }
         });
         /*Add in an object to track the form data creation and add values to the object by looping through all the inputs*/
-        data[tempName]
+        /*setting the property name to be the same as the input name, and the value the same as the input value*/
+        data[tempName] = el.value;
+
+        //Before the end of the validation function, check if an error is still present, and if it is not, submit the form object.
+        if (!error) {
+          myForm.submit();
+        }
+
         /*Create a function to respond to errors, which removes the hide class from the element next to the element that triggered the event.
         Apply focus to that element within the function*/
         function respondError(el, message, fieldName) {
           let temp = el.nextElementSibling;
           temp.classList.remove("hide");
+          temp.textContent = fieldName.toUpperCase() + " " + message;
           el.focus();
         }
       }
