@@ -82,7 +82,11 @@
               let expressionPW = /[A-Za-z0-9]+$/;
               let resultPW = expressionPW.test(el.value);
               //check the length to ensure that it is 3-8 characters
-              if (!(resultPW.length < 3 && resultPW < 9)) {
+              if (!resultPW) {
+                addError(el, "Only Numbers & Letters", tempName);
+                error = true;
+              }
+              if (!(el.value.length < 3 && el.value.length < 9)) {
                 /*If either are false, then add the error with the error function and create a message for the user. Set the error Boolean to true.*/
                 respondError(
                   el,
