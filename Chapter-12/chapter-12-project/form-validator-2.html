@@ -86,7 +86,7 @@
                 addError(el, "Only Numbers & Letters", tempName);
                 error = true;
               }
-              if (!(el.value.length < 3 && el.value.length < 9)) {
+              if (!(el.value.length > 3 && el.value.length < 9)) {
                 /*If either are false, then add the error with the error function and create a message for the user. Set the error Boolean to true.*/
                 respondError(
                   el,
@@ -96,11 +96,12 @@
                 error = true;
               }
             }
+
+            /*Add in an object to track the form data creation and add values to the object by looping through all the inputs*/
+            /*setting the property name to be the same as the input name, and the value the same as the input value*/
+            data[tempName] = el.value;
           }
         });
-        /*Add in an object to track the form data creation and add values to the object by looping through all the inputs*/
-        /*setting the property name to be the same as the input name, and the value the same as the input value*/
-        data[tempName] = el.value;
 
         //Before the end of the validation function, check if an error is still present, and if it is not, submit the form object.
         if (!error) {
