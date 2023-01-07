@@ -59,36 +59,46 @@
         let error = false;
         inputs.forEach(function (el) {
           let tempName = el.getAttribute("name");
-          if(tempName != null){
-            el.style.borderColor = "#ddd"
-            if(el.value.length == 0 && required.includes(tempName));
-            error = true;
-            console.log(error);
-            console.log(tempName);
+          if (tempName != null) {
+            el.style.borderColor = "#ddd";
+            if (el.value.length == 0 && required.includes(tempName)) {
+              error = true;
+              console.log("error:" + error);
+              console.log("tempName:" + tempName);
+            }
+            //Using the regular expression for valid emails, test the results against the input value of the email field.
+            if (tempName == "email") {
+              let expressionEml = /([A-Za-z0-9._-]+@[A-Za-z0-9]+)\w+/;
+              let resultEml = expressionEml.test(el.value);
+              console.log("Result:" + resultEml);
+              //If there is an error that an input does not match the desired regex, pass the parameters to the error handling function you just created.
+              if (!resultEml) {
+                respondError(el, "Invalid Email!", tempName);
+                error = true;
+              }
+            }
+            //Check the password field input value to ensure only letters and numbers are used.
+            if (tempName == "password") {
+              let expressionPW = /[A-Za-z0-9]+$/;
+              let resultPW = expressionPW.test(el.value);
+              //check the length to ensure that it is 3-8 characters
+              if (!(resultPW.length < 3 && resultPW < 9)) {
+                /*If either are false, then add the error with the error function and create a message for the user. Set the error Boolean to true.*/
+                respondError(el, "Invalid Password, Need to be between 3-8 characters", tempName);
+                error = true;
+              }
+            }
           }
         });
-      //Using the regular expression for valid emails, test the results against the input value of the email field.
-        if(tempName == "email"){
-          let expression = /[A-Za-z0-9]+$/;
+        /*Add in an object to track the form data creation and add values to the object by looping through all the inputs*/
+        data[tempName]
+        /*Create a function to respond to errors, which removes the hide class from the element next to the element that triggered the event.
+        Apply focus to that element within the function*/
+        function respondError(el, message, fieldName) {
+          let temp = el.nextElementSibling;
+          temp.classList.remove("hide");
+          el.focus();
         }
-        //   }
-
-        //   if (tempName == "password") {
-        //     //Check the password field input value to ensure only letters and numbers are used
-        //     let exp = /[A-Za-z0-9]+$/;
-        //     let result = exp.test(el.value);
-        //   }
-        //   /*If there is an error that an input does not match the desired regex,
-        //       pass the parameters to the error handling function you just created.*/
-        //   if (el.value.length == 0 && require.includes(tempName))
-        //     /*Create a function to respond to errors,
-        //   which removes the hide class from the element next to the element that triggered the event.
-        //   Apply focus to that element within the function*/
-        //     function respondError(el, message, fieldName) {
-        //       let temp = el.nextElementSibling;
-        //       temp.classList.remove("hide");
-        //       el.focus();
-        //     }
       }
     </script>
   </body>
