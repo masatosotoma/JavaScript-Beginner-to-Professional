@@ -48,6 +48,21 @@
       val2.textContent.value = game[1];
       answer.textContent.value = game[2];
 
+      /*When the button is clicked, use a ternary operator to determine 
+      whether the answer to the question was correct or incorrect. 
+      Set the color to green for correct, and to red for incorrect*/
+
+      function checker() {
+        /*Within the checker() function, append a new element to the HTML with a style color to indicate a correct or incorrect response. 
+        Display the first and second values as well as the answer, and show the user's response within brackets*/
+        answer == output
+          ? (output.style.backGroundColor = "green")
+          : (output.style.backGroundColor = "red");
+        //Clear the input field and load the next question.
+
+        answer = "";
+      }
+
       //Add a DOMContentLoaded event listener that invokes the app initialization once the page loads
       document.addEventListener(DOMContentLoaded, app.int);
     }
