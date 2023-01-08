@@ -13,42 +13,43 @@
     create variable objects to contain all the page elements so they can be used in the script, 
     and create a blank object called game.*/
 
-    function app(){
+    function app() {
       let game = {};
-        let val1 = document.querySelector(".val1");
-        let val2 = document.querySelector(".val2");
-        let answer = document.querySelector("input");
-        let btn = document.querySelector("button");
-        let output = document.querySelector(".output");
+      let val1 = document.querySelector(".val1");
+      let val2 = document.querySelector(".val2");
+      let answer = document.querySelector("input");
+      let btn = document.querySelector("button");
+      let output = document.querySelector(".output");
 
-        console.log(val);
-
-        let blank = {};
-
-        /*Within an init() function, add an event listener to the button, listen for a click,
+      /*Within an init() function, add an event listener to the button, listen for a click,
         and track the event into a function called checker. 
         Also within the init function, load another function called loadQuestion().*/
-        function init(){
-          btn.addEventListener("click",checker)
-          loadQuestion();
-        }
+      function init() {
+        btn.addEventListener("click", checker);
+        loadQuestion(1, 30);
+      }
 
-        /*Create a function to load the questions, 
+      /*Create a function to load the questions, 
         and another function that can generate a random number from min and max values in the arguments*/
 
-          function loadQuestion(min,max){
-          /*In the loadQuestion() function, generate two random values and add them to the game object.*/
-          let ranNum1 = Math.floor(Math.random() * max)
-          let ranNum2 = Math.floor(Math.random() * min)
+      function loadQuestion(min, max) {
+        /*In the loadQuestion() function, generate two random values and add them to the game object.*/
+        let ranNum1 = Math.floor(Math.random() * max);
+        let ranNum2 = Math.floor(Math.random() * min);
 
-        }
+        game[0] = ranNum1;
+        game[1] = ranNum2;
 
-        //Add a DOMContentLoaded event listener that invokes the app initialization once the page loads
-      document.addEventListener(DOMContentLoaded,app.int);
+        /*Calculate the result of both values added together and assign that value within the game object as well*/
+        game[2] = ranNum1 + ranNum2;
+      }
+      //Assign and update the textContent of the page elements that require the dynamic number values for the calculation question
+      val1.textContent.value = game[0];
+      val2.textContent.value = game[1];
+      answer.textContent.value = game[2];
 
-
-
-
-    };
+      //Add a DOMContentLoaded event listener that invokes the app initialization once the page loads
+      document.addEventListener(DOMContentLoaded, app.int);
+    }
   </script>
 </html>
