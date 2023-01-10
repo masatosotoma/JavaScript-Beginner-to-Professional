@@ -32,23 +32,23 @@
       /*Create a function to load the questions, 
         and another function that can generate a random number from min and max values in the arguments*/
 
-      function randomNumGen(min,max){
-       return Math.floor(Math.random() * (max-min +1)+min);
+      function randomNumGen(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
       }
 
       function loadQuestion() {
         /*In the loadQuestion() function, generate two random values and add them to the game object.*/
 
-        game.val1 = ranNum1;
-        game[1] = ranNum2;
+        game.val1 = randomNumGen(1, 100);
+        game.val2 = randomNumGen(1, 100);
 
         /*Calculate the result of both values added together and assign that value within the game object as well*/
-        game[2] = ranNum1 + ranNum2;
+        game.answer = game.val1 + game.val2;
+
+        //Assign and update the textContent of the page elements that require the dynamic number values for the calculation question
+        val1.textContent = game.val1;
+        val2.textContent = game.val2;
       }
-      //Assign and update the textContent of the page elements that require the dynamic number values for the calculation question
-      val1.textContent.value = game[0];
-      val2.textContent.value = game[1];
-      answer.textContent.value = game[2];
 
       /*When the button is clicked, use a ternary operator to determine 
       whether the answer to the question was correct or incorrect. 
