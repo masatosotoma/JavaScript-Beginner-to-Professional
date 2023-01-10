@@ -26,18 +26,20 @@
         Also within the init function, load another function called loadQuestion().*/
       function init() {
         btn.addEventListener("click", checker);
-        loadQuestion(1, 30);
+        loadQuestion();
       }
 
       /*Create a function to load the questions, 
         and another function that can generate a random number from min and max values in the arguments*/
 
-      function loadQuestion(min, max) {
-        /*In the loadQuestion() function, generate two random values and add them to the game object.*/
-        let ranNum1 = Math.floor(Math.random() * max);
-        let ranNum2 = Math.floor(Math.random() * min);
+      function randomNumGen(min,max){
+       return Math.floor(Math.random() * (max-min +1)+min);
+      }
 
-        game[0] = ranNum1;
+      function loadQuestion() {
+        /*In the loadQuestion() function, generate two random values and add them to the game object.*/
+
+        game.val1 = ranNum1;
         game[1] = ranNum2;
 
         /*Calculate the result of both values added together and assign that value within the game object as well*/
