@@ -5,11 +5,16 @@
   </head>
   <body>
     <script>
-      /*1. Create a simple HTML document, 
+      /*Create a simple HTML document, 
         and in JavaScript create a canvas element 
         and add the getContent element as 2d.*/
       let canvas = document.createElement("canvas");
-      canvas.getContext("2d");
+      const context = canvas.getContext("2d");
+
+      /*Select that canvas element and set the attribute height and width to 500x400. 
+      Prepend it to the body of your document.*/
+      canvas.setAttribute("widths", "500");
+      canvas.setAttribute("heights", "400");
     </script>
   </body>
 </html>
