@@ -38,6 +38,16 @@
             Include 0 as a default for the vote count, as all individuals should start on zero votes.*/
 
       function buildTable(myArray) {
+        let nameCounts = {};
+
+        myArray.forEach((element) => {
+          if (nameCounts.text) {
+            //increment
+            nameCounts.text++;
+          } else {
+            nameCounts[text] = 0;
+          }
+        });
         console.log(myArray);
         let index = myArray.length - 1;
         let name = myArray[index];
@@ -46,10 +56,10 @@
 
         /*Add content to the table cells, including the vote count in the last column,
           the person name in the middle, and the index plus 1 in the first column.*/
-        let row =  `<tr class="box" id="${index + 1}">`;
-            row += `<td >${index + 1}</td>`;
-            row += `<td>${name}</td>`;
-            row += `<td>0</td></tr>`;
+        let row = `<tr class="box" id="${index + 1}">`;
+        row += `<td >${index + 1}</td>`;
+        row += `<td>${name}</td>`;
+        row += `<td>0</td></tr>`;
         /*Append the table cells to the table row and append the table row to the output area on the page*/
         //Add an event listener that will increase the vote counter for that row when the user clicks.
         /*Get the text content from the last column in the row.
@@ -57,11 +67,11 @@
           Increment the counter by one and make sure the datatype is a number so you can add to it.
           */
         output.innerHTML += row;
-        for(let i=0;i<=index;i++){
-        output.rows[i].onclick = () => {
-          console.log(output.rows[i]);
-        };
-      }
+        for (let i = 0; i <= index; i++) {
+          output.rows[i].onclick = () => {
+            console.log(output.rows[i]);
+          };
+        }
         /*Array.prototype.forEach.call(output.children.onclick, ()=>{
           console.log(`you pressed on `)
         })*/
