@@ -6,7 +6,7 @@
   <body>
     <script>
       /*Create a simple HTML document, 
-        and in JavaScript create a canvas element 
+        andnpm in JavaScript create a canvas element 
         and add the getContent element as 2d.*/
       let canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
@@ -15,6 +15,18 @@
       Prepend it to the body of your document.*/
       canvas.setAttribute("widths", "500");
       canvas.setAttribute("heights", "400");
+
+      /*Create an empty array named colVal 
+      and create a loop to add a number of items into the array that will have a value of 0*/
+
+      let colVal = [];
+      for (let i = 0; i < colVal.length; i++) {
+        colVal[i] = 0;
+
+        /*The number of items you need to add to the array can be determined by dividing the width by ten, 
+      which should be the width between each column*/
+        let numItem = canvas.getAttribute() / 10;
+      }
     </script>
   </body>
 </html>
