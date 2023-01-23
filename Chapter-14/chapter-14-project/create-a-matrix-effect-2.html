@@ -31,10 +31,16 @@
       }
 
       //Create the main Matrix function to run at 50 millisecond intervals.
-      setInterval(function matrix() {}, 50);
-
       /*Set the fillStyle to be black with .05 opacity, 
       so that when it layers on top of the existing elements it will produce a fading effect*/
+      function matrix() {
+        context.fillStyle = "rgba(0,0,0,.05)";
+        context.fillRect(0, 0, context.width, context.height);
+        //Set the canvas font color to be green
+        context.fillStyle = "green";
+      }
+
+      setInterval(matrix, 50);
     </script>
   </body>
 </html>
