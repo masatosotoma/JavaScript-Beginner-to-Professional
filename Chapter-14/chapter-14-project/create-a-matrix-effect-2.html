@@ -45,12 +45,33 @@
           /*Within the map, set the characters to display. 
         We want it to alternate between 0 and 1 so, using Math.random(), 
         generate a value of either 0 or 1 for the text output. You can use a ternary operator to do this.*/
-          let randomNum = Math.floor(Math.random() * 1);
+          let randomNum = Math.floor(Math.random() * 300);
 
           /*Set the position of x using the index value multiplied by 10, 
           which is the start of each new letter. 
           Using the index from the colVal array, this will create separate columns of moving characters.*/
           let posX = index * 10;
+
+          /*Create the character within the canvas using the ctx fillText() method, 
+          setting the output character to the random 0 or 1 value, using posX for the column x position, and posY, 
+          which is the value in the colVal array for the item, as the position of the y axis for the output.*/
+          context.fillText(output, posX, posY);
+
+          /*Add a condition that checks if the position of y is greater than 100 
+          plus a random value of 0-300. The larger the number, 
+          the longer the number will fall on the y position. 
+          This is random so not all numbers end at the same spot. 
+          This will create a staggered effect after the initial drop.*/
+          if (posY > 100 + randomNum) {
+            colVal[index];
+          } else {
+            /*If the position of y is not past the random value and 100, 
+            increment the value of the index item by 10. 
+            Assign this value of y back to the item in the colVal array, 
+            which can then be used in the next iteration. 
+            This will move the letter down 10 pixels on the canvas within the next draw round.*/
+            colVal[index] = posY + 10;
+          }
         });
       }
 
