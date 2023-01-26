@@ -35,22 +35,22 @@
       so that when it layers on top of the existing elements it will produce a fading effect*/
       function matrix() {
         context.fillStyle = "rgba(0,0,0,.05)";
-        context.fillRect(0, 0, context.width, context.height);
+        context.fillRect(0, 0, canvas.width, canvas.height);
         //Set the canvas font color to be green
         context.fillStyle = "green";
 
         /*Using an array map, iterate all the current items in the colVal array, 
         which holds the vertical position for the output text.*/
-        let verticalPos = colVal.map((posY, index) => {
+        colVal.map((posY, index) => {
           /*Within the map, set the characters to display. 
         We want it to alternate between 0 and 1 so, using Math.random(), 
         generate a value of either 0 or 1 for the text output. You can use a ternary operator to do this.*/
-          let randomNum = Math.floor(Math.random() * 300);
+          let output = Math.random() < 0.5 ? 0 : 1;
 
           /*Set the position of x using the index value multiplied by 10, 
           which is the start of each new letter. 
           Using the index from the colVal array, this will create separate columns of moving characters.*/
-          let posX = index * 10;
+          let posX = index * 10 + 10;
 
           /*Create the character within the canvas using the ctx fillText() method, 
           setting the output character to the random 0 or 1 value, using posX for the column x position, and posY, 
@@ -62,8 +62,8 @@
           the longer the number will fall on the y position. 
           This is random so not all numbers end at the same spot. 
           This will create a staggered effect after the initial drop.*/
-          if (posY > 100 + randomNum) {
-            colVal[index];
+          if (posY > 100 + Math.random() * 300) {
+            colVal[index] = 0;
           } else {
             /*If the position of y is not past the random value and 100, 
             increment the value of the index item by 10. 
