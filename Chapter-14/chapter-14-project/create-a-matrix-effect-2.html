@@ -13,21 +13,21 @@
 
       /*Select that canvas element and set the attribute height and width to 500x400. 
       Prepend it to the body of your document.*/
-      canvas.setAttribute("widths", "500");
-      canvas.setAttribute("heights", "400");
+      canvas.setAttribute("width", "500");
+      canvas.setAttribute("height", "400");
+      document.body.prepend(canvas);
 
       /*Create an empty array named colVal 
       and create a loop to add a number of items into the array that will have a value of 0*/
 
       let colVal = [];
-      for (let i = 0; i < colVal.length; i++) {
-        colVal[i] = 0;
+      for (let i = 0; i < 50; i++) {
+        colVal.push(0);
 
         /*The number of items you need to add to the array can be determined by dividing the width by ten, 
       which should be the width between each column*/
         /*The values in the array will be the starting vertical position of 
       the content for the fillText() method that you will set up.*/
-        let numItem = canvas.getAttribute() / 10;
       }
 
       //Create the main Matrix function to run at 50 millisecond intervals.
