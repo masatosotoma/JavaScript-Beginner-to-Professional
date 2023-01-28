@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript</title>
+    <title>Count Down Clock #2</title>
     <style>
-              .clock {
-                  background-color: blue;
-                  width: 400px;
-                  text-align: center;
-                  color: white;
-                  font-size: 1em;
-      }clock>span {
-                  padding: 10px;
-                  border-radius: 10px;
-                  background-color: black;
-              }
-              .clock>span>span {
-                  padding: 5px;ß
-                  border-radius: 10px;
-                  background-color: red;
-              }
-              input {
-                  padding: 15px;
-                  margin: 20px;
-                  font-size: 1.5em;
-              }
+      .clock {
+        background-color: blue;
+        width: 400px;
+        text-align: center;
+        color: white;
+        font-size: 1em;
+      }
+      .clock > span {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: black;
+      }
+      .clock > span > span {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: red;
+      }
+      input {
+        padding: 15px;
+        margin: 20px;
+        font-size: 1.5em;
+      }
     </style>
   </head>
   <body>
@@ -36,6 +37,11 @@
         <span><span class="seconds">0</span> Seconds</span>
       </div>
     </div>
-    <script></script>
+    <script>
+      /*Select the page elements as JavaScript objects, 
+      as well as selecting the main clock output area as the value of a JavaScript object.*/
+      let input = document.querySelector("input");
+      let divs = document.querySelectorAll("div");
+    </script>
   </body>
 </html>
