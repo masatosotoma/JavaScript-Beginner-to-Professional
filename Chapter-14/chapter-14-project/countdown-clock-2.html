@@ -42,6 +42,18 @@
       as well as selecting the main clock output area as the value of a JavaScript object.*/
       let input = document.querySelector("input");
       let divs = document.querySelectorAll("div");
+      let days = document.querySelector(".days");
+      let hours = document.querySelector(".hours");
+      let minutes = document.querySelector(".minutes");
+      let seconds = document.querySelector(".seconds");
+
+      /*Create variables for the timeInterval and a global Boolean value 
+      that can be used to stop the clock timer*/
+      let timeInterval;
+      var endTime;
+
+      /*Check the local storage if there is an item for countdown already set. 
+      If there is, use that value*/
     </script>
   </body>
 </html>
