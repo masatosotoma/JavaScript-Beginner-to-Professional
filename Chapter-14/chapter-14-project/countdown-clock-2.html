@@ -69,13 +69,25 @@
         localStorage.setItem("countdown", temp);
         /*Start the clock with the start clock function from that new endDate input value.*/
         startClock(temp);
+        endTime = true;
       });
       /*Create a function to start the clock that is used to start the counter. 
       Within that function, you can create a function that updates the counter 
       and outputs the new clock time values into the page clock container area.*/
 
-      function startClock() {
-        function updateCounter() {}
+      function startClock(d) {
+        function updateCounter() {
+          /*Within this function, check if timeLeft is less than the counter time. 
+          Create a separate function to handle this. If it's less, stop the timer.*/
+          let tiLeft = timeleft(d);
+          if (tiLeft.total <= 0) {
+            endTime = false;
+          }
+          /*If the time left is more and has a value within the object, 
+          then output the object by property names and 
+          match the property names you use in the time left function object to the class names you use 
+          in your webpage elements so they match and you can save time rewriting them*/
+        }
       }
     </script>
   </body>
