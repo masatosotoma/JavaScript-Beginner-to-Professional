@@ -38,25 +38,37 @@
       </div>
     </div>
     <script>
-      /*Select the page elements as JavaScript objects, 
-      as well as selecting the main clock output area as the value of a JavaScript object.*/
-      let input = document.querySelector("input");
-      let divs = document.querySelectorAll("div");
-      let days = document.querySelector(".days");
-      let hours = document.querySelector(".hours");
-      let minutes = document.querySelector(".minutes");
-      let seconds = document.querySelector(".seconds");
+      /*Select the page elements as JavaScript objects,
+          as well as selecting the main clock output area as the value of a JavaScript object.*/
+      const endDate = document.querySelector("input[name='endDate']");
+      const clock = document.querySelector(".clock");
+      console.log(endDate);
+      console.log(clock);
 
-      /*Create variables for the timeInterval and a global Boolean value 
-      that can be used to stop the clock timer*/
+      /*Create variables for the timeInterval and a global Boolean value
+          that can be used to stop the clock timer*/
       let timeInterval;
       var endTime;
 
-      /*Check the local storage if there is an item for countdown already set. 
-      If there is, use that value*/
+      /*Check the local storage if there is an item for countdown already set.
+          If there is, use that value*/
       const count = localStorage.getItem("countdown") || false;
-      /*Create a condition and function to start the clock as the saved value 
-  and set the input field date value to the local storage saved value.*/
+
+      /*Create a condition and function to start the clock as the saved value
+      and set the input field date value to the local storage saved value.*/
+      if (count) {
+        startClock(count);
+        let inputVal = new Date(count);
+      }
+      /*Add an event listener to invoke a function if the value of the input field is changed.
+      Clear the interval if it has changed and set the new endDate value in the local storage.*/
+      endDate.addEventListener("change", function (e) {
+        e.preventDefault();
+        clearInterval(timeInterval);
+        let temp = new Date(endDate.value);
+        localStorage.setItem("countdown", temp);
+      });
+      function startClock() {}
     </script>
   </body>
 </html>
