@@ -67,8 +67,16 @@
         clearInterval(timeInterval);
         let temp = new Date(endDate.value);
         localStorage.setItem("countdown", temp);
+        /*Start the clock with the start clock function from that new endDate input value.*/
+        startClock(temp);
       });
-      function startClock() {}
+      /*Create a function to start the clock that is used to start the counter. 
+      Within that function, you can create a function that updates the counter 
+      and outputs the new clock time values into the page clock container area.*/
+
+      function startClock() {
+        function updateCounter() {}
+      }
     </script>
   </body>
 </html>
