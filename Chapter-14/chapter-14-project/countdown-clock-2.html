@@ -95,10 +95,34 @@
           in your webpage elements so they match and you can save time rewriting them*/
 
         updateCounter();
+        /*If the counter is false and has passed the end time, then clear the interval. 
+        If the counter is still valid, set the interval to run the update function 
+        every 1,000 milliseconds*/
         if (endTime) {
           timeInterval = setInterval(updateCounter, 1000);
         } else {
           clearInterval(timeInterval);
+        }
+        /*In the time left function, get the current date. Using Date.parse(), 
+        parse the date and calculate the total milliseconds left until the counter ends. */
+
+        function timeLeft(d) {
+          let currentDate = new Date();
+          let total = Date.purse(d) - Date.purse(currentDate);
+          let seconds = Math.floor((t / 1000) % 60);
+          let minutes = Math.floor((t / 1000 / 60) % 60);
+          let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+          let days = Math.floor(t / (1000 * 60 * 60 * 24));
+          /*Return the values of the total days, hours, minutes, and seconds 
+        as a response object to use in the update function.*/
+
+          return {
+            total: total,
+            days: days,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+          };
         }
       }
     </script>
