@@ -48,7 +48,7 @@
       /*Create variables for the timeInterval and a global Boolean value
           that can be used to stop the clock timer*/
       let timeInterval;
-      var endTime;
+      var endTime = true;
 
       /*Check the local storage if there is an item for countdown already set.
           If there is, use that value*/
@@ -79,14 +79,16 @@
         function updateCounter() {
           /*Within this function, check if timeLeft is less than the counter time. 
           Create a separate function to handle this. If it's less, stop the timer.*/
-          let tiLeft = timeleft(d);
+          let tiLeft = timeLeft(d);
           if (tiLeft.total <= 0) {
             endTime = false;
           }
           /*Loop through all the object values and assign the values within the innerHTML page element.*/
           for (let pro in tiLeft) {
             let ele = clock.querySelector("." + pro);
-            el.innerHTML = tiLeft[pro];
+            if (ele) {
+              ele.innerHTML = tiLeft[pro];
+            }
           }
         }
         /*If the time left is more and has a value within the object, 
@@ -108,20 +110,20 @@
 
         function timeLeft(d) {
           let currentDate = new Date();
-          let total = Date.purse(d) - Date.purse(currentDate);
-          let seconds = Math.floor((t / 1000) % 60);
-          let minutes = Math.floor((t / 1000 / 60) % 60);
-          let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-          let days = Math.floor(t / (1000 * 60 * 60 * 24));
+          let total = Date.parse(d) - Date.parse(currentDate);
+          let seconds = Math.floor((total / 1000) % 60);
+          let minutes = Math.floor((total / 1000 / 60) % 60);
+          let hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+          let days = Math.floor(total / (1000 * 60 * 60 * 24));
           /*Return the values of the total days, hours, minutes, and seconds 
         as a response object to use in the update function.*/
 
           return {
-            total: total,
-            days: days,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds,
+            "total": total,
+            "days": days,
+            "hours": hours,
+            "minutes": minutes,
+            "seconds": seconds,
           };
         }
       }
