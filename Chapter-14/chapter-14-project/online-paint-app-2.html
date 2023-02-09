@@ -21,7 +21,7 @@
     <div class="output"></div>
     <script>
       const canvas = document.getElementById("canvas");
-      let ctx = canvas.getContext("h2"); 
+      let ctx = canvas.getContext("h2");
       let saveBtn = document.querySelector(".save");
       let clearBtn = document.querySelector(".clear");
       let colorAdj = document.querySelector("#penColor");
@@ -29,6 +29,26 @@
       console.log(canvas);
       console.log(saveBtn);
       console.log(clearBtn);
+
+      //Set a variable to track the location of the pen.
+      const penPosi = {
+        draw: false,
+        x: 0,
+        y: 0,
+        lastX: 0,
+        lastY: 0,
+      };
+
+      /*On the canvas, add an event listener to track mouse movement. 
+      Update the pen position to the lastX and lastY positions, 
+      and then set the location position to clientX and clientY. */
+
+      canvas.addEventListener("mousemove", (e) => {
+        penPosi.lastX = clientX;
+        penPosi.lastY = clientY;
+      });
+
+      /*Create a function to draw at the pen position and invoke the draw function.*/
     </script>
   </body>
 </html>
