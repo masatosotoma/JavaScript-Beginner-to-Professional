@@ -76,6 +76,32 @@
         }
       }
 
+      //Add another event listener to save the image.
+      saveBtn.addEventListener("click", saveImg);
+      /*When clicked, it should invoke a function that gets the canvas object using toDataURL 
+      as base64 image data.*/
+      function saveImg() {
+        const dataURL = canvas.toDataURL();
+        console.log(dataURL); //You can log it into the console to see what it looks like
+        /*Create an img element and prepend it to the output area element. 
+        Set the src path to the dataURL value.*/
+        const img = document.createElement("img");
+        output.prepend(img);
+        img.setAttribute("src", dataURL);
+        /*To set a download of the image, create an anchor tag, 
+        append it to anywhere within the HTML page elements, and create a filename*/
+        const link = document.createElement("a");
+        output.prepend("link");
+        //You can generate a unique filename with Math.random()
+        let fileName = Math.random().toString(16).substr(-8) + ".png";
+        /*Set the hyperlink to the download attribute and the href path to the dataURL path, 
+        and trigger a click with the click() method. Once clicked, remove the link element.*/
+        link.setAttribute("download", fileName);
+        link.href = dataURL;
+        link.click();
+        output.removeChild(link);
+      }
+
       /*Create a function to draw at the pen position*/
       /*Within the draw function, begin the move path at the pen location values 
       and set the stroke style to the pen color and stroke width to the pen width*/
