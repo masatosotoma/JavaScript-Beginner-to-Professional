@@ -39,16 +39,42 @@
         lastY: 0,
       };
 
-      /*On the canvas, add an event listener to track mouse movement. 
-      Update the pen position to the lastX and lastY positions, 
+      /*On the canvas, add an event listener to track mouse movement.
+      Update the pen position to the lastX and lastY positions,
       and then set the location position to clientX and clientY. */
 
       canvas.addEventListener("mousemove", (e) => {
-        penPosi.lastX = clientX;
-        penPosi.lastY = clientY;
+        penPosi.lastX = penPosi.x;
+        penPosi.lastY = penPosi.y;
+
+        penPosi.x = e.clientX;
+        penPosi.y = e.clientY;
+
+        //Create a function to draw at the pen position and invoke the draw function.
+        drawing();
       });
 
-      /*Create a function to draw at the pen position and invoke the draw function.*/
+      //For mousedown, set draw to true, and for mouseup and mouseout, set draw to false
+      canvas.addEventListener("mousedown", (penPosi.draw = true));
+      canvas.addEventListener("mouseup", (penPosi.draw = false));
+      canvas.addEventListener("mouseout", (penPosi.draw = false));
+
+      /*Create a function to draw at the pen position*/
+      /*Within the draw function, begin the move path at the pen location values 
+      and set the stroke style to the pen color and stroke width to the pen width*/
+      function drawing() {
+        if (penPosi.draw) {
+          ctx.beginPath();
+          ctx.moveTo(penPosi.lastX, penPosi.lastY);
+          ctx.lineTo(penPosi.x, penPosi.y);
+          ctx.strokeStyle = penColor.value;
+          ctx.lineWidth = penWidth.value;
+        }
+        /*These can be changed by clicking the inputs and updating their HTML values. 
+        Add the stroke and close the drawing path.*/
+        ctx.stroke();
+        ctx.closePath();
+      }
     </script>
   </body>
 </html>
