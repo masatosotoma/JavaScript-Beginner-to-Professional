@@ -55,9 +55,26 @@
       });
 
       //For mousedown, set draw to true, and for mouseup and mouseout, set draw to false
-      canvas.addEventListener("mousedown", (penPosi.draw = true));
-      canvas.addEventListener("mouseup", (penPosi.draw = false));
-      canvas.addEventListener("mouseout", (penPosi.draw = false));
+      canvas.addEventListener("mousedown", (e) => {
+        penPosi.draw = true;
+      });
+      canvas.addEventListener("mouseup", (e) => {
+        penPosi.draw = false;
+      });
+      canvas.addEventListener("mouseout", (e) => {
+        penPosi.draw = false;
+      });
+
+      /*Add an event listener to the clear button.*/
+      clearBtn.addEventListener("click", clearCanvas);
+      /*If clicked, create a function that confirms that the user wants to remove and clear the drawing, 
+      and then if true, invoke clearRect() to clear the canvas contents.*/
+      function clearCanvas() {
+        let temp = confirm("Clear Canvas?");
+        if (temp) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
 
       /*Create a function to draw at the pen position*/
       /*Within the draw function, begin the move path at the pen location values 
