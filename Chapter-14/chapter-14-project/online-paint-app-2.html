@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Canvas HTML5</title>
+    <title>Online Paint App #2</title>
     <style>
       #canvas {
         border: 1px solid black;
@@ -20,12 +20,13 @@
     </div>
     <div class="output"></div>
     <script>
-      const canvas = document.getElementById("canvas");
-      let ctx = canvas.getContext("h2");
-      let saveBtn = document.querySelector(".save");
-      let clearBtn = document.querySelector(".clear");
-      let colorAdj = document.querySelector("#penColor");
-      let widthAdj = document.querySelector("#penWidth");
+      const canvas = document.querySelector("#canvas");
+      const ctx = canvas.getContext("2d");
+      const saveBtn = document.querySelector(".save");
+      const clearBtn = document.querySelector(".clear");
+      const colorAdj = document.querySelector("#penColor");
+      const widthAdj = document.querySelector("#penWidth");
+      const output = document.querySelector(".output");
       console.log(canvas);
       console.log(saveBtn);
       console.log(clearBtn);
@@ -110,13 +111,14 @@
           ctx.beginPath();
           ctx.moveTo(penPosi.lastX, penPosi.lastY);
           ctx.lineTo(penPosi.x, penPosi.y);
-          ctx.strokeStyle = penColor.value;
-          ctx.lineWidth = penWidth.value;
-        }
-        /*These can be changed by clicking the inputs and updating their HTML values. 
+          ctx.strokeStyle = colorAdj.value;
+          ctx.lineWidth = widthAdj.value;
+          /*These can be changed by clicking the inputs and updating their HTML values. 
         Add the stroke and close the drawing path.*/
-        ctx.stroke();
-        ctx.closePath();
+
+          ctx.stroke();
+          ctx.closePath();
+        }
       }
     </script>
   </body>
