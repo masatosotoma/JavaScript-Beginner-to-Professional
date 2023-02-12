@@ -16,7 +16,7 @@ once you get the response data it can be formatted into JSON using the .json() m
 You can use a template literal and output each value.*/
       console.log(`${person.first} + ${person.last} + ${person.topic}`);
     });
-ß  });
+ });
 
 /*Within people.json create an array that contains multiple objects. 
 Each item in the array should be an object that has the same structure, 
