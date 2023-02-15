@@ -18,26 +18,9 @@ You can use a template literal and output each value.*/
     });
  });
 
+
 /*Within people.json create an array that contains multiple objects. 
 Each item in the array should be an object that has the same structure, 
 using first, last, and topic as the property names
 Make sure you use double quotes around the property names and values as this is the proper JSON syntax.*/
 //Add three or more entries into the array using the same object structure for each item
-
-[
-  {
-    first: "Masato",
-    last: "Sotoma",
-    topic: "travel",
-  },
-  {
-    first: "Zhang",
-    last: "Claire",
-    topic: "insurance",
-  },
-  {
-    first: "Rankine",
-    last: "Xuen",
-    topic: "marketing",
-  },
-];
