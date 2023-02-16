@@ -7,11 +7,11 @@ Using fetch connect to the URL and retrieve the data. */
 fetch(url)
   /*Since this is a JSON-formatted file, 
 once you get the response data it can be formatted into JSON using the .json() method in fetch*/
-  .then((response) => response.json())
-  .then((data) => {
+  .then(response => response.json())
+  .then(data => {
     //Output the full contents of the data into the console.
     console.log(data);
-    data.forEach((person) => {
+    data.forEach(person => {
       /*Using foreach, loop through the items in the data and output the values into the console. 
 You can use a template literal and output each value.*/
       console.log(`${person.first} + ${person.last} + ${person.topic}`);
