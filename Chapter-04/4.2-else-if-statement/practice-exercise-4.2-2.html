@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice exercise 4.2 #2</title>
+  </head>
+  <body>
+    <script>
+      //1. Create a prompt to ask the user's age
+      let yourAge = prompt("What is your age?");
+      //2. Convert the response from the prompt to a number
+      yourAge = Number(yourAge);
+      //3. Declare a message variable that you will use to hold the console message for the user
+      let msg = "";
+      //4. If the input age is equal to or greater than 21, set the message variable to confirm entry to a venue and the ability to purchase alcohol
+      if (yourAge >= 21) {
+        msg += "Confirm to enter to the venue and to purchase alcohole";
+      } else if (yourAge >= 19) {
+        //5. If the input age is equal to or greater than 19, set the message variable to confirm entry to the venue but deny the purchase of alcohol
+        msg +=
+          "Confirm to enter to the venue and to but not allowed to purchase alcohole";
+      } else {
+        //6. Provide a default else statement to set the message variable to deny entry if none are true
+        msg += "You are not allowed to enter";
+      }
+      //7. Output the response message variable to the console
+      console.log(msg);
+    </script>
+  </body>
+</html>
