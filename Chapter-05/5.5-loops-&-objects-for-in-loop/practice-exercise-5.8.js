@@ -12,8 +12,8 @@ console.log(output);
 
 
 // create a for loop counting 10 that ends the numbe 8 using break keyword
-let output = ""; //
-let skipNum = 8;
+let output1 = ""; //
+let skipNum1 = 8;
 
 for (let i = 0; i < 10; i++) {
   if (i === skipNum) {
