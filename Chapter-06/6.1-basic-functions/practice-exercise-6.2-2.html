@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 6.2 2nd time</title>
+  </head>
+  <body>
+    <script>
+      // 1. Create an array of descriptive words.
+      let arr = ["Nice", "Stupid", "Genius", "Kind", "Boring"];
+
+      // 2. Create a function that contains a prompt asking the user for a name.
+      function callName() {
+        let name = prompt("What's your name?");
+
+        // 3. Select a random value from the array using Math.random.
+        let ranNum = Math.floor(Math.random() * arr.length);
+        console.log(ranNum);
+
+        // 4. Output into the console the prompt value and the randomly selected array value.
+        console.log(`Your name is ${name} and you are ${arr[ranNum]}`);
+      }
+
+      // 5. Invoke the function.
+      callName();
+    </script>
+  </body>
+</html>
