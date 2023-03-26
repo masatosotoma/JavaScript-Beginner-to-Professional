@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Webpage</title>
+  </head>
+  <body>
+    <div class="main">
+      <div>
+        <ul>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+        </ul>
+      </div>
+      <div>blue</div>
+      <div>green</div>
+      <div>yellow</div>
+      <div>Purple</div>
+    </div>
+    <script>
+      /*1. Create and open the above sample web page, or visit your favorite website,
+        and open the document body in the console with console.dir(document).*/
+      /*2. In the body.children property, select some of the child elements. 
+      View how they match the page content.*/
+      /*3. Navigate to and output the next nodes or elements into the console.*/
+      let childrens = document.body.children;
+      console.dir(childrens);
+      let childnodes1 = document.body.childNodes[0]
+      let childnodes2 = document.body.childNodes[1].childNodes[1]
+      let childnodes3 = document.body.childNodes[2]
+      console.dir(childnodes1);
+      console.dir(childnodes2);
+      console.dir(childnodes3);
+    </script>
+  </body>
+</html>
