@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 10.6 #2</title>
+  </head>
+  <body>
+    <div id="javascript" class="language">JavaScript</div>
+    <div id="C#" class="language">C#</div>
+    <div id="java" class="language">Java</div>
+    <script>
+      //1. Create an HTML file and add four HTML elements, adding the same class to each one.
+      //2. Add some content within each element so you can distinguish between them.
+      /*3. Within a script element, use QuerySelectorAll() to select all the matching occurrences of the elements 
+        with that class and store them in a variable.*/
+      let languages = document.querySelectorAll(".language");
+      /*4. Output all the elements into the console, 
+        first as an array and then looping through them to output them one by one.*/
+      languages.forEach((e) => {
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
