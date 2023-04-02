@@ -4,18 +4,16 @@
     <title>Practice Exercise 10.7 #2</title>
   </head>
   <body>
-    <button id="btnFunc">Click here!</button>
+    <button id="btnFunc" onclick="message(this)">Click here!</button>
     <button id="btnFunc2" onclick="message(this)">Click here!</button>
     <script>
       //1. Create a function to handle a click within your JavaScript code. You can name the function message.
       function message(el) {
         /*3. Within the message function, use console.dir() to output in the console the element object data 
         that was sent to the function using onclick and this.*/
-        console.dir(el);
+        console.dir(el.textContent);
       }
       //2. Add this to the onclick function parameters sending the current element object data using this.
-      let btn = document.getElementById("btnFunc");
-      btn.addEventListener("click", message(this));
       //4. Add a second button to the page also invoking the same function on the click.
     </script>
   </body>
