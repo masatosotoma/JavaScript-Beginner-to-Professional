@@ -1,15 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Complete JavaScript Course</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="message"></div>
     <div id="output"></div>
     <script>
-    //1. Create an array of names. You can add as many as you want—all the string values will be output onto the page within a table.
-    //2. Select the page elements as JavaScript objects.
+      /*1. Create an array of names. You can add as many as 
+    you want—all the string values will be output onto the page within a table.*/
+      let names = ["Fred", "Pascal", "OG", "Jacob", "Scottie", "Gary"];
+      //2. Select the page elements as JavaScript objects.
+      let message = document.getElementById("message");
+      let output = document.getElementById("output");
 
+    build();
+      /*3. Add a function and also invoke that function within the JavaScript code. 
+    The function can be called build() as it will be building the page content. 
+    Within the build function, you will be setting up the HTML in a table.*/
+      function build() {
+        /*Create a table named html, and within the tags, 
+        loop through the contents of the array and output the results into the html table.*/
+        let html = "<h1>Friend Table</h1><table>";
+        /*Add a class called box to one of the cells that has the index value of the item from the array, 
+        adding the same class to the elements for each additional row.*/
+        names.forEach((item, index) => {
+          /*As you create the HTML for the elements within the tr element, 
+        create an attribute called data-row in the main row element that 
+        includes the index value of the item from the array. 
+        In addition, add another attribute within the element called data-name that will contain the text output.*/
+          html += `<tr class="box" data-row="${
+            index + 1
+          }" data-name="${item}" onclick="getData(this)""><td>${item}</td>`;
+          /*Within the attribute of the same tr element, 
+        also add onclick to invoke a function named getData passing the current element object 
+        as this into the function parameter.*/
+          //Add the table of HTML code to the page.
+          html += `<td>${index + 1}</td></tr>`;
+        });
+        html += "</table>";
+        document.getElementById("output").innerHTML = html;
+      }
+      /*Create a function named getData that will be invoked once the HTML tr elements are clicked. 
+      Once the tr element is clicked, use getAttribute to get the attribute values of the row value 
+      and the contents of the text output and store them in different variables.*/
+      function getData(el) {
+        let temp = el.getAttribute("data-row");
+        let text = el.getAttribute("data-name");
+        /*Using the values in the attributes stored in the preceding step, 
+        output the values into the message element on the page.*/
+        message.innerHTML = `${text} is in a row of ${temp}`;
+      }
     </script>
-</body>
+  </body>
 </html>
