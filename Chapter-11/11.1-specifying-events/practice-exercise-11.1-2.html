@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <title>Practice Exercise 11.2 #2</title>
+</head>
+<body>
+  <script>
+    /*1. Within a simple HTML document, set up a Boolean value variable 
+        to use that will toggle the color modes.*/
+    let colourMode = true;
+
+    /*2. Use window.onclick to set up a function that outputs a message 
+        in the console when clicked. You can use the value of the Boolean variable.*/
+    window.onclick = () => {
+      console.log(colourMode);
+      /*3. Within the function, add a condition that checks 
+            whether the darkMode variable is true or false.*/
+      if (colourMode) {
+        /*4. If false, then update the page style to a background color 
+                of black and a font color of white.*/
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+        colourMode = false;
+      } else {
+        /*Add an else response that changes the color of the background 
+        to white and the color of the text to black. Also, 
+        update the value of the darkMode variable accordingly.*/
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        colourMode = true;
+      }
+    };
+  </script>
+</body>
