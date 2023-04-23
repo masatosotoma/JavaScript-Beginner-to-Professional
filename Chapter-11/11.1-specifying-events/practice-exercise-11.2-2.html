@@ -13,7 +13,7 @@
     Add JavaScript to add click event listeners to each element, 
     and as each element iss clicked, 
     update the background color of the body to match the color name in the div.*/
-    let divs = document.querySelectorAll("div");
+    let divs = document.querySelectorAll("button");
     divs.forEach((e) => {
       e.addEventListener("click", () => {
         document.body.style.backgroundColor = e.textContent;
