@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <title>Practice Exercise 11.3 #2</title>
+</head>
+<body>
+  <script>
+    /*Within a basic HTML file, create a function named message 
+that requires two parameters, the first one being a string value for 
+the message and the second an event object. 
+Within the function, output into the console using console. 
+log the event and the message.*/
+
+    function message(str, event) {
+      console.log(str);
+      console.log(event);
+      /*Using the window object, attach an onload function to the event object. 
+    Invoke the function, passing a string value of Window Ready 
+    and the event object to the message function for output.*/
+    }
+    window.onload = (e) => {
+      message("Window Ready", e);
+    };
+    /*Create a second function to capture the DOM content loading, 
+    and add an event listener listening for DOMContentLoaded 
+    to the document object. Once that event is triggered, 
+    pass the event object and a string value of Document Ready to the message 
+    output function.*/
+    document.addEventListener =
+      ("DOMContentLoaded",
+      (e) => {
+        message("Document Ready"), e;
+      });
+  </script>
+</body>
