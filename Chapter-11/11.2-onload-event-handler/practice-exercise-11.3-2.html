@@ -30,5 +30,17 @@ log the event and the message.*/
       (e) => {
         message("Document Ready"), e;
       });
+    /*Change the order of the event listeners, 
+      placing the document event statement prior to the window onload: 
+      does it make a difference in the output?*/
+    document.addEventListener =
+      ("DOMContentLoaded",
+      (e) => {
+        message("Does it make a difference in the output?"), e;
+      });
+
+    window.onload = (e) => {
+      message("Window Ready", e);
+    };
   </script>
 </body>
