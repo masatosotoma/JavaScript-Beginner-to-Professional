@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  <title>Practice exercise 11.4 #2</title>
+</head>
+<body>
+  <!--Create a blank element on the page and assign a class to it.-->
+  <div class="page"></div>
+  <script>
+    //2. Select the element using its class name.
+    //3. Assign a variable to the element object from the page.
+    let page = document.querySelector(".page");
+    //4. Update the content of the element to say hello world.
+    page.textContent = "Hello World";
+    /*5. Using the style properties of the element, 
+    update the height and width, then add a default background color to it.*/
+    page.style.height = "100px";
+    page.style.width = "250px";
+    page.style.backgroundColor = "yellow";
+    /*6. Create a function to handle two arguments, 
+    the first being a color value as a string 
+    and the second being the event object of the trigger.*/
+    function colorChange(color, event) {
+      /*In the function, output the color value to the console, 
+        and for the event, output the event type to the console.*/
+      console.log(event.type);
+      page.style.backgroundColor = color;
+    }
+    /*Add event listeners to the element:  mousedown, mouseover, mouseout, 
+    and mouseup.For each of these events, send two arguments to the function 
+    that you created: a color value and the event object.*/
+    page.addEventListener("mousedown", function (e) {
+      colorChange("blue", e);
+    });
+    page.addEventListener("mouseover", function (e) {
+      colorChange("yellow", e);
+    });
+    page.addEventListener("mouseout", function (e) {
+      colorChange("red", e);
+    });
+    page.addEventListener("mouseup", function (e) {
+      colorChange("green", e);
+    });
+  </script>
+</body>
