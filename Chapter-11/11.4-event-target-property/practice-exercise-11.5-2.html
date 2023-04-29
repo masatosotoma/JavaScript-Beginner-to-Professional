@@ -14,7 +14,7 @@
     /*selecting each page element, including the div, 
     the input field, and the button element. Assign these element objects*/
     let output = document.querySelector(".output");
-    let text = document.querySelector("input");
+    let text = document.querySelector("input[name='message']");
     let btn1 = document.querySelector(".btn1");
     let btn2 = document.querySelector(".btn2");
     let btn3 = document.querySelector(".btn3");
@@ -23,10 +23,36 @@
     which will be used to track and log all the events.*/
     let log = [];
 
+    //two buttons that sends the event object to the tracking function
+    btn1.addEventListener("click", captureEvent);
+    btn2.addEventListener("click", captureEvent);
+    //third buttons that outputs the log content to the console.
+    btn3.addEventListener("click", (e) => {
+      console.log(log);
+    });
+
     /*Create a function that will capture the event object details in an object, 
     adding it to the log array*/
-    function captureEvent(event){
-        log.push(event.target);
+    function captureEvent(event) {
+      /*Get the value of the content within the input 
+        and assign that value to the textContent of the div*/
+      output.textContent = text.value;
+      /*Get the event target and create an object, 
+        adding it to the array that stores the input value at the time, 
+        the type of event, the class name of the target element, 
+        and the tag name of the target element.*/
+      let ev = event.target;
+      console.dir(ev);
+      let temp = {
+        message: text.value,
+        value: ev.value,
+        type: ev.type,
+        class: ev.className,
+        tag: ev.tagName,
+      };
+      log.push(temp);
+      //Clear the div content after the information is added to the log array.
+      text.value = "";
     }
   </script>
 </body>
