@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exercise 11.6 #2</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box0">Box #1</div>
+      <div class="box" id="box1">Box #2</div>
+      <div class="box" id="box2">Box #3</div>
+      <div class="box" id="box3">Box #4</div>
+    </div>
+    <script>
+      /*select all the elements with the classes,
+        and separately select the main container element.*/
+      let container = document.querySelector(".container");
+      let boxes = document.querySelectorAll(".box");
+      console.log(container);
+
+      /*Add event listeners to the main container, 
+      outputting to the console value of 4 for the useCapture argument
+      set to false, and 1 for the useCapture argument set to true.*/
+      container.addEventListener("click", (e) => {
+        console.log("4"), false;
+      });
+      container.addEventListener("click", (e) => {
+        console.log("1"), true;
+      });
+      /*add click event listeners with a console. log() value of 3 
+      for the useCapture argument set to false, and 2 for useCapture set to true.*/
+      boxes.forEach((ele) => {
+        ele.addEventListener("click", (e) => {
+          console.log("3"), false;
+          //Add to the console an output for the event target's textContent value.
+          console.log(e.target.textContent);
+        });
+        ele.addEventListener("click", (e) => {
+          console.log("2"), true;
+          //Add to the console an output for the event target's textContent value.
+          console.log(e.target.textContent);
+        });
+      });
+    </script>
+  </body>
+</html>
