@@ -12,18 +12,43 @@
       let output1 = document.querySelector(".output1");
       console.log(output1);
       //Select both input fields.
-      let inputFirst = document.querySelector("input[name='first']");
-      let inputLast = document.querySelector("input[name='last']");
+      const inputFirst = document.querySelector("input[name='first']");
+      const inputLast = document.querySelector("input[name='last']");
       console.log(inputFirst);
       console.log(inputLast);
       // Add an event listener to the first input and the second input.
       /*a change event to track changed values. 
       This will only be invoked if the value in the field is changed and you click off the input field.*/
-      inputFirst.addEventListener("change",(e)=>{
-        console.log(e);
+      inputFirst.addEventListener("change", (e) => {
+        console.log("change");
+        showOutput(inputFirst.value);
+      });
 
-      })
-      inputLast.addEventListener()
+      /*Add four additional event listeners and listen for blur and focus on each input. 
+      Once the event gets triggered, output in the console the value of the event type.*/
+      inputFirst.addEventListener("blur", (e) => {
+        console.log("blur");
+      });
+      inputFirst.addEventListener("focus", (e) => {
+        console.log("focus");
+      });
+      inputLast.addEventListener("change", (e) => {
+        console.log("change");
+        showOutput(inputLast.value);
+      });
+      inputLast.addEventListener("blur", (e) => {
+        console.log("blur");
+      });
+      inputLast.addEventListener("focus", (e) => {
+        console.log("focus");
+      });
+
+      /*Create a separate function to handle the output of the content to the page, 
+      updating the textContent of the output element.*/
+      function showOutput(el) {
+        //Send the values of the input fields as they get changed to the output element textContent.
+        output1.textContent = el;
+      }
     </script>
   </body>
 </html>
