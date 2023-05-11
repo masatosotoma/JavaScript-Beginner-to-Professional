@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice Exerciese 11.8 #2</title>
+  </head>
+  <body>
+    <div id="output"></div>
+    <input type="text" id="input1" />
+    <input type="text" id="input2" />
+    <script>
+      //Create two input fields within your HTML.
+      const output = document.querySelector("#output");
+      //Create another variable, eles, and select all the input fields as its value
+      const eles = document.querySelectorAll("input");
+
+      /*Using forEach(), iterate through all the input elements from the page.
+      Add the same event listeners to all of them.*/
+      /*Add a keydown event listener and check if the value is a number.
+      If it is a number, then add it to the output area.*/
+      eles.forEach((ele) => {
+        ele.addEventListener("keydown", (e) => {
+          if (!isNaN(e.key)) {
+            output.textContent += e.key;
+          }
+        });
+        //On keyup, output to the console the value of the key.
+        ele.addEventListener("keyup",(e)=>{
+            console.log(e.key);
+        });
+        /*Check if there was a paste in the input field; 
+        if there was, then you can output the word paste to the console.*/
+        ele.addEventListener("paste",(e)=>{
+            console.log(e.key);
+        })
+      });
+    </script>
+  </body>
+</html>
