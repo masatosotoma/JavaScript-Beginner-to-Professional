@@ -5,14 +5,24 @@
   </head>
   <body>
     <form>
-        <input type="text" id="first" name="firstName" placeholder="First name">
-        <input type="text" id="last" name="lastName" placeholder="Last name">
-        <input type="text" id="age" name="age" placeholder="Age">
-        <input type="submit" value="submit">
+      <input type="text" id="first" name="firstName" placeholder="First name" />
+      <input type="text" id="last" name="lastName" placeholder="Last name" />
+      <input type="text" id="age" name="age" placeholder="Age" />
+      <input type="submit" value="submit" />
     </form>
     <script>
-    
-
+      let form = document.querySelector("form");
+      form.addEventListener("submit", (e) => {
+        let error = false;
+      });
+      function checker(str) {
+        console.log(str.length);
+        if (str.length < 3) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     </script>
   </body>
 </html>
