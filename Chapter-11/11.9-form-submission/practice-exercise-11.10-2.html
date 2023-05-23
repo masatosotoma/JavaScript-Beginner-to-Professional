@@ -11,18 +11,45 @@
       <input type="submit" value="submit" />
     </form>
     <script>
-      let form = document.querySelector("form");
+      const form = document.querySelector("form");
+      const email = document.querySelector("#emailß");
+
       form.addEventListener("submit", (e) => {
         let error = false;
-      });
-      function checker(str) {
-        console.log(str.length);
-        if (str.length < 3) {
-          return true;
-        } else {
+
+        function checker(str) {
+          /*Create a function named checker(), which will check to see the length of a string and output the string length to the console.*/
+          console.log(str.length);
+          if (str.length < 3) {
+            return true;
+          }
           return false;
         }
-      }
+
+        /*Add conditions to each of the field values, first checking if the value is there 
+      and then returning an error if the response is false, before changing the error variable to true.*/
+        if (checker(form.first.value)) {
+          console.log("First name needed");
+          error = true;
+        }
+
+        if (checker(form.last.value)) {
+          console.log("Last name needed");
+          error = true;
+        }
+
+        if (form.age.value < 19) {
+          console.log("You are underaged");
+          error = true;
+        }
+
+        /*At the end of the validation, check if error is true; if it is, 
+      use preventDefault() to stop the form submission. Log the errors to the console.*/
+        if (error) {
+          e.preventDefault;
+          console.log("Please review the form and correct the errors");
+        }
+      });
     </script>
   </body>
 </html>
