@@ -3,18 +3,52 @@
   <head>
     <title>Practice Exercise 11.11 #2</title>
   </head>
-  <style >
-    div{
-        height: 50px;
-        width: 50px;
-        background-color: purple;
+  <style>
+    div {
+      height: 50px;
+      width: 50px;
+      background-color: purple;
+      position: absolute;
     }
   </style>
   <div id="square"></div>
   <body>
     <script>
-    let square = document.querySelector("div");
-    console.log(square);
+      let square = document.querySelector("#square");
+      console.log(square);
+
+      //Set up an object with values for speed, direction, and position.
+      let details = { speed: 5, dicrection: 1, position: 0 };
+
+      //Add an event listener for if the element is clicked on.
+      square.addEventListener("click", moveSquare);
+
+      function moveSquare() {
+        //Set a default value of 30 for the value of the interval counter.
+        let counter = 30;
+        //If the counter is less than 1, then end the interval and clear it.
+        setInterval(function () {
+          if (counter < 1) {
+            clearInterval();
+          } else {
+            /*Once the interval has run 30 times using the value of x, 
+            the element will stand still and wait to be clicked again.*/
+            //check if the position value is greater than 800 or less than 0
+            if (details.position > 800 || details.position < 0) {
+              //it needs to change direction
+              details.dicrection *= -1;
+            }
+            /*If the value is positive, it will become negative, sending the element to the left.*/
+            counter--;
+            details.position += counter * details.dicrection;
+            /*If the value is negative, it will become positive, sending the element to the right.*/
+            /*Update the style.left position value of the element, assigning the value of the position that was updated*/
+            square.style.left = details.position + "px";
+            //Output the result to the console.
+            console.log(details.position);
+          }
+        }, 2);
+      }
     </script>
   </body>
 </html>
