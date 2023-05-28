@@ -1,36 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Practice Exercise 12.1 #2</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="output">Complete JavaScript Course</div>
     Search for:
-    <input id="sText" type="text">
-    <br> Replace with:
-    <input id="rText" type="text">
-    <br>
+    <input id="sText" type="text" />
+    <br />
+    Replace with:
+    <input id="rText" type="text" />
+    <br />
     <button>Replace</button>
     <script>
-        const output = document.getElementById("output");
-        let sText = document.getElementById("sText");
-        let rText = document.getElementById("rText");
-        let btn = document.querySelector("button");
+      const output = document.getElementById("output");
+      let sText = document.getElementById("sText");
+      let rText = document.getElementById("rText");
+      let btn = document.querySelector("button");
 
-        //Add an event listener to the button to invoke a function
-        btn.addEventListener("click",lookUp);
+      //Add an event listener to the button to invoke a function
+      btn.addEventListener("click", lookUp);
 
-        function lookUp(){
-            //Assign the output element's text content to a variable named s
-            let s = output.textContent;
-            //assign the value of the input we are replacing to another variable named rt
-            let rt = rText.value;
-        }
+      function lookUp() {
+        //Assign the output element's text content to a variable named s
+        let s = output.textContent;
+        //assign the value of the input we are replacing to another variable named rt
+        let rt = rText.value;
+
         //Create a new regex with the value of the first input field
         /*Using the regex, check for a match with the match() method. 
         Wrap this with a condition that will execute a block of code if matches are found.*/
+        const regex = new RegExp(sText.value, "gi");
 
-        s.matches()
+        if (s.match(regex)) {
+          //If the match is found, use replace() to set the new value.
+          const newVal = s.replace(regex, rt);
+          //Update the output area with the newly created and updated text output
+          output.textContent = newVal;
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
