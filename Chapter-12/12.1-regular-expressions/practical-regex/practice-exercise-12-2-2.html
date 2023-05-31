@@ -17,15 +17,15 @@
 
       /*Add an event listener to the button to run a block of code 
         when clicked that will get the current value in the input field.*/
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function (e) {
         let inpuVal = input.value;
         //a blank response value that will populate the output div element contents.
         let resp = "";
 
         /*Add a test with the string value from the input field and the expression for email format. 
             If the test result is false, update the response output to say Invalid Email and change the output color to red.*/
-        let result = emailExp.test(inpuVal);
-        if (!inpuVal) {
+        const result = emailExp.test(inpuVal);
+        if (!result) {
           resp = "The email address is invalid";
           output.style.color = "red";
         } else {
